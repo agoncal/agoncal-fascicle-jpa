@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- tag::adocsnippet[] -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agoncal.fascicle.jms</groupId>
+  <artifactId>putting-together</artifactId>
+  <version>2.0</version>
+  <!-- tag::adocskip[] -->
+  <name>JMS :: Putting It All Together</name>
+
+  <parent>
+    <groupId>org.agoncal.fascicle</groupId>
+    <artifactId>jms</artifactId>
+    <version>2.0</version>
+  </parent>
+  <!-- end::adocskip[] -->
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.jms</groupId>
+      <artifactId>javax.jms-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.ejb</groupId>
+      <artifactId>javax.ejb-api</artifactId>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>
+  <!-- end::adocsnippet[] -->
