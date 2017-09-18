@@ -1,7 +1,9 @@
 package org.agoncal.fascicle.jpa.understanding.ex01;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  * @author Antonio Goncalves
@@ -10,9 +12,12 @@ import javax.persistence.Id;
  */
 // tag::adocsnippet[]
 @Entity
+// tag::adocskip2[]
+@NamedQuery(name = "findBookH2G2", query = "SELECT b FROM Book b WHERE b.title ='H2G2'")
+// end::adocskip2[]
 public class Book {
 
-  @Id
+  @Id @GeneratedValue
   private Long id;
   private String title;
   private Float price;
