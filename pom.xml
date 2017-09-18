@@ -11,6 +11,7 @@
   <modules>
     <module>apis</module>
     <module>getting-started</module>
+    <module>integrating</module>
     <module>putting-together</module>
     <module>understanding</module>
   </modules>
@@ -21,6 +22,7 @@
     <version.jpa-api>2.2</version.jpa-api>
     <version.hibernate>5.2.10.Final</version.hibernate>
     <!-- Other -->
+    <version.hibernate.validator>6.0.1.Final</version.hibernate.validator>
     <version.h2>1.4.196</version.h2>
     <!-- Test -->
     <version.junit>5.0.0</version.junit>
@@ -58,6 +60,13 @@
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-entitymanager</artifactId>
         <version>${version.hibernate}</version>
+      </dependency>
+
+      <!-- Other -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${version.hibernate.validator}</version>
       </dependency>
       <dependency>
         <groupId>com.h2database</groupId>
