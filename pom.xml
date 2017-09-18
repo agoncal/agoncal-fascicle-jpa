@@ -19,9 +19,9 @@
     <version.java>1.8</version.java>
     <!-- JMS -->
     <version.jpa-api>2.2</version.jpa-api>
+    <version.hibernate>5.2.10.Final</version.hibernate>
     <!-- Other -->
-    <version.cdi-api>2.0</version.cdi-api>
-    <version.ejb-api>3.2</version.ejb-api>
+    <version.h2>1.4.196</version.h2>
     <!-- Test -->
     <version.junit>5.0.0</version.junit>
     <!-- Maven Plugins -->
@@ -53,6 +53,16 @@
         <groupId>javax.persistence</groupId>
         <artifactId>javax.persistence-api</artifactId>
         <version>${version.jpa-api}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>${version.hibernate}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${version.h2}</version>
       </dependency>
 
       <!-- Test -->
