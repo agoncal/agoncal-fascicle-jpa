@@ -18,7 +18,7 @@
   <properties>
     <version.java>1.8</version.java>
     <!-- JMS -->
-    <version.jms-api>2.0.1</version.jms-api>
+    <version.jpa-api>2.2</version.jpa-api>
     <!-- Other -->
     <version.cdi-api>2.0</version.cdi-api>
     <version.ejb-api>3.2</version.ejb-api>
@@ -48,21 +48,11 @@
 
   <dependencyManagement>
     <dependencies>
-      <!-- JMS -->
+      <!-- JPA -->
       <dependency>
-        <groupId>javax.jms</groupId>
-        <artifactId>javax.jms-api</artifactId>
-        <version>${version.jms-api}</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.enterprise</groupId>
-        <artifactId>cdi-api</artifactId>
-        <version>${version.cdi-api}</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.ejb</groupId>
-        <artifactId>javax.ejb-api</artifactId>
-        <version>${version.ejb-api}</version>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>${version.jpa-api}</version>
       </dependency>
 
       <!-- Test -->
