@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
  *         http://www.antoniogoncalves.org
  *         --
  */
+// tag::adocsnippet[]
 public class Main {
 
   public static void main(String[] args) {
@@ -18,10 +19,10 @@ public class Main {
     Book book = new Book("H2G2", "The Hitchhiker's Guide to the Galaxy", 12.5F, "1-84023-742-2", 354, false);
 
     // 2-Obtains an entity manager and a transaction
-    // tag::adocsnippet[]
+    // tag::adocfactory[]
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaPU");
     EntityManager em = emf.createEntityManager();
-    // end::adocsnippet[]
+    // end::adocfactory[]
 
     // 3-Persists the book to the database
     EntityTransaction tx = em.getTransaction();
@@ -41,3 +42,4 @@ public class Main {
     emf.close();
   }
 }
+// end::adocsnippet[]
