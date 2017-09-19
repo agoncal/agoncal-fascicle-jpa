@@ -12,6 +12,7 @@
     <module>apis</module>
     <module>getting-started</module>
     <module>integrating</module>
+    <module>mapping</module>
     <module>putting-together</module>
     <module>understanding</module>
   </modules>
