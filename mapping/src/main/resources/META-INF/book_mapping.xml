@@ -6,7 +6,7 @@
   <!--TODO JPA 2.2-->
 
   <entity class="org.agoncal.fascicle.jpa.mapping.ex16.Book">
-    <table name="t_book"/>
+    <table name="book_xml_mapping"/>
     <attributes>
       <basic name="title">
         <column name="book_title" nullable="false" updatable="false"/>
@@ -14,8 +14,8 @@
       <basic name="description">
         <column length="2000"/>
       </basic>
-      <basic name="nbOfPage">
-        <column name="nb_of_page" nullable="false"/>
+      <basic name="nbOfPages">
+        <column name="nb_of_pages" nullable="false"/>
       </basic>
     </attributes>
   </entity>

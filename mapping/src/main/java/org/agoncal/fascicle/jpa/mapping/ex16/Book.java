@@ -20,7 +20,7 @@ public class Book {
   @Column(length = 500)
   private String description;
   private String isbn;
-  private Integer nbOfPage;
+  private Integer nbOfPages;
   private Boolean illustrations;
 
   // Constructors, getters, setters
@@ -29,12 +29,12 @@ public class Book {
   public Book() {
   }
 
-  public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+  public Book(String title, Float price, String description, String isbn, Integer nbOfPages, Boolean illustrations) {
     this.title = title;
     this.price = price;
     this.description = description;
     this.isbn = isbn;
-    this.nbOfPage = nbOfPage;
+    this.nbOfPages = nbOfPages;
     this.illustrations = illustrations;
   }
 
@@ -78,12 +78,12 @@ public class Book {
     this.isbn = isbn;
   }
 
-  public Integer getNbOfPage() {
-    return nbOfPage;
+  public Integer getNbOfPages() {
+    return nbOfPages;
   }
 
-  public void setNbOfPage(Integer nbOfPage) {
-    this.nbOfPage = nbOfPage;
+  public void setNbOfPages(Integer nbOfPages) {
+    this.nbOfPages = nbOfPages;
   }
 
   public Boolean getIllustrations() {
