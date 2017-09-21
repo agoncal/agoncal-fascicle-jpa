@@ -3,7 +3,6 @@ package org.agoncal.fascicle.jpa.mapping.ex27;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
@@ -12,7 +11,6 @@ import javax.persistence.Table;
  */
 // tag::adocsnippet[]
 @Entity
-@Table(name = "ex51_comment")
 public class Comment {
 
   @Id
