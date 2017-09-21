@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex23;
+package org.agoncal.fascicle.jpa.mapping.ex25;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
