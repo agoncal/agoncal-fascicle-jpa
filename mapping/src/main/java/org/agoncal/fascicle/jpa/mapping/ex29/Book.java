@@ -1,5 +1,6 @@
-package org.agoncal.fascicle.jpa.mapping.ex28;
+package org.agoncal.fascicle.jpa.mapping.ex29;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
  */
 // tag::adocsnippet[]
 @Entity
+@DiscriminatorValue("B")
 public class Book extends Item {
 
   private String isbn;
