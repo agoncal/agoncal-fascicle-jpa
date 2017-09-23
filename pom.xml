@@ -12,6 +12,7 @@
     <module>apis</module>
     <module>getting-started</module>
     <module>integrating</module>
+    <module>managing</module>
     <module>mapping</module>
     <module>putting-together</module>
     <module>understanding</module>
@@ -19,7 +20,7 @@
 
   <properties>
     <version.java>1.8</version.java>
-    <!-- JMS -->
+    <!-- JPA -->
     <version.jpa-api>2.2</version.jpa-api>
     <version.hibernate>5.2.10.Final</version.hibernate>
     <!-- Other -->

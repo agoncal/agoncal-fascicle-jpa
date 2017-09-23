@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- tag::adocsnippet[] -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.jpa</groupId>
-  <artifactId>putting-together</artifactId>
+  <artifactId>managing</artifactId>
   <version>2.2</version>
-  <!-- tag::adocskip[] -->
-  <name>JPA :: Putting It All Together</name>
+  <name>JPA :: Managing Persistent Objects</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
     <artifactId>jpa</artifactId>
     <version>2.2</version>
   </parent>
-  <!-- end::adocskip[] -->
 
   <dependencies>
     <dependency>
@@ -30,10 +27,6 @@
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-    </dependency>
 
     <!-- Test -->
     <dependency>
@@ -43,4 +36,3 @@
   </dependencies>
 
 </project>
-  <!-- end::adocsnippet[] -->

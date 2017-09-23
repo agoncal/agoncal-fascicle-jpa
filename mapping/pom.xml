@@ -6,7 +6,7 @@
   <groupId>org.agoncal.fascicle.jpa</groupId>
   <artifactId>mapping</artifactId>
   <version>2.2</version>
-  <name>JMS :: Mapping</name>
+  <name>JPA :: Mapping</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>

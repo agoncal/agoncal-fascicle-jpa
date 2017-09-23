@@ -6,7 +6,7 @@
   <groupId>org.agoncal.fascicle.jpa</groupId>
   <artifactId>integrating</artifactId>
   <version>2.2</version>
-  <name>JMS :: Integrating</name>
+  <name>JPA :: Integrating</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
