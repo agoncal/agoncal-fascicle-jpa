@@ -1,6 +1,9 @@
-package org.agoncal.fascicle.jpa.managing.ex02;
+package org.agoncal.fascicle.jpa.managing.ex03;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 /**
@@ -18,8 +21,7 @@ public class Customer {
   private String firstName;
   private String lastName;
   private String email;
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "address_fk")
+  @OneToOne(orphanRemoval = true)
   private Address address;
 
   // Constructors, getters, setters

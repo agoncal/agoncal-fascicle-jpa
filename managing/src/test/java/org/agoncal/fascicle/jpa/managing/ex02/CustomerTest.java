@@ -3,12 +3,14 @@ package org.agoncal.fascicle.jpa.managing.ex02;
 import org.agoncal.fascicle.jpa.managing.AbstractPersistentTest;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.EntityNotFoundException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 public class CustomerTest extends AbstractPersistentTest {
 
@@ -38,52 +40,68 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test // Listing 4-10
   public void shouldFindACustomer() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
-    Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
-    customer.setAddress(address);
+    Customer createdCustomer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Address createdAddress = new Address("Ritherdon Rd", "London", "8QE", "UK");
+    createdCustomer.setAddress(createdAddress);
 
     // Persist the object
     tx.begin();
-    em.persist(customer);
-    em.persist(address);
+    em.persist(createdCustomer);
+    em.persist(createdAddress);
     tx.commit();
 
-    assertNotNull(customer.getId());
-    assertNotNull(address.getId());
+    assertNotNull(createdCustomer.getId());
+    assertNotNull(createdAddress.getId());
+    Long id = createdCustomer.getId();
 
     // Clear
     em.clear();
 
-    customer = em.find(Customer.class, customer.getId());
+    // tag::adocFinding[]
+    Customer customer = em.find(Customer.class, id);
+    if (customer != null) {
+      // Process the object
+    }
+    // tag::adocFinding[]
     assertNotNull(customer);
   }
 
   @Test // Listing 4-11
   public void shouldGetAReferenceToCustomer() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
-    Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
-    customer.setAddress(address);
+    Customer createdCustomer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Address createdAddress = new Address("Ritherdon Rd", "London", "8QE", "UK");
+    createdCustomer.setAddress(createdAddress);
 
     // Persist the object
     tx.begin();
-    em.persist(customer);
-    em.persist(address);
+    em.persist(createdCustomer);
+    em.persist(createdAddress);
     tx.commit();
 
-    assertNotNull(customer.getId());
-    assertNotNull(address.getId());
+    assertNotNull(createdCustomer.getId());
+    assertNotNull(createdAddress.getId());
+    Long id = createdCustomer.getId();
 
     // Clear
     em.clear();
 
-    customer = em.getReference(Customer.class, customer.getId());
-    assertNotNull(customer);
+    // tag::adocReference[]
+    try {
+      Customer customer = em.getReference(Customer.class, id);
+      // Process the object
+      assertNotNull(customer);
+    } catch (
+      EntityNotFoundException ex) {
+      // Entity not found
+    }
+    // tag::adocReference[]
   }
 
   @Test // Listing 4-12
   public void shouldRemoveACustomer() throws Exception {
 
+    // tag::adocRemove[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
@@ -110,38 +128,42 @@ public class CustomerTest extends AbstractPersistentTest {
     assertNull(customer);
     address = em.find(Address.class, address.getId());
     assertNull(address);
+    // end::adocRemove[]
   }
 
   @Test // Listing 4-14
   public void shouldPersistACustomerAndThenRefreshIt() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
-    Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
-    customer.setAddress(address);
+    Customer createdCustomer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Address createdAddress = new Address("Ritherdon Rd", "London", "8QE", "UK");
+    createdCustomer.setAddress(createdAddress);
 
     // Persist the object
     tx.begin();
-    em.persist(customer);
-    em.persist(address);
+    em.persist(createdCustomer);
+    em.persist(createdAddress);
     tx.commit();
 
-    assertNotNull(customer.getId());
-    assertNotNull(address.getId());
+    assertNotNull(createdCustomer.getId());
+    assertNotNull(createdAddress.getId());
+    Long id = createdCustomer.getId();
 
-    customer = em.find(Customer.class, customer.getId());
-    assertNotNull(customer);
-    assertEquals(customer.getFirstName(), "Antony");
+    // tag::adocRefresh[]
+    Customer customer = em.find(Customer.class, id);
+    assertEquals("Antony", customer.getFirstName());
 
-    customer.setFirstName("New first name");
-    assertEquals(customer.getFirstName(), "New first name");
+    customer.setFirstName("William");
+    assertEquals("William", customer.getFirstName());
 
-    em.refresh(customer);
-    assertEquals(customer.getFirstName(), "Antony");
+    em.refresh(createdCustomer);
+    assertEquals("Antony", customer.getFirstName());
+    // end::adocRefresh[]
   }
 
   @Test // Listing 4-15
   public void shouldCheckIfItContainsACustomer() throws Exception {
 
+    // tag::adocContains[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
 
     // Persist the object
@@ -157,6 +179,7 @@ public class CustomerTest extends AbstractPersistentTest {
     tx.commit();
 
     assertFalse(em.contains(customer));
+    // end::adocContains[]
   }
 
   @Test // Listing 4-16
