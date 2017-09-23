@@ -1,24 +1,25 @@
-package org.agoncal.fascicle.jpa.mapping.ex04;
+package org.agoncal.fascicle.jpa.mapping.ex33;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
  *         --
  */
+@Table(name = "ex33_book")
 // tag::adocsnippet[]
 @Entity
-@Table(name = "t_book")
-public class Book {
+public class Book extends Item {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
-  private String title;
-  private Float price;
-  private String description;
+  @GeneratedValue
+  protected Long id;
   private String isbn;
+  private String publisher;
   private Integer nbOfPages;
   private Boolean illustrations;
 
@@ -28,11 +29,10 @@ public class Book {
   public Book() {
   }
 
-  public Book(String title, Float price, String description, String isbn, Integer nbOfPages, Boolean illustrations) {
-    this.title = title;
-    this.price = price;
-    this.description = description;
+  public Book(String title, Float price, String description, String isbn, String publisher, Integer nbOfPages, Boolean illustrations) {
+    super(title, price, description);
     this.isbn = isbn;
+    this.publisher = publisher;
     this.nbOfPages = nbOfPages;
     this.illustrations = illustrations;
   }
@@ -45,40 +45,20 @@ public class Book {
     return id;
   }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public Float getPrice() {
-    return price;
-  }
-
-  public void setPrice(Float price) {
-    this.price = price;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
   public String getIsbn() {
     return isbn;
   }
 
   public void setIsbn(String isbn) {
     this.isbn = isbn;
+  }
+
+  public String getPublisher() {
+    return publisher;
+  }
+
+  public void setPublisher(String publisher) {
+    this.publisher = publisher;
   }
 
   public Integer getNbOfPages() {

@@ -24,7 +24,7 @@ public class Book {
   @Size(min = 10, max = 2000)
   private String description;
   private String isbn;
-  private Integer nbOfPage;
+  private Integer nbOfPages;
   private Boolean illustrations;
 // Constructors, getters, setters
 }

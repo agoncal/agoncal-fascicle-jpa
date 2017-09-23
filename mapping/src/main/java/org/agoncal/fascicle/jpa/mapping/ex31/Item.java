@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex29;
+package org.agoncal.fascicle.jpa.mapping.ex31;
 
 import javax.persistence.*;
 
@@ -9,9 +9,7 @@ import javax.persistence.*;
  */
 // tag::adocsnippet[]
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "disc", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("I")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Item {
 
   @Id

@@ -1,6 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex29;
-
-import javax.persistence.*;
+package org.agoncal.fascicle.jpa.mapping.ex33;
 
 /**
  * @author Antonio Goncalves
@@ -8,15 +6,8 @@ import javax.persistence.*;
  *         --
  */
 // tag::adocsnippet[]
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "disc", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("I")
 public class Item {
 
-  @Id
-  @GeneratedValue
-  protected Long id;
   protected String title;
   protected Float price;
   protected String description;
@@ -36,10 +27,6 @@ public class Item {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
-
-  public Long getId() {
-    return id;
-  }
 
   public String getTitle() {
     return title;

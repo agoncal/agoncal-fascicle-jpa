@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex29;
+package org.agoncal.fascicle.jpa.mapping.ex32;
 
 import javax.persistence.*;
 
@@ -7,12 +7,14 @@ import javax.persistence.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-// tag::adocsnippet[]
+@Table(name = "override_item")
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "disc", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("I")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Item {
+
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
   @Id
   @GeneratedValue
@@ -21,8 +23,9 @@ public class Item {
   protected Float price;
   protected String description;
 
-  // Constructors, getters, setters
-  // tag::adocskip[]
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
   public Item() {
   }
@@ -64,6 +67,4 @@ public class Item {
   public void setDescription(String description) {
     this.description = description;
   }
-  // end::adocskip[]
 }
-// end::adocsnippet[]

@@ -32,7 +32,7 @@ public class Book {
   public Book() {
   }
 
-  public Book(String title, String description, Float price, String isbn, Integer nbOfPage, Boolean illustrations) {
+  public Book(String title, String description, Float price, String isbn, Integer nbOfPages, Boolean illustrations) {
     this.title = title;
     this.price = price;
     this.description = description;
@@ -85,8 +85,8 @@ public class Book {
     return nbOfPages;
   }
 
-  public void setNbOfPages(Integer nbOfPage) {
-    this.nbOfPages = nbOfPage;
+  public void setNbOfPages(Integer nbOfPages) {
+    this.nbOfPages = nbOfPages;
   }
 
   public Boolean getIllustrations() {

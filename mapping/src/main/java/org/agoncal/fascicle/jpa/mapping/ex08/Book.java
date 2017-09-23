@@ -83,8 +83,8 @@ public class Book {
     return nbOfPages;
   }
 
-  public void setNbOfPages(Integer nbOfPage) {
-    this.nbOfPages = nbOfPage;
+  public void setNbOfPages(Integer nbOfPages) {
+    this.nbOfPages = nbOfPages;
   }
 
   public Boolean getIllustrations() {
