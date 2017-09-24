@@ -7,8 +7,8 @@ import javax.persistence.Persistence;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 // tag::adocsnippet[]
 public class Main {

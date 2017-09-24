@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 public class CustomerTest extends AbstractPersistentTest {
 

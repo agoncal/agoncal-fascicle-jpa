@@ -6,8 +6,8 @@ import javax.persistence.Id;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Entity
 public class OrderLine {

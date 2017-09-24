@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 public class CustomerTest extends AbstractPersistentTest {
 

@@ -7,64 +7,59 @@ import javax.persistence.Transient;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
- *         http://www.apress.com/
- *         http://www.antoniogoncalves.org
- *         --
- *         Simple entity
+ * http://www.antoniogoncalves.org
+ * --
  */
+// tag::adocSnippet[]
 @ExcludeSuperclassListeners()
 @EntityListeners(CustomerListener.class)
 @Entity
 public class Customer extends Person {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-    private String email;
-    private String phoneNumber;
-    @Transient
-    private Integer age;
+  private String email;
+  private String phoneNumber;
+  @Transient
+  private Integer age;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // Constructors, getters, setters
+  // tag::adocSkip[]
 
-    public Customer() {
-    }
+  public Customer() {
+  }
 
-    public Customer(String firstName, String lastName, String email, String phoneNumber) {
-        super(firstName, lastName);
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
+  public Customer(String firstName, String lastName, String email, String phoneNumber) {
+    super(firstName, lastName);
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public String getEmail() {
-        return email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
-    public Integer getAge() {
-        return age;
-    }
+  public Integer getAge() {
+    return age;
+  }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
+  public void setAge(Integer age) {
+    this.age = age;
+  }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]

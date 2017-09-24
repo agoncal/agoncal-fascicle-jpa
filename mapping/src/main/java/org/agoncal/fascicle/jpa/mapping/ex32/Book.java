@@ -4,16 +4,16 @@ import javax.persistence.*;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Table(name = "override_book")
 // tag::adocsnippet[]
 @Entity
 @AttributeOverrides({
-        @AttributeOverride(name = "id", column = @Column(name = "book_id")),
-        @AttributeOverride(name = "title", column = @Column(name = "book_title")),
-        @AttributeOverride(name = "description", column = @Column(name = "book_description"))
+  @AttributeOverride(name = "id", column = @Column(name = "book_id")),
+  @AttributeOverride(name = "title", column = @Column(name = "book_title")),
+  @AttributeOverride(name = "description", column = @Column(name = "book_description"))
 })
 public class Book extends Item {
 

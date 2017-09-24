@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Table(name = "ex19_Customer")
 // tag::adocsnippet[]

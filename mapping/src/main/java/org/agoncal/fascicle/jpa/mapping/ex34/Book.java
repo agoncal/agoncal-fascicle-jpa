@@ -5,8 +5,8 @@ import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Table(name = "ex34_book")
 // tag::adocsnippet[]

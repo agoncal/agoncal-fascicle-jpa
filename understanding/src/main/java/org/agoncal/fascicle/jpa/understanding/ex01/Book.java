@@ -7,8 +7,8 @@ import javax.persistence.NamedQuery;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 // tag::adocsnippet[]
 @Entity
@@ -17,7 +17,8 @@ import javax.persistence.NamedQuery;
 // end::adocskip2[]
 public class Book {
 
-  @Id @GeneratedValue
+  @Id
+  @GeneratedValue
   private Long id;
   private String title;
   private Float price;

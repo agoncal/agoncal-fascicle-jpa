@@ -1,12 +1,11 @@
 package org.agoncal.fascicle.jpa.mapping.ex30;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Entity
 public class CD extends Item {

@@ -5,8 +5,8 @@ import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Entity
 @Table(name = "ex60_cd")

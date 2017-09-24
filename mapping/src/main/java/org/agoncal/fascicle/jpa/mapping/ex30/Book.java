@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 @Entity
 public class Book extends Item {

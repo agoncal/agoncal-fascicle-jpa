@@ -20,7 +20,8 @@ public class OrderTest extends AbstractPersistentTest {
   // ======================================
   // =              Unit tests            =
   // ======================================
-  @Test @Disabled // TODO
+  @Test
+  @Disabled // TODO
   public void shouldCreateAnOrderWithTwoOrderLines() throws Exception {
 
     Order order = new Order();

@@ -4,59 +4,59 @@ import javax.persistence.*;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
- *         http://www.apress.com/
- *         http://www.antoniogoncalves.org
- *         --
- *         Simple entity
+ * APress Book - Beginning Java EE 6 with Glassfish 3
+ * http://www.apress.com/
+ * http://www.antoniogoncalves.org
+ * --
+ * Simple entity
  */
 @EntityListeners(DebugListener.class)
 @Entity
 @Table(name = "ex03_customer")
 public class Person {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String firstName;
-    private String lastName;
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+  @Id
+  @GeneratedValue
+  private Long id;
+  private String firstName;
+  private String lastName;
 
 // ======================================
 // =            Constructors            =
 // ======================================
 
-    public Person() {
-    }
+  public Person() {
+  }
 
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+  public Person(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getFirstName() {
-        return firstName;
-    }
+  public String getFirstName() {
+    return firstName;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public String getLastName() {
-        return lastName;
-    }
+  public String getLastName() {
+    return lastName;
+  }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 }
