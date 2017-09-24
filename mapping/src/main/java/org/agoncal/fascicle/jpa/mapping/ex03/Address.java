@@ -16,6 +16,9 @@ import javax.persistence.*;
 })
 public class Address {
 
+  // Attributes, constructors, getters, setters
+  // tag::adocSkip[]
+
   @Id
   private Long id;
   private String street1;
@@ -28,9 +31,6 @@ public class Address {
   private String zipcode;
   @Column(table = "t_country")
   private String country;
-
-  // Constructors, getters, setters
-  // tag::adocSkip[]
 
   public Address() {
   }
