@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.managing.ex04;
+package org.agoncal.fascicle.jpa.managing.ex07;
 
 import javax.persistence.*;
 
@@ -7,8 +7,15 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
+// TODO get rid of @NamedQueries repeatable annotation
 @Entity
+@Table(name = "t_customer")
+@NamedNativeQueries({
+  @NamedNativeQuery(name = "findAllNative", query = "select * from JPQL_EX01_CUSTOMER", resultClass = Customer.class)
+})
 public class Customer {
+
+  public static final String FIND_ALL = "Customer.findAll";
 
   // ======================================
   // =             Attributes             =

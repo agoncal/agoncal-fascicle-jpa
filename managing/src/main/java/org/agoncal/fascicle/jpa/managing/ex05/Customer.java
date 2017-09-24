@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.managing.ex04;
+package org.agoncal.fascicle.jpa.managing.ex05;
 
 import javax.persistence.*;
 
@@ -7,8 +7,16 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
+// TODO get rid of @NamedQueries repeatable annotation
 @Entity
+@NamedQueries({
+  @NamedQuery(name = "findAll", query = "select c from Customer c"),
+  @NamedQuery(name = "findVincent", query = "select c from Customer c where c.firstName = 'Vincent'"),
+  @NamedQuery(name = "findWithParam", query = "select c from Customer c where c.firstName = :fname")
+})
 public class Customer {
+
+  public static final String FIND_ALL = "findAll";
 
   // ======================================
   // =             Attributes             =

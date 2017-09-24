@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.managing.ex04;
+package org.agoncal.fascicle.jpa.managing.ex05;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

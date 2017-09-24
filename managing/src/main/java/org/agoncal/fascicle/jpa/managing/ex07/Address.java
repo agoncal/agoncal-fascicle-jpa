@@ -1,8 +1,9 @@
-package org.agoncal.fascicle.jpa.managing.ex04;
+package org.agoncal.fascicle.jpa.managing.ex07;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
@@ -10,6 +11,7 @@ import javax.persistence.Id;
  * --
  */
 @Entity
+@Table(name = "t_address")
 public class Address {
 
   // ======================================
