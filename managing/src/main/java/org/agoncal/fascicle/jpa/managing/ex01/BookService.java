@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Transactional
 public class BookService {
 
@@ -26,4 +26,4 @@ public class BookService {
     em.persist(book);
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

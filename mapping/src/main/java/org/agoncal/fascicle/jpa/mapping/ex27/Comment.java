@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Comment {
 
@@ -21,7 +21,7 @@ public class Comment {
   private Integer note;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Comment() {
   }
@@ -63,6 +63,6 @@ public class Comment {
   public void setNote(Integer note) {
     this.note = note;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

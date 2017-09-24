@@ -8,7 +8,7 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 // @formatter:off
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Target({METHOD, FIELD})
 @Retention(RUNTIME)
 public @interface Column {
@@ -24,4 +24,4 @@ public @interface Column {
   int     precision()  default 0; // decimal precision
   int     scale()      default 0; // decimal precision
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

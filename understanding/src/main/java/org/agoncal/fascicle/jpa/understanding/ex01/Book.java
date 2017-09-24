@@ -10,11 +10,11 @@ import javax.persistence.NamedQuery;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
-// tag::adocskip2[]
+// tag::adocSkip2[]
 @NamedQuery(name = "findBookH2G2", query = "SELECT b FROM Book b WHERE b.title ='H2G2'")
-// end::adocskip2[]
+// end::adocSkip2[]
 public class Book {
 
   @Id
@@ -28,7 +28,7 @@ public class Book {
   private Boolean illustrations;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Book() {
   }
@@ -116,6 +116,6 @@ public class Book {
     sb.append('}');
     return sb.toString();
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

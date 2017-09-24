@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 public class Main {
 
   public static void main(String[] args) {
@@ -42,4 +42,4 @@ public class Main {
     emf.close();
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

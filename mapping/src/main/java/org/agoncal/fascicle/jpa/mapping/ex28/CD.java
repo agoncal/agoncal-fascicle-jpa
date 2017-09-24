@@ -7,7 +7,7 @@ import javax.persistence.Entity;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class CD extends Item {
 
@@ -17,7 +17,7 @@ public class CD extends Item {
   private String genre;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public CD() {
   }
@@ -65,6 +65,6 @@ public class CD extends Item {
   public void setGenre(String genre) {
     this.genre = genre;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

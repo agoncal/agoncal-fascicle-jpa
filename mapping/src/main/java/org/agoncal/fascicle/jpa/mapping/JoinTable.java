@@ -13,7 +13,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.ConstraintMode.PROVIDER_DEFAULT;
 
 // @formatter:off
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Target({METHOD, FIELD})
 @Retention(RUNTIME)
 public @interface JoinTable {
@@ -28,4 +28,4 @@ public @interface JoinTable {
   UniqueConstraint[] uniqueConstraints() default {};
   Index[] indexes() default {};
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

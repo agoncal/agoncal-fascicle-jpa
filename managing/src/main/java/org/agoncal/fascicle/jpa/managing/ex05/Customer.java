@@ -29,7 +29,7 @@ public class Customer {
   private Address address;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public static final String FIND_ALL = "findAll";
 
@@ -90,6 +90,6 @@ public class Customer {
   public void setAge(Integer age) {
     this.age = age;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
 // end::adocSnippet[]

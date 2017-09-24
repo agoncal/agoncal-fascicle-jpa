@@ -9,7 +9,7 @@ import java.util.Map;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class CD {
 
@@ -28,7 +28,7 @@ public class CD {
   private Map<Integer, String> tracks = new HashMap<>();
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public CD() {
   }
@@ -87,6 +87,6 @@ public class CD {
   public void setTracks(HashMap<Integer, String> tracks) {
     this.tracks = tracks;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

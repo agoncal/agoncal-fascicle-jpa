@@ -9,7 +9,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Artist {
 
@@ -23,7 +23,7 @@ public class Artist {
   private List<CD> appearsOnCDs;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Artist() {
   }
@@ -70,6 +70,6 @@ public class Artist {
       appearsOnCDs = new ArrayList<CD>();
     appearsOnCDs.add(cd);
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Book {
 
@@ -28,4 +28,4 @@ public class Book {
   private Boolean illustrations;
 // Constructors, getters, setters
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

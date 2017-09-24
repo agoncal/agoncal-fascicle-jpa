@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Item {
 
@@ -21,7 +21,7 @@ public class Item {
   protected String description;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Item() {
   }
@@ -63,6 +63,6 @@ public class Item {
   public void setDescription(String description) {
     this.description = description;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

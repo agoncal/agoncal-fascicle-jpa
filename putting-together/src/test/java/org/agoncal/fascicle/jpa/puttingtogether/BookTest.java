@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 public class BookTest {
 
   private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
@@ -69,4 +69,4 @@ public class BookTest {
     em.persist(book);
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

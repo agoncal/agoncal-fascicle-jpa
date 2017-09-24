@@ -9,7 +9,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Book {
 
@@ -28,7 +28,7 @@ public class Book {
   private List<String> tags = new ArrayList<>();
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Book() {
   }
@@ -106,6 +106,6 @@ public class Book {
   public void setTags(ArrayList<String> tags) {
     this.tags = tags;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

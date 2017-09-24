@@ -7,7 +7,7 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @Access(AccessType.FIELD)
 public class Customer {
@@ -24,7 +24,7 @@ public class Customer {
   private String phoneNumber;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Customer() {
   }
@@ -72,7 +72,7 @@ public class Customer {
     this.email = email;
   }
 
-  // end::adocskip[]
+  // end::adocSkip[]
   @Access(AccessType.PROPERTY)
   @Column(name = "phone_number", length = 555)
   public String getPhoneNumber() {
@@ -83,4 +83,4 @@ public class Customer {
     this.phoneNumber = phoneNumber;
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

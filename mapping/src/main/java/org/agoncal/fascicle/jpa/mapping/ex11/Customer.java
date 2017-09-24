@@ -10,7 +10,7 @@ import javax.persistence.Id;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Customer {
 
@@ -26,7 +26,7 @@ public class Customer {
   private String phoneNumber;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Customer() {
   }
@@ -81,6 +81,6 @@ public class Customer {
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

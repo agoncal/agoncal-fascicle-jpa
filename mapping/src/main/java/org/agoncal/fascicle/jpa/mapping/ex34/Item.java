@@ -8,7 +8,7 @@ import javax.persistence.*;
  * --
  */
 @Table(name = "ex34_item")
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item {
@@ -23,7 +23,7 @@ public abstract class Item {
   protected String description;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Item() {
   }
@@ -61,6 +61,6 @@ public abstract class Item {
   public void setDescription(String description) {
     this.description = description;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -11,7 +11,7 @@ import java.util.Date;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Comment {
 
@@ -26,7 +26,7 @@ public class Comment {
   private Date postedDate;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Comment() {
   }
@@ -75,6 +75,6 @@ public class Comment {
   public void setNote(Integer note) {
     this.note = note;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

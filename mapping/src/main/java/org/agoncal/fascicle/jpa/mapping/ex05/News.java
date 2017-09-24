@@ -8,7 +8,7 @@ import javax.persistence.Entity;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class News {
 
@@ -17,7 +17,7 @@ public class News {
   private String content;
 
   // Constructors, getters, setters, equals, and hashcode
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public News() {
   }
@@ -46,6 +46,6 @@ public class News {
   public void setContent(String content) {
     this.content = content;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

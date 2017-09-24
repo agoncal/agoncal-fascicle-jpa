@@ -7,7 +7,7 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @Table(name = "t_book")
 public class Book {
@@ -23,7 +23,7 @@ public class Book {
   private Boolean illustrations;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Book() {
   }
@@ -96,6 +96,6 @@ public class Book {
   public void setIllustrations(Boolean illustrations) {
     this.illustrations = illustrations;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -8,7 +8,7 @@ import javax.persistence.*;
  * --
  */
 @Table(name = "override_book")
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @AttributeOverrides({
   @AttributeOverride(name = "id", column = @Column(name = "book_id")),
@@ -23,7 +23,7 @@ public class Book extends Item {
   private Boolean illustrations;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Book() {
   }
@@ -71,6 +71,6 @@ public class Book extends Item {
   public void setIllustrations(Boolean illustrations) {
     this.illustrations = illustrations;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

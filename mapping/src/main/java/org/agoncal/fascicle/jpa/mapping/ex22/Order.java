@@ -9,7 +9,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Order {
 
@@ -23,7 +23,7 @@ public class Order {
   private List<OrderLine> orderLines;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Order() {
     this.creationDate = new Date();
@@ -52,6 +52,6 @@ public class Order {
   public void setOrderLines(List<OrderLine> orderLines) {
     this.orderLines = orderLines;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

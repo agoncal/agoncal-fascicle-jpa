@@ -7,7 +7,7 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @Table(name = "credit_card")
 public class CreditCard {
@@ -16,13 +16,13 @@ public class CreditCard {
   private String number;
   private String expiryDate;
   private Integer controlNumber;
-  // tag::adocskipenum[]
+  // tag::adocSkipenum[]
   @Enumerated(EnumType.STRING)
-  // end::adocskipenum[]
+  // end::adocSkipenum[]
   private CreditCardType creditCardType;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public CreditCard() {
   }
@@ -69,6 +69,6 @@ public class CreditCard {
   public void setType(CreditCardType creditCardType) {
     this.creditCardType = creditCardType;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * --
  */
 @Table(name = "ex33_book")
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Book extends Item {
 
@@ -24,7 +24,7 @@ public class Book extends Item {
   private Boolean illustrations;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Book() {
   }
@@ -76,6 +76,6 @@ public class Book extends Item {
   public void setIllustrations(Boolean illustrations) {
     this.illustrations = illustrations;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

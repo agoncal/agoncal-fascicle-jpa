@@ -14,7 +14,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class CD {
 
@@ -28,7 +28,7 @@ public class CD {
   private List<Artist> createdByArtists;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public CD() {
   }
@@ -84,6 +84,6 @@ public class CD {
       createdByArtists = new ArrayList<Artist>();
     createdByArtists.add(artist);
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

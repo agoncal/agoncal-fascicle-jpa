@@ -10,7 +10,7 @@ import javax.persistence.Table;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @Table(name = "order_line")
 public class OrderLine {
@@ -23,7 +23,7 @@ public class OrderLine {
   private Integer quantity;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public OrderLine() {
   }
@@ -65,6 +65,6 @@ public class OrderLine {
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

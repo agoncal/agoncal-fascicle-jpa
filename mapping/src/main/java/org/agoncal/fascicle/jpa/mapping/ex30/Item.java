@@ -7,7 +7,7 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Item {
@@ -20,7 +20,7 @@ public class Item {
   protected String description;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Item() {
   }
@@ -62,6 +62,6 @@ public class Item {
   public void setDescription(String description) {
     this.description = description;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

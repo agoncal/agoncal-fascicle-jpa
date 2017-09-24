@@ -7,14 +7,14 @@ import java.io.Serializable;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 public class NewsId implements Serializable {
 
   private String title;
   private String language;
 
   // Constructors, getters, setters, equals, and hashcode
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public NewsId() {
   }
@@ -62,6 +62,6 @@ public class NewsId implements Serializable {
     result = 31 * result + language.hashCode();
     return result;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

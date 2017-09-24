@@ -11,7 +11,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class News {
 
@@ -25,7 +25,7 @@ public class News {
   private List<Comment> comments;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public News() {
   }
@@ -59,6 +59,6 @@ public class News {
   public List<Comment> getComments() {
     return comments;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

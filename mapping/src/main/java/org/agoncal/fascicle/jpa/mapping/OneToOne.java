@@ -11,7 +11,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.FetchType.EAGER;
 
 // @formatter:off
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Target({METHOD, FIELD})
 @Retention(RUNTIME)
 public @interface OneToOne {
@@ -23,4 +23,4 @@ public @interface OneToOne {
   String mappedBy() default "";
   boolean orphanRemoval() default false;
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

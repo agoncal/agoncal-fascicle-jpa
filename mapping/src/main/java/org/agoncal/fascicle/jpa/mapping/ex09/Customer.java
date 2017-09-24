@@ -8,7 +8,7 @@ import java.util.Date;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Customer {
 
@@ -21,15 +21,15 @@ public class Customer {
   private String phoneNumber;
   @Temporal(TemporalType.DATE)
   private Date dateOfBirth;
-  // tag::adocskiptransient[]
+  // tag::adocSkiptransient[]
   @Transient
   private Integer age;
-  // end::adocskiptransient[]
+  // end::adocSkiptransient[]
   @Temporal(TemporalType.TIMESTAMP)
   private Date creationDate;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Customer() {
   }
@@ -106,6 +106,6 @@ public class Customer {
   public void setCreationDate(Date creationDate) {
     this.creationDate = creationDate;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

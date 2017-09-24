@@ -5,7 +5,7 @@ package org.agoncal.fascicle.jpa.mapping.ex33;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 public class Item {
 
   protected String title;
@@ -13,7 +13,7 @@ public class Item {
   protected String description;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Item() {
   }
@@ -51,6 +51,6 @@ public class Item {
   public void setDescription(String description) {
     this.description = description;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

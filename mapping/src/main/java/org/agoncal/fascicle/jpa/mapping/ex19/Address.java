@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * --
  */
 @Table(name = "ex19_Address")
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 public class Address {
 
@@ -26,7 +26,7 @@ public class Address {
   private String country;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Address() {
   }
@@ -99,6 +99,6 @@ public class Address {
   public void setCountry(String country) {
     this.country = country;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

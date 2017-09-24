@@ -5,11 +5,11 @@ package org.agoncal.fascicle.jpa.mapping.ex10;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 public enum CreditCardType {
 
   VISA,
   MASTER_CARD,
   AMERICAN_EXPRESS
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -10,7 +10,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static javax.persistence.FetchType.EAGER;
 
 // @formatter:off
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Target({METHOD, FIELD})
 @Retention(RUNTIME)
 public @interface Basic {
@@ -18,4 +18,4 @@ public @interface Basic {
   FetchType fetch() default EAGER;
   boolean optional() default true;
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 // @formatter:off
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 public interface EntityManager {
 
   // Factory to create an entity manager, close it and check if it's open
@@ -123,4 +123,4 @@ public interface EntityManager {
   public  EntityGraph<?> getEntityGraph(String graphName);
   public <T> List<EntityGraph<? super T>> getEntityGraphs(Class<T> entityClass);
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -8,7 +8,7 @@ import javax.persistence.*;
  * --
  */
 @Table(name = "override_cd")
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @AttributeOverrides({
   @AttributeOverride(name = "id", column = @Column(name = "cd_id")),
@@ -23,7 +23,7 @@ public class CD extends Item {
   private String genre;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public CD() {
   }
@@ -71,6 +71,6 @@ public class CD extends Item {
   public void setGenre(String genre) {
     this.genre = genre;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

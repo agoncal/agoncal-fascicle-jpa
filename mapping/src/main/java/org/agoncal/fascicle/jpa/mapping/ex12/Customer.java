@@ -7,7 +7,7 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @Access(AccessType.PROPERTY)
 public class Customer {
@@ -19,7 +19,7 @@ public class Customer {
   private String phoneNumber;
 
   // Constructors
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Customer() {
   }
@@ -35,7 +35,7 @@ public class Customer {
   // =          Getters & Setters         =
   // ======================================
 
-  // end::adocskip[]
+  // end::adocSkip[]
   @Id
   @GeneratedValue
   public Long getId() {
@@ -81,4 +81,4 @@ public class Customer {
     this.phoneNumber = phoneNumber;
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

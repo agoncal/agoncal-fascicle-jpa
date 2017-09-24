@@ -7,7 +7,7 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @Access(AccessType.FIELD)
 public class Customer {
@@ -26,7 +26,7 @@ public class Customer {
   private Address address;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Customer() {
   }
@@ -85,6 +85,6 @@ public class Customer {
   public void setAddress(Address address) {
     this.address = address;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

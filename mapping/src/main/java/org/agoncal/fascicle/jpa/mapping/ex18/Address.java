@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Embeddable
 @Access(AccessType.PROPERTY)
 public class Address {
@@ -23,7 +23,7 @@ public class Address {
   private String country;
 
   // Constructors
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Address() {
   }
@@ -40,7 +40,7 @@ public class Address {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
-  // end::adocskip[]
+  // end::adocSkip[]
 
   @Column(nullable = false)
   public String getStreet1() {
@@ -94,4 +94,4 @@ public class Address {
     this.country = country;
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

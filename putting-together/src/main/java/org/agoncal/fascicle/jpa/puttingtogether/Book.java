@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @NamedQueries({
   @NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b"),
@@ -30,7 +30,7 @@ public class Book {
   private Boolean illustrations;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Book() {
   }
@@ -118,6 +118,6 @@ public class Book {
     sb.append('}');
     return sb.toString();
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]
