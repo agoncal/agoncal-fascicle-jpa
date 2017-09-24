@@ -185,6 +185,7 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test // Listing 4-16
   public void shouldDetachACustomer() throws Exception {
 
+    // tag::adocDetach[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
 
     // Persist the object
@@ -198,11 +199,13 @@ public class CustomerTest extends AbstractPersistentTest {
     em.detach(customer);
 
     assertFalse(em.contains(customer));
+    // end::adocDetach[]
   }
 
   @Test // Listing 4-17
   public void shouldClearAndThenMergeACustomer() throws Exception {
 
+    // tag::adocClearMerge[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
 
     // Persist the object
@@ -225,7 +228,7 @@ public class CustomerTest extends AbstractPersistentTest {
     customer = em.find(Customer.class, customer.getId());
     assertEquals(customer.getFirstName(), "William");
     assertTrue(em.contains(customer));
-
+    // end::adocClearMerge[]
   }
 
   @Test // Listing 4-18
