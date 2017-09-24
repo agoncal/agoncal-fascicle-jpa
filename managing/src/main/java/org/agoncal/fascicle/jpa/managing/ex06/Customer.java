@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.managing.ex05;
+package org.agoncal.fascicle.jpa.managing.ex06;
 
 import javax.persistence.*;
 
@@ -7,14 +7,8 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-// TODO get rid of @NamedQueries repeatable annotation
 // tag::adocSnippet[]
 @Entity
-@NamedQueries({
-  @NamedQuery(name = "findAll", query = "select c from Customer c"),
-  @NamedQuery(name = "findVincent", query = "select c from Customer c where c.firstName = 'Vincent'"),
-  @NamedQuery(name = "findWithParam", query = "select c from Customer c where c.firstName = :fname")
-})
 public class Customer {
 
   @Id
@@ -24,14 +18,10 @@ public class Customer {
   private String lastName;
   private Integer age;
   private String email;
-  @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-  @JoinColumn(name = "address_fk")
   private Address address;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
-
-  public static final String FIND_ALL = "findAll";
+  // tag::adocSkip[]
 
   public Customer() {
   }
@@ -90,6 +80,6 @@ public class Customer {
   public void setAge(Integer age) {
     this.age = age;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
 // end::adocSnippet[]

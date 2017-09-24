@@ -70,8 +70,10 @@ public class NamedQueriesTest extends AbstractPersistentTest {
     tx.commit();
 
     // Query
+    // tag::adocQuery[]
     Query query = em.createNamedQuery("findAll");
     List<Customer> customers = query.getResultList();
+    // end::adocQuery[]
     assertEquals(ALL, customers.size());
 
     query = em.createNamedQuery(Customer.FIND_ALL);
@@ -89,8 +91,10 @@ public class NamedQueriesTest extends AbstractPersistentTest {
     assertEquals(2, query.getResultList().size());
 
     // TypedQuery
+    // tag::adocTypedQuery[]
     TypedQuery<Customer> typedQuery = em.createNamedQuery("findAll", Customer.class);
     customers = typedQuery.getResultList();
+    // end::adocTypedQuery[]
     assertEquals(ALL, customers.size());
 
     typedQuery = em.createNamedQuery(Customer.FIND_ALL, Customer.class);
@@ -103,8 +107,16 @@ public class NamedQueriesTest extends AbstractPersistentTest {
     typedQuery = em.createNamedQuery("findVincent", Customer.class);
     assertEquals(2, typedQuery.getResultList().size());
 
+    // tag::adocParam[]
     typedQuery = em.createNamedQuery("findWithParam", Customer.class);
     typedQuery.setParameter("fname", "Vincent");
+    typedQuery.setMaxResults(2);
+    // end::adocParam[]
+    assertEquals(2, typedQuery.getResultList().size());
+
+    // tag::adocParamLine[]
+    typedQuery = em.createNamedQuery("findWithParam", Customer.class).setParameter("fname", "Vincent").setMaxResults(2);
+    // end::adocParamLine[]
     assertEquals(2, typedQuery.getResultList().size());
 
     // Remove objects

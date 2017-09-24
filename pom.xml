@@ -28,6 +28,7 @@
     <version.h2>1.4.196</version.h2>
     <!-- Test -->
     <version.junit>5.0.0</version.junit>
+    <version.junit.platform>1.0.0</version.junit.platform>
     <!-- Maven Plugins -->
     <version.clean.plugin>3.0.0</version.clean.plugin>
     <version.compiler.plugin>3.6.2</version.compiler.plugin>
@@ -39,7 +40,7 @@
     <version.jar.plugin>3.0.2</version.jar.plugin>
     <version.javadoc.plugin>2.10.4</version.javadoc.plugin>
     <version.resources.plugin>3.0.2</version.resources.plugin>
-    <version.surefire.plugin>2.20</version.surefire.plugin>
+    <version.surefire.plugin>2.20.1</version.surefire.plugin>
     <version.war.plugin>2.4</version.war.plugin>
     <!-- Plugins flag -->
     <javadoc.disabled>true</javadoc.disabled>
@@ -212,6 +213,18 @@
           <configuration>
             <argLine>-Duser.language=en -Duser.country=EN</argLine>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.junit.platform</groupId>
+              <artifactId>junit-platform-surefire-provider</artifactId>
+              <version>${version.junit.platform}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.junit.jupiter</groupId>
+              <artifactId>junit-jupiter-engine</artifactId>
+              <version>${version.junit}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
