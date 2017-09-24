@@ -24,8 +24,8 @@ public class DebugListener {
   void preRemove(Object object) {
     System.out.println("preRemove");
   }
-
   // tag::adocSkip[]
+
   @PostPersist
   void postPersist(Object object) {
     System.out.println("postPersist");
