@@ -62,7 +62,7 @@ public class CustomerTest extends AbstractPersistentTest {
     if (customer != null) {
       // Process the object
     }
-    // tag::adocFinding[]
+    // end::adocFinding[]
     assertNotNull(customer);
   }
 
@@ -95,7 +95,7 @@ public class CustomerTest extends AbstractPersistentTest {
       EntityNotFoundException ex) {
       // Entity not found
     }
-    // tag::adocReference[]
+    // end::adocReference[]
   }
 
   @Test // Listing 4-12
@@ -234,6 +234,7 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test // Listing 4-18
   public void shouldUpdateACustomer() throws Exception {
 
+    // tag::adocMerge[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
 
     // Persist the object
@@ -247,11 +248,13 @@ public class CustomerTest extends AbstractPersistentTest {
     assertEquals(customer.getFirstName(), "Williman");
 
     tx.commit();
+    // end::adocMerge[]
   }
 
   @Test // Listing 4-19
   public void shouldPersistACustomerAndAnAddress() throws Exception {
 
+    // tag::adocCascade[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
@@ -264,11 +267,13 @@ public class CustomerTest extends AbstractPersistentTest {
 
     assertNotNull(customer.getId());
     assertNotNull(address.getId());
+    // end::adocCascade[]
   }
 
   @Test // Listing 4-20
   public void shouldPersistACustomerAndCascadeToTheAddress() throws Exception {
 
+    // tag::adocCascadePersist[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
@@ -280,6 +285,7 @@ public class CustomerTest extends AbstractPersistentTest {
 
     assertNotNull(customer.getId());
     assertNotNull(address.getId());
+    // end::adocCascadePersist[]
   }
 
   @Test
