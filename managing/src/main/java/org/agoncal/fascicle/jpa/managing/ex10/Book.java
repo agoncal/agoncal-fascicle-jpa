@@ -1,58 +1,68 @@
-package org.agoncal.fascicle.jpa.managing.ex03;
+package org.agoncal.fascicle.jpa.managing.ex10;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @Entity
 public class Book {
-
-  // ======================================
-  // =             Attributes             =
-  // ======================================
 
   @Id
   @GeneratedValue
   private Long id;
+  @Version
+  private Integer version;
   private String title;
   private Float price;
   private String description;
   private String isbn;
-  private String editor;
-  private Integer nbOfPage;
+  private Integer nbOfPages;
   private Boolean illustrations;
 
-  // ======================================
-  // =            Constructors            =
-  // ======================================
+  // Constructors, getters, setters
+  // tag::adocSkip[]
 
   public Book() {
   }
 
-  public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations, String editor) {
+  public Book(String title, Float price, String description, String isbn, Integer nbOfPages, Boolean illustrations) {
     this.title = title;
     this.price = price;
     this.description = description;
     this.isbn = isbn;
-    this.nbOfPage = nbOfPage;
+    this.nbOfPages = nbOfPages;
     this.illustrations = illustrations;
-    this.editor = editor;
+  }
+
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
+
+  public void raisePriceByTwoDollars() {
+    price = price + 2;
+  }
+
+  public void raisePriceByFiveDollars() {
+    price = price + 5;
   }
 
   // ======================================
   // =          Getters & Setters         =
   // ======================================
+
   public Long getId() {
     return id;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+  public Integer getVersion() {
+    return version;
   }
 
   public String getTitle() {
@@ -87,20 +97,12 @@ public class Book {
     this.isbn = isbn;
   }
 
-  public String getEditor() {
-    return editor;
+  public Integer getNbOfPages() {
+    return nbOfPages;
   }
 
-  public void setEditor(String editor) {
-    this.editor = editor;
-  }
-
-  public Integer getNbOfPage() {
-    return nbOfPage;
-  }
-
-  public void setNbOfPage(Integer nbOfPage) {
-    this.nbOfPage = nbOfPage;
+  public void setNbOfPages(Integer nbOfPages) {
+    this.nbOfPages = nbOfPages;
   }
 
   public Boolean getIllustrations() {
@@ -110,4 +112,6 @@ public class Book {
   public void setIllustrations(Boolean illustrations) {
     this.illustrations = illustrations;
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]

@@ -1,17 +1,16 @@
-package org.agoncal.fascicle.jpa.managing.ex06;
+package org.agoncal.fascicle.jpa.managing.ex12;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
+ * Simple entity
  */
-@Table(name = "ex06_Customer")
 // tag::adocSnippet[]
+@EntityListeners({DataValidationListener.class, AgeCalculationListener.class})
 @Entity
 public class Customer {
 
@@ -20,9 +19,14 @@ public class Customer {
   private Long id;
   private String firstName;
   private String lastName;
-  private Integer age;
   private String email;
-  private Address address;
+  private String phoneNumber;
+  @Temporal(TemporalType.DATE)
+  private Date dateOfBirth;
+  @Transient
+  private Integer age;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date creationDate;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -30,11 +34,13 @@ public class Customer {
   public Customer() {
   }
 
-  public Customer(String firstName, String lastName, String email, Integer age) {
+  public Customer(String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth, Date creationDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
-    this.age = age;
+    this.phoneNumber = phoneNumber;
+    this.dateOfBirth = dateOfBirth;
+    this.creationDate = creationDate;
   }
 
   // ======================================
@@ -69,12 +75,20 @@ public class Customer {
     this.email = email;
   }
 
-  public Address getAddress() {
-    return address;
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
-  public void setAddress(Address address) {
-    this.address = address;
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public Date getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public void setDateOfBirth(Date dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
   }
 
   public Integer getAge() {
@@ -83,6 +97,14 @@ public class Customer {
 
   public void setAge(Integer age) {
     this.age = age;
+  }
+
+  public Date getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(Date creationDate) {
+    this.creationDate = creationDate;
   }
   // end::adocSkip[]
 }

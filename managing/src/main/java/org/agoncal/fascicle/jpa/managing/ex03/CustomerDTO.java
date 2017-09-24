@@ -2,8 +2,8 @@ package org.agoncal.fascicle.jpa.managing.ex03;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 public class CustomerDTO {
 
