@@ -7,12 +7,9 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @Entity
 public class Customer {
-
-  // ======================================
-  // =             Attributes             =
-  // ======================================
 
   @Id
   @GeneratedValue
@@ -25,9 +22,8 @@ public class Customer {
   @JoinColumn(name = "address_fk")
   private Address address;
 
-  // ======================================
-  // =            Constructors            =
-  // ======================================
+  // Constructors, getters, setters
+  // tag::adocSkip[]
 
   public Customer() {
   }
@@ -86,4 +82,6 @@ public class Customer {
   public void setAge(Integer age) {
     this.age = age;
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
