@@ -72,8 +72,8 @@ public class NamedQueriesTest extends AbstractPersistentTest {
     // Query
     // tag::adocQuery[]
     Query query = em.createNamedQuery("findAll");
-    List<Customer> customers = query.getResultList();
     // end::adocQuery[]
+    List<Customer> customers = query.getResultList();
     assertEquals(ALL, customers.size());
 
     query = em.createNamedQuery(Customer.FIND_ALL);
@@ -93,8 +93,8 @@ public class NamedQueriesTest extends AbstractPersistentTest {
     // TypedQuery
     // tag::adocTypedQuery[]
     TypedQuery<Customer> typedQuery = em.createNamedQuery("findAll", Customer.class);
-    customers = typedQuery.getResultList();
     // end::adocTypedQuery[]
+    customers = typedQuery.getResultList();
     assertEquals(ALL, customers.size());
 
     typedQuery = em.createNamedQuery(Customer.FIND_ALL, Customer.class);
