@@ -20,7 +20,7 @@ public class Main {
 
     // 2-Obtains an entity manager and a transaction
     // tag::adocfactory[]
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaPU");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
     EntityManager em = emf.createEntityManager();
     // end::adocfactory[]
 

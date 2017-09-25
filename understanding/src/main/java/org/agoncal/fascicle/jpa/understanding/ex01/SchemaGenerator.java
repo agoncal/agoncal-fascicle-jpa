@@ -11,6 +11,6 @@ public class SchemaGenerator {
 
   public static void main(String[] args) {
 
-    Persistence.generateSchema("jpaPU", null);
+    Persistence.generateSchema("cdbookstorePU", null);
   }
 }
