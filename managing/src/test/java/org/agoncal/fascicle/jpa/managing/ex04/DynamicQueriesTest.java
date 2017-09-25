@@ -84,7 +84,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     // tag::adocQueryLine[]
     String jpqlQuery = "select c from Customer c";
     if (someCriteria)
-      jpqlQuery += " where c.firstName = 'Vincent'";
+      jpqlQuery += " where c.firstName = 'Betty'";
     query = em.createQuery(jpqlQuery);
     customers = query.getResultList();
     // end::adocQueryLine[]
