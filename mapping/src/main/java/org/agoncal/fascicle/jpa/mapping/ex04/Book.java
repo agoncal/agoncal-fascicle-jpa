@@ -9,7 +9,6 @@ import javax.persistence.*;
  */
 // tag::adocSnippet[]
 @Entity
-@Table(name = "t_book")
 public class Book {
 
   @Id

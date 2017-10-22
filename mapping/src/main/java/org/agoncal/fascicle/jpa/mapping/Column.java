@@ -22,6 +22,6 @@ public @interface Column {
   String  table()      default "";
   int     length()     default 255;
   int     precision()  default 0; // decimal precision
-  int     scale()      default 0; // decimal precision
+  int     scale()      default 0; // decimal scale
 }
 // end::adocSnippet[]
