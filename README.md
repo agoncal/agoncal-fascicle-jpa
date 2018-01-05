@@ -1,3 +1,3 @@
-# agoncal-fascicle-jms
+# agoncal-fascicle-jpa
 
-Code of my future JMS Fascicle
+Code of my future JPA Fascicle
