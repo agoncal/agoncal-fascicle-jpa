@@ -4,12 +4,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Antonio Goncalves
@@ -40,14 +38,27 @@ public class AuthorTest {
   // ======================================
 
   @Test
-  void shouldCreateAnAuthor() throws Exception {
+  void shouldCreateAnAuthor() {
 
-    // tag::adocShouldRaiseNoConstraintViolation[]
-    Author author = new Author().firstName("Adams").lastName("Douglas").email("wrong");
+    // tag::adocShouldCreateAnAuthor[]
+    Author author = new Author().firstName("Adams").lastName("Douglas");
     tx.begin();
     em.persist(author);
     tx.commit();
     assertNotNull(author.getId(), "ID should not be null");
-    // end::adocShouldRaiseNoConstraintViolation[]
+    // end::adocShouldCreateAnAuthor[]
+  }
+
+  @Test
+  void shouldNotCreateAnAuthorWithNullFirstname() {
+
+    // tag::adocShouldNotCreateAnAuthorWithNullFirstname[]
+    Author author = new Author().firstName(null);
+    tx.begin();
+    em.persist(author);
+    assertThrows(RollbackException.class, () -> {
+      tx.commit();
+    });
+    // end::adocShouldNotCreateAnAuthorWithNullFirstname[]
   }
 }
