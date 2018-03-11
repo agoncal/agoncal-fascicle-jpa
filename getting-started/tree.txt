@@ -1,0 +1,14 @@
+.
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └─ org/agoncal/fascicle/jpa/gettingstarted
+│   │   │       └─ Artist.java
+│   │   └── resources
+│   │       └─ META-INF
+│   │           └─ persistence.xml
+│   └── test
+│       └─ java
+│           └─ org/agoncal/fascicle/jpa/gettingstarted
+│               └─ ArtistTest.java
+└─ pom.xml
