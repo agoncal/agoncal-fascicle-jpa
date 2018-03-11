@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.firststep;
+package org.agoncal.fascicle.jpa.gettingstarted;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * --
  */
 // tag::adocBegin[]
-public class AuthorTest {
+public class ArtistTest {
 
   private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
   private static EntityManager em;
@@ -38,27 +38,27 @@ public class AuthorTest {
   // ======================================
 
   @Test
-  void shouldCreateAnAuthor() {
+  void shouldCreateAnArtist() {
 
-    // tag::adocShouldCreateAnAuthor[]
-    Author author = new Author().firstName("Adams").lastName("Douglas");
+    // tag::shouldCreateAnArtist[]
+    Artist artist = new Artist().firstName("Adams").lastName("Douglas");
     tx.begin();
-    em.persist(author);
+    em.persist(artist);
     tx.commit();
-    assertNotNull(author.getId(), "ID should not be null");
-    // end::adocShouldCreateAnAuthor[]
+    assertNotNull(artist.getId(), "ID should not be null");
+    // end::shouldCreateAnArtist[]
   }
 
   @Test
-  void shouldNotCreateAnAuthorWithNullFirstname() {
+  void shouldNotCreateAnArtistWithNullFirstname() {
 
-    // tag::adocShouldNotCreateAnAuthorWithNullFirstname[]
-    Author author = new Author().firstName(null);
+    // tag::shouldNotCreateAnArtistWithNullFirstname[]
+    Artist artist = new Artist().firstName(null);
     tx.begin();
-    em.persist(author);
+    em.persist(artist);
     assertThrows(RollbackException.class, () -> {
       tx.commit();
     });
-    // end::adocShouldNotCreateAnAuthorWithNullFirstname[]
+    // end::shouldNotCreateAnArtistWithNullFirstname[]
   }
 }
