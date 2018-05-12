@@ -9,14 +9,16 @@
   <name>JPA</name>
 
   <modules>
-    <!--<module>apis</module>-->
+    <!--<module>advanced</module>-->
+    <!--<module>callbacks-listeners</module>-->
     <module>first-step</module>
     <module>getting-started</module>
     <!--<module>integrating</module>-->
     <!--<module>managing</module>-->
     <!--<module>mapping</module>-->
     <!--<module>putting-together</module>-->
-    <!--<module>understanding</module>-->
+    <!--<module>querying</module>-->
+    <module>understanding</module>
   </modules>
 
   <properties>
