@@ -4,7 +4,7 @@
 [INFO]
 [INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile)
 [INFO]
-[INFO] --- maven-surefire-plugin:2.20:test (default-test)
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test)
 [INFO]
 [INFO] ----------
 [INFO]  T E S T S
