@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 public class SchemaGenerator {
 
   public static void main(String[] args) {
@@ -14,3 +15,4 @@ public class SchemaGenerator {
     Persistence.generateSchema("cdbookstorePU", null);
   }
 }
+// end::adocSnippet[]
