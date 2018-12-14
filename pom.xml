@@ -15,7 +15,7 @@
     <module>getting-started</module>
     <!--<module>integrating</module>-->
     <!--<module>managing</module>-->
-    <!--<module>mapping</module>-->
+    <module>mapping</module>
     <!--<module>putting-together</module>-->
     <!--<module>querying</module>-->
     <module>understanding</module>
