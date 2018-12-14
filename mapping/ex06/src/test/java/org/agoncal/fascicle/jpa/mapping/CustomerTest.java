@@ -1,6 +1,6 @@
-package org.agoncal.fascicle.jpa.mapping.ex11;
+package org.agoncal.fascicle.jpa.mapping;
 
-import org.agoncal.fascicle.jpa.mapping.AbstractPersistentTest;
+import org.agoncal.fascicle.jpa.mapping.ex12.Customer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

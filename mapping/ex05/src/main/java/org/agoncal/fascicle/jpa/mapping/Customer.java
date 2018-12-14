@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex11;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
