@@ -9,27 +9,28 @@
   <name>JPA</name>
 
   <modules>
-    <!--<module>apis</module>-->
+    <!--<module>advanced</module>-->
+    <!--<module>callbacks-listeners</module>-->
     <module>first-step</module>
     <module>getting-started</module>
     <!--<module>integrating</module>-->
     <!--<module>managing</module>-->
-    <!--<module>mapping</module>-->
+    <module>mapping</module>
     <!--<module>putting-together</module>-->
-    <!--<module>understanding</module>-->
+    <!--<module>querying</module>-->
+    <module>understanding</module>
   </modules>
 
   <properties>
     <version.java>1.8</version.java>
     <!-- JPA -->
     <version.jpa-api>2.2</version.jpa-api>
-    <version.eclipselink>2.7.1</version.eclipselink>
+    <version.eclipselink>2.7.3</version.eclipselink>
     <!-- Other -->
     <version.hibernate.validator>6.0.1.Final</version.hibernate.validator>
-    <version.h2>1.4.196</version.h2>
+    <version.h2>1.4.197</version.h2>
     <!-- Test -->
-    <version.junit>5.1.0</version.junit>
-    <version.junit.platform>1.0.0</version.junit.platform>
+    <version.junit>5.3.2</version.junit>
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>1.8</version.antrun.plugin>
     <version.archetype.plugin>3.0.1</version.archetype.plugin>
@@ -51,7 +52,7 @@
     <version.shade.plugin>3.1.0</version.shade.plugin>
     <version.site.plugin>3.6</version.site.plugin>
     <version.source.plugin>3.0.1</version.source.plugin>
-    <version.surefire.plugin>2.20</version.surefire.plugin>
+    <version.surefire.plugin>2.22.1</version.surefire.plugin>
     <version.version.plugin>2.5</version.version.plugin>
     <version.war.plugin>3.2.0</version.war.plugin>
     <!-- Plugins flag -->
@@ -290,13 +291,6 @@
           <configuration>
             <argLine>-Duser.language=en -Duser.country=EN</argLine>
           </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>org.junit.platform</groupId>
-              <artifactId>junit-platform-surefire-provider</artifactId>
-              <version>${version.junit.platform}</version>
-            </dependency>
-          </dependencies>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>

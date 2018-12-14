@@ -1,6 +1,7 @@
 package org.agoncal.fascicle.jpa.gettingstarted;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
@@ -12,17 +13,19 @@ import java.time.LocalDate;
  */
 // @formatter:off
 // tag::adocSnippet[]
+@Entity
 public class Artist {
 
   @Id
   @GeneratedValue
   private Long id;
-  @Column(nullable = false, length = 50)
+  @Column(nullable = false)
   private String firstName;
+  @Column(nullable = false)
   private String lastName;
+  private String email;
   @Column(length = 2000)
   private String bio;
-  private String email;
   private LocalDate dateOfBirth;
 
   // Constructors, getters, setters
@@ -124,7 +127,7 @@ public class Artist {
       ", lastName='" + lastName + '\'' +
       ", email='" + email + '\'' +
       ", bio='" + bio + '\'' +
-      ", dateOfBirth=" + dateOfBirth +
+//      ", dateOfBirth=" + dateOfBirth +
       '}';
   }
   // end::adocSkip[]

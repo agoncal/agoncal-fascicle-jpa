@@ -1,0 +1,21 @@
+[INFO] ------------------------
+[INFO] Building Getting Started
+[INFO] ------------------------
+[INFO]
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile)
+[INFO]
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test)
+[INFO]
+[INFO] ----------
+[INFO]  T E S T S
+[INFO] ----------
+[INFO] Running org.agoncal.fascicle.jpa.gettingstarted.ArtistTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.031 s
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] -------------
+[INFO] BUILD SUCCESS
+[INFO] -------------

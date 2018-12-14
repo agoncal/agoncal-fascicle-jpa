@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.persistence.*;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Antonio Goncalves
@@ -42,6 +41,7 @@ public class AuthorTest {
 
     // tag::adocShouldCreateAnAuthor[]
     Author author = new Author().firstName("Adams").lastName("Douglas");
+    assertNull(author.getId(), "ID should be null");
     tx.begin();
     em.persist(author);
     tx.commit();

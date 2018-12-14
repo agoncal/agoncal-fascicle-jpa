@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.persistence.*;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Antonio Goncalves
@@ -30,6 +29,7 @@ public class ArtistTest {
   @AfterAll
   static void close() {
     if (em != null) em.close();
+    if (emf != null) emf.close();
   }
   // end::adocBegin[]
 
@@ -38,15 +38,41 @@ public class ArtistTest {
   // ======================================
 
   @Test
-  void shouldCreateAnArtist() {
+  void shouldManageAnArtist() {
 
-    // tag::shouldCreateAnArtist[]
+    // tag::shouldManageAnArtist[]
     Artist artist = new Artist().firstName("Adams").lastName("Douglas");
     tx.begin();
     em.persist(artist);
     tx.commit();
     assertNotNull(artist.getId(), "ID should not be null");
-    // end::shouldCreateAnArtist[]
+
+    assertNotNull(em.find(Artist.class, artist.getId()), "Artist should have been persisted in DB");
+
+    tx.begin();
+    em.remove(artist);
+    tx.commit();
+
+    assertNull(em.find(Artist.class, artist.getId()), "Artist should have been removed from DB");
+    // end::shouldManageAnArtist[]
+  }
+
+  @Test
+  void shouldQueryArtists() {
+
+    // tag::shouldQueryArtists[]
+    assertEquals(0, em.createQuery("select a from Artist a").getResultList().size());
+
+    Artist douglas = new Artist().firstName("Adams").lastName("Douglas");
+    Artist lovecraft = new Artist().firstName("Howard").lastName("Lovecraft");
+    tx.begin();
+    em.persist(douglas);
+    em.persist(lovecraft);
+    tx.commit();
+
+    assertEquals(2, em.createQuery("select a from Artist a").getResultList().size());
+    assertEquals(1, em.createQuery("select a from Artist a where a.firstName = 'Adams' ").getResultList().size());
+    // end::shouldQueryArtists[]
   }
 
   @Test
