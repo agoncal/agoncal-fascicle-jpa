@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex07;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 

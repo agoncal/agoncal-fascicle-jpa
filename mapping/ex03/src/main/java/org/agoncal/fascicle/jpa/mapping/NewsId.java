@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex06;
+package org.agoncal.fascicle.jpa.mapping;
 
 import java.io.Serializable;
 

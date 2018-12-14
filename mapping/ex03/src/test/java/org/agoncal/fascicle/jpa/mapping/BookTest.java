@@ -1,7 +1,6 @@
-package org.agoncal.fascicle.jpa.mapping.ex08;
+package org.agoncal.fascicle.jpa.mapping;
 
 
-import org.agoncal.fascicle.jpa.mapping.AbstractPersistentTest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
