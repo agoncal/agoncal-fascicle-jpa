@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import org.agoncal.fascicle.jpa.mapping.ex13.Customer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
