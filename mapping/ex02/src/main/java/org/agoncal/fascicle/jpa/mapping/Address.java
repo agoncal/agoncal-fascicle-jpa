@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex02;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 
@@ -9,28 +9,26 @@ import javax.persistence.*;
  */
 // tag::adocSnippet[]
 @Entity
-@Table(name = "address")
-@SecondaryTables({
-  @SecondaryTable(name = "city"),
-  @SecondaryTable(name = "country")
-})
+@Table(name = "t_address")
+@SecondaryTable(name = "t_city")
+@SecondaryTable(name = "t_country")
 public class Address {
+
+  // Attributes, constructors, getters, setters
+  // tag::adocSkip[]
 
   @Id
   private Long id;
   private String street1;
   private String street2;
-  @Column(table = "city")
+  @Column(table = "t_city")
   private String city;
-  @Column(table = "city")
+  @Column(table = "t_city")
   private String state;
-  @Column(table = "city")
+  @Column(table = "t_city")
   private String zipcode;
-  @Column(table = "country")
+  @Column(table = "t_country")
   private String country;
-
-  // Constructors, getters, setters
-  // tag::adocSkip[]
 
   public Address() {
   }
