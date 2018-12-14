@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex10;
+package org.agoncal.fascicle.jpa.mapping;
 
 /**
  * @author Antonio Goncalves
