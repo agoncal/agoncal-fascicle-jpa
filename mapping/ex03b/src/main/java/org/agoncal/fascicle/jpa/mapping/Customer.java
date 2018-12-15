@@ -1,8 +1,7 @@
 package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -20,12 +19,10 @@ public class Customer {
   private String lastName;
   private String email;
   private String phoneNumber;
-  private LocalDate dateOfBirth;
-  // tag::adocSkiptransient[]
-  @Transient
-  private Integer age;
-  // end::adocSkiptransient[]
-  private LocalDateTime creationDate;
+  @Temporal(TemporalType.DATE)
+  private Date dateOfBirth;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date creationDate;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -33,7 +30,7 @@ public class Customer {
   public Customer() {
   }
 
-  public Customer(String firstName, String lastName, String email, String phoneNumber, LocalDate dateOfBirth, LocalDateTime creationDate) {
+  public Customer(String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth, Date creationDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -82,27 +79,19 @@ public class Customer {
     this.phoneNumber = phoneNumber;
   }
 
-  public LocalDate getDateOfBirth() {
+  public Date getDateOfBirth() {
     return dateOfBirth;
   }
 
-  public void setDateOfBirth(LocalDate dateOfBirth) {
+  public void setDateOfBirth(Date dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
-  public Integer getAge() {
-    return age;
-  }
-
-  public void setAge(Integer age) {
-    this.age = age;
-  }
-
-  public LocalDateTime getCreationDate() {
+  public Date getCreationDate() {
     return creationDate;
   }
 
-  public void setCreationDate(LocalDateTime creationDate) {
+  public void setCreationDate(Date creationDate) {
     this.creationDate = creationDate;
   }
   // end::adocSkip[]
