@@ -20,8 +20,6 @@ public class Book {
   private Float price;
   private String description;
   private String isbn;
-  private Integer nbOfPages;
-  private Boolean illustrations;
   @ElementCollection(fetch = FetchType.LAZY)
   @CollectionTable(name = "Tag")
   @Column(name = "Value")
@@ -33,13 +31,11 @@ public class Book {
   public Book() {
   }
 
-  public Book(String title, Float price, String description, String isbn, Integer nbOfPages, Boolean illustrations, ArrayList<String> tags) {
+  public Book(String title, Float price, String description, String isbn, ArrayList<String> tags) {
     this.title = title;
     this.price = price;
     this.description = description;
     this.isbn = isbn;
-    this.nbOfPages = nbOfPages;
-    this.illustrations = illustrations;
     this.tags = tags;
   }
 
@@ -81,22 +77,6 @@ public class Book {
 
   public void setIsbn(String isbn) {
     this.isbn = isbn;
-  }
-
-  public Integer getNbOfPages() {
-    return nbOfPages;
-  }
-
-  public void setNbOfPages(Integer nbOfPages) {
-    this.nbOfPages = nbOfPages;
-  }
-
-  public Boolean getIllustrations() {
-    return illustrations;
-  }
-
-  public void setIllustrations(Boolean illustrations) {
-    this.illustrations = illustrations;
   }
 
   public List<String> getTags() {
