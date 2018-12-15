@@ -1,19 +1,20 @@
-package org.agoncal.fascicle.jpa.mapping.ex21;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocSnippet[]
 @Entity
-@Table(name = "order_line")
 public class OrderLine {
+
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
   @Id
   @GeneratedValue
@@ -22,8 +23,9 @@ public class OrderLine {
   private Double unitPrice;
   private Integer quantity;
 
-  // Constructors, getters, setters
-  // tag::adocSkip[]
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
   public OrderLine() {
   }
@@ -65,6 +67,4 @@ public class OrderLine {
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]

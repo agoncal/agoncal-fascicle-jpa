@@ -1,6 +1,8 @@
-package org.agoncal.fascicle.jpa.mapping.ex20;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -9,30 +11,26 @@ import javax.persistence.*;
  */
 // tag::adocSnippet[]
 @Entity
-public class Customer {
+public class Artist {
 
   @Id
   @GeneratedValue
   private Long id;
   private String firstName;
   private String lastName;
-  private String email;
-  private String phoneNumber;
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "add_fk", nullable = false)
-  private Address address;
+  @ManyToMany
+  @JoinTable(name = "jnd_art_cd", joinColumns = @JoinColumn(name = "artist_fk"), inverseJoinColumns = @JoinColumn(name = "cd_fk"))
+  private List<CD> appearsOnCDs;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
 
-  public Customer() {
+  public Artist() {
   }
 
-  public Customer(String firstName, String lastName, String email, String phoneNumber) {
+  public Artist(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
-    this.phoneNumber = phoneNumber;
   }
 
   // ======================================
@@ -59,28 +57,18 @@ public class Customer {
     this.lastName = lastName;
   }
 
-  public String getEmail() {
-    return email;
+  public List<CD> getAppearsOnCDs() {
+    return appearsOnCDs;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setAppearsOnCDs(List<CD> appearsOnCDs) {
+    this.appearsOnCDs = appearsOnCDs;
   }
 
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
-
-  public Address getAddress() {
-    return address;
-  }
-
-  public void setAddress(Address address) {
-    this.address = address;
+  public void appearsOn(CD cd) {
+    if (appearsOnCDs == null)
+      appearsOnCDs = new ArrayList<CD>();
+    appearsOnCDs.add(cd);
   }
   // end::adocSkip[]
 }

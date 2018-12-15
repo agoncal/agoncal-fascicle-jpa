@@ -1,6 +1,5 @@
-package org.agoncal.fascicle.jpa.mapping.ex21;
+package org.agoncal.fascicle.jpa.mapping;
 
-import org.agoncal.fascicle.jpa.mapping.AbstractPersistentTest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +19,7 @@ public class OrderTest extends AbstractPersistentTest {
   // ======================================
   // =              Unit tests            =
   // ======================================
+
   @Test
   @Disabled // TODO
   public void shouldCreateAnOrderWithTwoOrderLines() throws Exception {

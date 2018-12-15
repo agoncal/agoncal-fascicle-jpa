@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex21;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,7 +18,8 @@ public class Order {
   private Long id;
   @Temporal(TemporalType.TIMESTAMP)
   private Date creationDate;
-  @OneToMany
+  @OneToMany(fetch = FetchType.EAGER)
+  @JoinColumn(name = "order_fk")
   private List<OrderLine> orderLines;
 
   // Constructors, getters, setters
