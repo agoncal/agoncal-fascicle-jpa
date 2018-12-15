@@ -24,6 +24,8 @@ public class CreditCardTest extends AbstractPersistentTest {
     em.persist(creditCard);
     tx.commit();
     assertNotNull(creditCard.getNumber(), "ID should not be null");
-    assertEquals(AMERICAN_EXPRESS, creditCard.getType(), "Should be American Express");
+
+    String dbCreditCardType = (String) em.createNativeQuery("select creditCardType from CreditCard where number = '123412341234'").getSingleResult();
+    assertEquals("A", dbCreditCardType, "Should be A for American Express");
   }
 }

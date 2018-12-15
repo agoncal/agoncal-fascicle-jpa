@@ -11,7 +11,7 @@ import static org.agoncal.fascicle.jpa.mapping.CreditCardType.*;
  * --
  */
 // tag::adocSnippet[]
-@Converter(autoApply = true)
+@Converter
 public class CreditCardTypeConverter implements AttributeConverter<CreditCardType, String> {
 
   @Override
