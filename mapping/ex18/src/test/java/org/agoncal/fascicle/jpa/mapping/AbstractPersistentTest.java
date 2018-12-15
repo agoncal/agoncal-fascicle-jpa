@@ -10,8 +10,6 @@ import javax.persistence.Persistence;
 import java.sql.SQLException;
 import java.util.Random;
 
-import static org.agoncal.fascicle.jpa.mapping.Constants.PERSISTENCE_UNIT_NAME;
-
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -23,7 +21,7 @@ public abstract class AbstractPersistentTest {
   // =             Attributes             =
   // ======================================
 
-  protected static EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+  protected static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
   protected EntityManager em;
   protected EntityTransaction tx;
 

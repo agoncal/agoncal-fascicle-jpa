@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex25;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 import java.util.Date;
