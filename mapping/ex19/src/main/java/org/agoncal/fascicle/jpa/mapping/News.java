@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex27;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 import java.util.ArrayList;
