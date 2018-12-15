@@ -1,10 +1,10 @@
-create table Book (
-  id bigint not null,
-  title varchar(255),
-  price float,
-  description varchar(255),
-  isbn varchar(255),
-  nbOfPages integer,
-  illustrations boolean,
-  primary key (id)
+CREATE TABLE BOOK (
+  ID BIGINT NOT NULL,
+  DESCRIPTION VARCHAR,
+  ILLUSTRATIONS BOOLEAN,
+  ISBN VARCHAR,
+  NBOFPAGES INTEGER,
+  PRICE DOUBLE,
+  TITLE VARCHAR,
+  PRIMARY KEY (ID)
 )
