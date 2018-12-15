@@ -1,16 +1,23 @@
-package org.agoncal.fascicle.jpa.mapping.ex17;
+package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
+@Table(name = "ex19_Address")
 // tag::adocSnippet[]
-@Embeddable
+@Entity
 public class Address {
 
+  @Id
+  @GeneratedValue
+  private Long id;
   private String street1;
   private String street2;
   private String city;
@@ -36,6 +43,14 @@ public class Address {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public String getStreet1() {
     return street1;

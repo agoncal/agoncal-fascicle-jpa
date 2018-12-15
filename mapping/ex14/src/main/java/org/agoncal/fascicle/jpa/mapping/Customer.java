@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex18;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 
@@ -7,22 +7,19 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
+@Table(name = "ex19_Customer")
 // tag::adocSnippet[]
 @Entity
-@Access(AccessType.FIELD)
 public class Customer {
 
   @Id
   @GeneratedValue
   private Long id;
-  @Column(name = "first_name", nullable = false, length = 50)
   private String firstName;
-  @Column(name = "last_name", nullable = false, length = 50)
   private String lastName;
   private String email;
-  @Column(name = "phone_number", length = 15)
   private String phoneNumber;
-  @Embedded
+  @OneToOne
   private Address address;
 
   // Constructors, getters, setters
