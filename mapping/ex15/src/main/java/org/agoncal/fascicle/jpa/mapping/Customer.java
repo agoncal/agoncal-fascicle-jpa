@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping.ex19;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 
@@ -7,7 +7,6 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex19_Customer")
 // tag::adocSnippet[]
 @Entity
 public class Customer {
@@ -19,7 +18,8 @@ public class Customer {
   private String lastName;
   private String email;
   private String phoneNumber;
-  @OneToOne
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "add_fk", nullable = false)
   private Address address;
 
   // Constructors, getters, setters

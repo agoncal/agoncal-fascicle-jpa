@@ -30,6 +30,7 @@
     <!--<module>ex12</module> list of embeddables -->
     <module>ex13</module>
     <module>ex14</module>
+    <module>ex15</module>
   </modules>
 
 </project>

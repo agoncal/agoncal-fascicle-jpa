@@ -1,19 +1,20 @@
-package org.agoncal.fascicle.jpa.mapping.ex19;
+package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex19_Address")
-// tag::adocSnippet[]
 @Entity
 public class Address {
+
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
   @Id
   @GeneratedValue
@@ -25,8 +26,9 @@ public class Address {
   private String zipcode;
   private String country;
 
-  // Constructors, getters, setters
-  // tag::adocSkip[]
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
   public Address() {
   }
@@ -99,6 +101,4 @@ public class Address {
   public void setCountry(String country) {
     this.country = country;
   }
-  // end::adocSkip[]
 }
-// end::adocSnippet[]
