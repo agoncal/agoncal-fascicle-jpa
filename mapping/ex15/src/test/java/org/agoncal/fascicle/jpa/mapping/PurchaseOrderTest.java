@@ -1,10 +1,8 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -14,23 +12,18 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * http://www.antoniogoncalves.org
  * --
  */
-public class OrderTest extends AbstractPersistentTest {
+public class PurchaseOrderTest extends AbstractPersistentTest {
 
   // ======================================
   // =              Unit tests            =
   // ======================================
-
   @Test
-  @Disabled // TODO
   public void shouldCreateAnOrderWithTwoOrderLines() throws Exception {
 
-    Order order = new Order();
     OrderLine ol1 = new OrderLine("H2G2", 12d, 1);
     OrderLine ol2 = new OrderLine("The White Album", 14.5d, 2);
-    List<OrderLine> orderLines = new ArrayList<>();
-    orderLines.add(ol1);
-    orderLines.add(ol2);
-    order.setOrderLines(orderLines);
+    PurchaseOrder order = new PurchaseOrder();
+    order.setOrderLines(Arrays.asList(ol1, ol2));
     tx.begin();
     em.persist(order);
     em.persist(ol1);
@@ -40,7 +33,7 @@ public class OrderTest extends AbstractPersistentTest {
     assertNotNull(ol1.getId(), "OL1 ID should not be null");
     assertNotNull(ol2.getId(), "OL1 ID should not be null");
 
-    order = em.find(Order.class, order.getId());
+    order = em.find(PurchaseOrder.class, order.getId());
     assertNotNull(order.getOrderLines(), "OrderLines should not be null");
     assertEquals(2, order.getOrderLines().size(), "Should have 2 order lines");
   }

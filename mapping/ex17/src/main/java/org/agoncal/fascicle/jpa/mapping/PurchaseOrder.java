@@ -11,7 +11,7 @@ import java.util.List;
  */
 // tag::adocSnippet[]
 @Entity
-public class Order {
+public class PurchaseOrder {
 
   @Id
   @GeneratedValue
@@ -19,12 +19,13 @@ public class Order {
   @Temporal(TemporalType.TIMESTAMP)
   private Date creationDate;
   @OneToMany(fetch = FetchType.EAGER)
+  @JoinColumn(name = "order_fk")
   private List<OrderLine> orderLines;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
 
-  public Order() {
+  public PurchaseOrder() {
     this.creationDate = new Date();
   }
 
