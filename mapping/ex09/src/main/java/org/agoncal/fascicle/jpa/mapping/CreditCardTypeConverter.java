@@ -12,30 +12,30 @@ import static org.agoncal.fascicle.jpa.mapping.CreditCardType.*;
  */
 // tag::adocSnippet[]
 @Converter
-public class CreditCardTypeConverter implements AttributeConverter<CreditCardType, String> {
+public class CreditCardTypeConverter implements AttributeConverter<CreditCardType, Character> {
 
   @Override
-  public String convertToDatabaseColumn(CreditCardType creditCardType) {
+  public Character convertToDatabaseColumn(CreditCardType creditCardType) {
     switch (creditCardType) {
       case VISA:
-        return "V";
+        return 'V';
       case AMERICAN_EXPRESS:
-        return "A";
+        return 'A';
       case MASTER_CARD:
-        return "M";
+        return 'M';
       default:
         throw new IllegalArgumentException("Unknown" + creditCardType);
     }
   }
 
   @Override
-  public CreditCardType convertToEntityAttribute(String dbData) {
+  public CreditCardType convertToEntityAttribute(Character dbData) {
     switch (dbData) {
-      case "V":
+      case 'V':
         return VISA;
-      case "A":
+      case 'A':
         return AMERICAN_EXPRESS;
-      case "M":
+      case 'M':
         return MASTER_CARD;
       default:
         throw new IllegalArgumentException("Unknown" + dbData);
