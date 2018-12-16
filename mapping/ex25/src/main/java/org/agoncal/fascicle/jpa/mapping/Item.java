@@ -7,7 +7,6 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex34_item")
 // tag::adocSnippet[]
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.JOINED)

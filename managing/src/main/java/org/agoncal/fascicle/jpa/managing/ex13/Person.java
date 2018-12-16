@@ -12,7 +12,6 @@ import javax.persistence.*;
  */
 @EntityListeners(DebugListener.class)
 @Entity
-@Table(name = "ex03_customer")
 public class Person {
 
   // ======================================

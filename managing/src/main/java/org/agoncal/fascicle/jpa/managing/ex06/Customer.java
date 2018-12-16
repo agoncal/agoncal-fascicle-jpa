@@ -10,7 +10,6 @@ import javax.persistence.Table;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex06_Customer")
 // tag::adocSnippet[]
 @Entity
 public class Customer {

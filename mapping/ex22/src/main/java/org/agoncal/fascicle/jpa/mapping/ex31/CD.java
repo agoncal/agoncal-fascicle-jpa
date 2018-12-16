@@ -9,7 +9,6 @@ import javax.persistence.Table;
  * --
  */
 @Entity
-@Table(name = "ex60_cd")
 public class CD extends Item {
 
   // ======================================

@@ -8,7 +8,6 @@ import javax.persistence.Table;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex34_book")
 // tag::adocSnippet[]
 @Entity
 public class Book extends Item {

@@ -10,7 +10,6 @@ import javax.persistence.Table;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex06_Address")
 @Entity
 public class Address {
 

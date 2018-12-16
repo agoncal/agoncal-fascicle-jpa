@@ -7,7 +7,6 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex19_Customer")
 // tag::adocSnippet[]
 @Entity
 public class Customer {
@@ -19,7 +18,6 @@ public class Customer {
   private String lastName;
   private String email;
   private String phoneNumber;
-  @OneToOne
   private Address address;
 
   // Constructors, getters, setters

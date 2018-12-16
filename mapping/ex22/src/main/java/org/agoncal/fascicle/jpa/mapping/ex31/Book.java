@@ -9,7 +9,6 @@ import javax.persistence.Table;
  * --
  */
 @Entity
-@Table(name = "ex60_book")
 public class Book extends Item {
 
   // ======================================
