@@ -17,6 +17,7 @@ public class PurchaseOrderTest extends AbstractPersistentTest {
   // ======================================
   // =              Unit tests            =
   // ======================================
+
   @Test
   public void shouldCreateAnOrderWithTwoOrderLines() throws Exception {
 

@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -11,13 +11,13 @@ import java.util.List;
  */
 // tag::adocSnippet[]
 @Entity
+@Table(name = "purchase_order")
 public class PurchaseOrder {
 
   @Id
   @GeneratedValue
   private Long id;
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date creationDate;
+  private LocalDateTime creationDate;
   @OneToMany
   @JoinTable(name = "jnd_ord_line", joinColumns = @JoinColumn(name = "order_fk"), inverseJoinColumns = @JoinColumn(name = "order_line_fk"))
   private List<OrderLine> orderLines;
@@ -26,7 +26,7 @@ public class PurchaseOrder {
   // tag::adocSkip[]
 
   public PurchaseOrder() {
-    this.creationDate = new Date();
+    this.creationDate = LocalDateTime.now();
   }
 
   // ======================================
@@ -37,11 +37,15 @@ public class PurchaseOrder {
     return id;
   }
 
-  public Date getCreationDate() {
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public LocalDateTime getCreationDate() {
     return creationDate;
   }
 
-  public void setCreationDate(Date creationDate) {
+  public void setCreationDate(LocalDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
