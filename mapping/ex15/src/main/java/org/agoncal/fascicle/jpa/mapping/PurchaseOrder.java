@@ -1,9 +1,6 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,13 +11,13 @@ import java.util.List;
  */
 // tag::adocSnippet[]
 @Entity
+@Table(name = "purchase_order")
 public class PurchaseOrder {
 
   @Id
   @GeneratedValue
   private Long id;
   private LocalDateTime creationDate;
-  @OneToMany
   private List<OrderLine> orderLines;
 
   // Constructors, getters, setters
