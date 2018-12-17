@@ -19,7 +19,10 @@ public class PurchaseOrder {
   private Long id;
   private LocalDateTime creationDate;
   @OneToMany
-  @JoinTable(name = "jnd_ord_line", joinColumns = @JoinColumn(name = "order_fk"), inverseJoinColumns = @JoinColumn(name = "order_line_fk"))
+  @JoinTable(name = "jnd_ord_line",
+    joinColumns = @JoinColumn(name = "order_fk"),
+    inverseJoinColumns = @JoinColumn(name = "order_line_fk")
+  )
   private List<OrderLine> orderLines;
 
   // Constructors, getters, setters
