@@ -1,10 +1,11 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author Antonio Goncalves
@@ -22,8 +23,7 @@ public class Comment {
   private String content;
   private Integer note;
   @Column(name = "posted_date")
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date postedDate;
+  private LocalDateTime postedDate;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -35,13 +35,8 @@ public class Comment {
     this.nickname = nickname;
     this.content = content;
     this.note = note;
-
-    try {
-      DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-      this.postedDate = df.parse(postedDate);
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    this.postedDate = LocalDateTime.parse(postedDate, formatter);
   }
 
   // ======================================

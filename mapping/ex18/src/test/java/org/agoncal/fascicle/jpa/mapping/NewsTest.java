@@ -18,10 +18,10 @@ public class NewsTest extends AbstractPersistentTest {
   public void shouldCreateOneNewsWithFourComments() throws Exception {
 
     News news = new News("Death of Michael Jackson");
-    news.addComment(new Comment("gonzo", "Third comment", 1, "2009-07-03"));
-    news.addComment(new Comment("elvis", "First comment", 3, "2009-07-01"));
-    news.addComment(new Comment("gonzo", "Second comment", 5, "2009-07-02"));
-    news.addComment(new Comment("elvis", "Fourth comment", 2, "2009-07-06"));
+    news.addComment(new Comment("gonzo", "Third comment", 1, "2009-07-03 11:01:20"));
+    news.addComment(new Comment("elvis", "First comment", 3, "2009-07-01 11:01:20"));
+    news.addComment(new Comment("gonzo", "Second comment", 5, "2009-07-02 11:01:20"));
+    news.addComment(new Comment("elvis", "Fourth comment", 2, "2009-07-06 11:01:20"));
 
     tx.begin();
     em.persist(news);
