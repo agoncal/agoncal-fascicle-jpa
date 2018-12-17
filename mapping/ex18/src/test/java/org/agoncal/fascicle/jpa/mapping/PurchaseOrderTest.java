@@ -2,8 +2,7 @@ package org.agoncal.fascicle.jpa.mapping;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -22,13 +21,10 @@ public class PurchaseOrderTest extends AbstractPersistentTest {
   @Test
   public void shouldCreateAnOrderWithTwoOrderLines() throws Exception {
 
-    PurchaseOrder order = new PurchaseOrder();
     OrderLine ol1 = new OrderLine("H2G2", 12d, 1);
     OrderLine ol2 = new OrderLine("The White Album", 14.5d, 2);
-    List<OrderLine> orderLines = new ArrayList<>();
-    orderLines.add(ol1);
-    orderLines.add(ol2);
-    order.setOrderLines(orderLines);
+    PurchaseOrder order = new PurchaseOrder();
+    order.setOrderLines(Arrays.asList(ol1, ol2));
     tx.begin();
     em.persist(order);
     em.persist(ol1);

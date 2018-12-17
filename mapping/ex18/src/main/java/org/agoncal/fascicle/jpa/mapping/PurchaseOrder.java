@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -16,8 +16,7 @@ public class PurchaseOrder {
   @Id
   @GeneratedValue
   private Long id;
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date creationDate;
+  private LocalDateTime creationDate;
   @OneToMany(fetch = FetchType.EAGER)
   private List<OrderLine> orderLines;
 
@@ -25,7 +24,7 @@ public class PurchaseOrder {
   // tag::adocSkip[]
 
   public PurchaseOrder() {
-    this.creationDate = new Date();
+    this.creationDate = LocalDateTime.now();
   }
 
   // ======================================
@@ -36,11 +35,15 @@ public class PurchaseOrder {
     return id;
   }
 
-  public Date getCreationDate() {
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public LocalDateTime getCreationDate() {
     return creationDate;
   }
 
-  public void setCreationDate(Date creationDate) {
+  public void setCreationDate(LocalDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
