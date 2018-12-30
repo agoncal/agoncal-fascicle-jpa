@@ -1,6 +1,7 @@
-create table news_comment (
-  news_id bigint not null,
-  comments_id bigint not null,
-  publication_index integer not null,
-  primary key (news_id, publication_index)
+CREATE TABLE NEWS_COMMENT
+(
+  News_ID           BIGINT NOT NULL,
+  comments_ID       BIGINT NOT NULL,
+  publication_index INTEGER,
+  PRIMARY KEY (News_ID, comments_ID)
 )

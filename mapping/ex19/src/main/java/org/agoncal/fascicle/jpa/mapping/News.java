@@ -18,7 +18,6 @@ public class News {
   private Long id;
   @Column(nullable = false)
   private String content;
-  @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
   @OrderColumn(name = "publication_index")
   private List<Comment> comments;
 
