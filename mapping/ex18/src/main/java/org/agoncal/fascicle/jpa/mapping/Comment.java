@@ -70,6 +70,15 @@ public class Comment {
   public void setNote(Integer note) {
     this.note = note;
   }
+
+  public LocalDateTime getPostedDate() {
+    return postedDate;
+  }
+
+  public void setPostedDate(LocalDateTime postedDate) {
+    this.postedDate = postedDate;
+  }
+
   // end::adocSkip[]
 }
 // end::adocSnippet[]
