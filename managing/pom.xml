@@ -6,7 +6,8 @@
   <groupId>org.agoncal.fascicle.jpa</groupId>
   <artifactId>managing</artifactId>
   <version>2.2</version>
-  <name>JPA :: Managing Persistent Objects</name>
+  <packaging>pom</packaging>
+  <name>JPA :: Managing</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
@@ -14,25 +15,8 @@
     <version>2.2</version>
   </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>javax.persistence-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-    </dependency>
-
-    <!-- Test -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-    </dependency>
-  </dependencies>
-
+  <modules>
+    <module>ex01</module>
+    <module>ex02</module>
+  </modules>
 </project>
