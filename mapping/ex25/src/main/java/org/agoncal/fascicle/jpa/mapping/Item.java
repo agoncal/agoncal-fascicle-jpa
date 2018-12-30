@@ -2,6 +2,8 @@ package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.*;
 
+import static javax.persistence.InheritanceType.*;
+
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -9,7 +11,7 @@ import javax.persistence.*;
  */
 // tag::adocSnippet[]
 @MappedSuperclass
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = JOINED)
 public abstract class Item {
 
   @Id
