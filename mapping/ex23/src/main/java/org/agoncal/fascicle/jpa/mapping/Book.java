@@ -7,7 +7,6 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "override_book")
 // tag::adocSnippet[]
 @Entity
 @AttributeOverrides({

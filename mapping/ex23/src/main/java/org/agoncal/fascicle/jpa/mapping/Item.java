@@ -7,14 +7,10 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "override_item")
+// tag::adocSnippet[]
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Item {
-
-  // ======================================
-  // =             Attributes             =
-  // ======================================
 
   @Id
   @GeneratedValue
@@ -23,9 +19,8 @@ public class Item {
   protected String description;
   protected Float price;
 
-  // ======================================
-  // =            Constructors            =
-  // ======================================
+  // Constructors, getters, setters
+  // tag::adocSkip[]
 
   public Item() {
   }
@@ -67,4 +62,6 @@ public class Item {
   public void setDescription(String description) {
     this.description = description;
   }
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
