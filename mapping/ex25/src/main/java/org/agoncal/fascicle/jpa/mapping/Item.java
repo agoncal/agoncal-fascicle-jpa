@@ -17,9 +17,9 @@ public abstract class Item {
   protected Long id;
   @Column(length = 50, nullable = false)
   protected String title;
-  protected Float price;
   @Column(length = 2000)
   protected String description;
+  protected Float price;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
