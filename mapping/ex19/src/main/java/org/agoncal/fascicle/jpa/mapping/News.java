@@ -18,6 +18,7 @@ public class News {
   private Long id;
   @Column(nullable = false)
   private String content;
+  @JoinColumn
   @OrderColumn(name = "publication_index")
   private List<Comment> comments;
 
