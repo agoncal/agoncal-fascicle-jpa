@@ -1,9 +1,5 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import org.agoncal.fascicle.jpa.mapping.AbstractPersistentTest;
-import org.agoncal.fascicle.jpa.mapping.Book;
-import org.agoncal.fascicle.jpa.mapping.CD;
-import org.agoncal.fascicle.jpa.mapping.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
