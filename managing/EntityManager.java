@@ -30,7 +30,7 @@ public interface EntityManager {
   // Returns an entity transaction
   public EntityTransaction getTransaction();
 
-  // Indicates that a JTA transaction is active and joins the persistence context to it
+  // Indicates if a JTA transaction is active and joins the persistence context to it
   public void joinTransaction();
   public boolean isJoinedToTransaction();
 
@@ -90,7 +90,7 @@ public interface EntityManager {
   public Query createQuery(CriteriaUpdate updateQuery);
   public Query createQuery(CriteriaDelete deleteQuery);
 
-  // Returns an entity graph
+  // Creates and returns an entity graph
   public <T> EntityGraph<T> createEntityGraph(Class<T> rootType);
   public EntityGraph<?> createEntityGraph(String graphName);
   public  EntityGraph<?> getEntityGraph(String graphName);
