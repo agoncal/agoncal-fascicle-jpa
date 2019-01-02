@@ -15,13 +15,15 @@ public class Main {
 
   public static void main(String[] args) {
 
-    // Obtains an entity manager and a transaction
+    // Obtains an entity manager
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
     EntityManager em = emf.createEntityManager();
+
+    // Obtains a transaction
     EntityTransaction tx = em.getTransaction();
 
     // Creates an instance of book
-    Book book = new Book("H2G2", "The Hitchhiker's Guide to the Galaxy", 12.5F, "1-84023-742-2", 354, false);
+    Book book = new Book().title("H2G2").description("The Hitchhiker's Guide to the Galaxy").price(12.5F).isbn("1-84023-742-2").nbOfPages(354);
 
     // Persists the book to the database
     tx.begin();

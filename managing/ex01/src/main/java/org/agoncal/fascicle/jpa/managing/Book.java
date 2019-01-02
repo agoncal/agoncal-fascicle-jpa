@@ -44,12 +44,26 @@ public class Book {
     return id;
   }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Book id(Long id) {
+    this.id = id;
+    return this;
+  }
+
   public String getTitle() {
     return title;
   }
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public Book title(String title) {
+    this.title = title;
+    return this;
   }
 
   public Float getPrice() {
@@ -60,12 +74,22 @@ public class Book {
     this.price = price;
   }
 
+  public Book price(Float price) {
+    this.price = price;
+    return this;
+  }
+
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public Book description(String description) {
+    this.description = description;
+    return this;
   }
 
   public String getIsbn() {
@@ -76,6 +100,11 @@ public class Book {
     this.isbn = isbn;
   }
 
+  public Book isbn(String isbn) {
+    this.isbn = isbn;
+    return this;
+  }
+
   public Integer getNbOfPages() {
     return nbOfPages;
   }
@@ -84,12 +113,9 @@ public class Book {
     this.nbOfPages = nbOfPages;
   }
 
-  public Boolean getIllustrations() {
-    return illustrations;
-  }
-
-  public void setIllustrations(Boolean illustrations) {
-    this.illustrations = illustrations;
+  public Book nbOfPages(Integer nbOfPages) {
+    this.nbOfPages = nbOfPages;
+    return this;
   }
 
   // ======================================
@@ -98,16 +124,14 @@ public class Book {
 
   @Override
   public String toString() {
-    final StringBuilder sb = new StringBuilder();
-    sb.append("Book");
-    sb.append("{id=").append(id);
-    sb.append(", title='").append(title).append('\'');
-    sb.append(", price=").append(price);
-    sb.append(", description='").append(description).append('\'');
-    sb.append(", isbn='").append(isbn).append('\'');
-    sb.append(", nbOfPages=").append(nbOfPages);
-    sb.append(", illustrations=").append(illustrations);
-    sb.append('}');
-    return sb.toString();
+    return "Book{" +
+      "id=" + id +
+      ", title='" + title + '\'' +
+      ", price=" + price +
+      ", description='" + description + '\'' +
+      ", isbn='" + isbn + '\'' +
+      ", nbOfPages=" + nbOfPages +
+      ", illustrations=" + illustrations +
+      '}';
   }
 }
