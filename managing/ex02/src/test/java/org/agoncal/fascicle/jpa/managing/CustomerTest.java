@@ -120,16 +120,50 @@ public class CustomerTest extends AbstractPersistentTest {
     em.remove(address);
     tx.commit();
 
-    // The object is still available until GC
+    // The objects are still available until GC
     assertEquals(customer.getFirstName(), "Antony");
     assertEquals(address.getCity(), "London");
 
-    // The object is not in the database
+    // The entities are not in the database
     customer = em.find(Customer.class, customer.getId());
     assertNull(customer);
     address = em.find(Address.class, address.getId());
     assertNull(address);
     // end::adocRemove[]
+  }
+
+  @Test
+  public void shouldRemoveACustomerAndLeaveAddressOrphan() throws Exception {
+
+    // tag::adocOrphan[]
+    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
+    customer.setAddress(address);
+
+    // Persist the object
+    tx.begin();
+    em.persist(customer);
+    em.persist(address);
+    tx.commit();
+
+    assertNotNull(customer.getId());
+    assertNotNull(address.getId());
+
+    // Removes the object from the database
+    tx.begin();
+    em.remove(customer);
+    tx.commit();
+
+    // The objects are still available until GC
+    assertEquals(customer.getFirstName(), "Antony");
+    assertEquals(address.getCity(), "London");
+
+    // Customer is not in the database but address is
+    customer = em.find(Customer.class, customer.getId());
+    assertNull(customer);
+    address = em.find(Address.class, address.getId());
+    assertNotNull(address);
+    // end::adocOrphan[]
   }
 
   @Test
