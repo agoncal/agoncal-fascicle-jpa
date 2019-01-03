@@ -191,15 +191,15 @@ public class CustomerTest extends AbstractPersistentTest {
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
+    // tag::adocFlush[]
     assertThrows(IllegalStateException.class, () -> {
-        // tag::adocFlush[]
         tx.begin();
         em.persist(customer);
         em.flush();
         em.persist(address);
         tx.commit();
-        // end::adocFlush[]
       });
+    // end::adocFlush[]
   }
 
   @Test
@@ -226,7 +226,8 @@ public class CustomerTest extends AbstractPersistentTest {
     customer.setFirstName("William");
     assertEquals("William", customer.getFirstName());
 
-    em.refresh(createdCustomer);
+    // Refreshes the customer entity
+    em.refresh(customer);
     assertEquals("Antony", customer.getFirstName());
     // end::adocRefresh[]
   }
@@ -236,6 +237,8 @@ public class CustomerTest extends AbstractPersistentTest {
 
     // tag::adocContains[]
     Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+
+    assertFalse(em.contains(customer));
 
     // Persist the object
     tx.begin();
@@ -266,7 +269,7 @@ public class CustomerTest extends AbstractPersistentTest {
 
     assertTrue(em.contains(customer));
 
-    // Detaches the object
+    // Detaches the entity
     em.detach(customer);
 
     assertFalse(em.contains(customer));
