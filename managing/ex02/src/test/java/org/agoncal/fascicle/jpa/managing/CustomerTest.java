@@ -167,6 +167,42 @@ public class CustomerTest extends AbstractPersistentTest {
   }
 
   @Test
+  public void shouldPersistWithNoFlush() throws Exception {
+
+    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
+    customer.setAddress(address);
+
+    // tag::adocNoFlush[]
+    tx.begin();
+    em.persist(customer);
+    em.persist(address);
+    tx.commit();
+    // end::adocNoFlush[]
+
+    assertNotNull(customer.getId());
+    assertNotNull(address.getId());
+  }
+
+  @Test
+  public void shouldPersistWithFlush() throws Exception {
+
+    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
+    customer.setAddress(address);
+
+    assertThrows(IllegalStateException.class, () -> {
+        // tag::adocFlush[]
+        tx.begin();
+        em.persist(customer);
+        em.flush();
+        em.persist(address);
+        tx.commit();
+        // end::adocFlush[]
+      });
+  }
+
+  @Test
   public void shouldPersistACustomerAndThenRefreshIt() throws Exception {
 
     Customer createdCustomer = new Customer("Antony", "Balla", "tballa@mail.com");
