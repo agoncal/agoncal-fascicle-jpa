@@ -114,15 +114,17 @@ public class CustomerTest extends AbstractPersistentTest {
     assertNotNull(customer.getId());
     assertNotNull(address.getId());
 
-    // Removes the object
+    // Removes the object from the database
     tx.begin();
     em.remove(customer);
     em.remove(address);
     tx.commit();
 
+    // The object is still available until GC
     assertEquals(customer.getFirstName(), "Antony");
     assertEquals(address.getCity(), "London");
 
+    // The object is not in the database
     customer = em.find(Customer.class, customer.getId());
     assertNull(customer);
     address = em.find(Address.class, address.getId());
