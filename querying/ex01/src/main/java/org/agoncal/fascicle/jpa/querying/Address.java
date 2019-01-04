@@ -3,6 +3,9 @@ package org.agoncal.fascicle.jpa.querying;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import static javax.persistence.CascadeType.PERSIST;
 
 /**
  * @author Antonio Goncalves
@@ -19,7 +22,8 @@ public class Address {
   private String street1;
   private String city;
   private String zipcode;
-  private String country;
+  @OneToOne(cascade = {PERSIST})
+  private Country country;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -27,11 +31,10 @@ public class Address {
   public Address() {
   }
 
-  public Address(String street1, String city, String zipcode, String country) {
+  public Address(String street1, String city, String zipcode) {
     this.street1 = street1;
     this.city = city;
     this.zipcode = zipcode;
-    this.country = country;
   }
 
   // ======================================
@@ -70,13 +73,14 @@ public class Address {
     this.zipcode = zipcode;
   }
 
-  public String getCountry() {
+  public Country getCountry() {
     return country;
   }
 
-  public void setCountry(String country) {
+  public void setCountry(Country country) {
     this.country = country;
   }
-  // end::adocSkip[]
+
+// end::adocSkip[]
 }
 // end::adocSnippet[]

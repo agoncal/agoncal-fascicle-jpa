@@ -63,34 +63,47 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
   }
 
   @Test
-  public void shouldUseJPQLQueries() throws Exception {
+  public void shouldQueryCustomers() throws Exception {
 
     Customer customer01 = new Customer("Antony", "Balla", "tballa@mail.com", 14);
-    Address address01 = new Address("Procession St", "Paris", "75015", "FR");
+    Address address01 = new Address("Procession St", "Paris", "75015");
+    Country country01 = new Country("FR");
+    address01.setCountry(country01);
     customer01.setAddress(address01);
 
     Customer customer02 = new Customer("Vincent", "Johnson", "vj@mail.com", 45);
-    Address address02 = new Address("Ritherdon Rd", "London", "8QE", "UK");
+    Address address02 = new Address("Ritherdon Rd", "London", "8QE");
+    Country country02 = new Country("UK");
+    address02.setCountry(country02);
     customer02.setAddress(address02);
 
     Customer customer03 = new Customer("Sebastian", "Twenty", "seb@yamail.com", 58);
-    Address address03 = new Address("Inacio Alfama", "Lisbon", "A54", "PT");
+    Address address03 = new Address("Inacio Alfama", "Lisbon", "A54");
+    Country country03 = new Country("PT");
+    address03.setCountry(country03);
     customer03.setAddress(address03);
 
     Customer customer04 = new Customer("Frederic", "Riou", "fred@carmail.com", 41);
-    Address address04 = new Address("Jardins", "Sao Paulo", "345678", "BR");
+    Address address04 = new Address("Jardins", "Sao Paulo", "345678");
+    Country country04 = new Country("BR");
+    address04.setCountry(country04);
     customer04.setAddress(address04);
 
     Customer customer05 = new Customer("Vincent", "Dubosc", "vd@yahoo.com", 14);
-    Address address05 = new Address("Coffey", "Perth", "654F543", "AU");
+    Address address05 = new Address("Coffey", "Perth", "654F543");
+    Country country05 = new Country("AU");
+    address05.setCountry(country05);
     customer05.setAddress(address05);
 
     Customer customer06 = new Customer("David", "Chene", "dch@yahoo.com", 89);
-    Address address06 = new Address("Harbour Bridge", "Sydney", "JHG3", "AU");
+    Address address06 = new Address("Harbour Bridge", "Sydney", "JHG3");
+    address06.setCountry(country05);
     customer06.setAddress(address06);
 
-    Customer customer07 = new Customer("Betty", "Moreau", "bty@more.com", 39);
-    Address address07 = new Address("Playa de la Concha", "San Sebastian", "45678", "ES");
+    Customer customer07 = new Customer("Mike", "Pertus", "pertus@mike.com", 39);
+    Address address07 = new Address("Playa de la Concha", "San Sebastian", "45678");
+    Country country07 = new Country("ES");
+    address07.setCountry(country07);
     customer07.setAddress(address07);
 
     // Persist the object
@@ -104,50 +117,72 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     em.persist(customer07);
     tx.commit();
 
-    Query query = em.createQuery("select c from Customer c");
+    Query query = em.createQuery("SELECT c FROM Customer c");
     assertEquals(ALL_CUSTOMERS, query.getResultList().size());
 
-    query = em.createQuery("select c.firstName from Customer c");
+    query = em.createQuery("SELECT c.firstName FROM Customer c");
     assertEquals(ALL_CUSTOMERS, query.getResultList().size());
+
+    query = em.createQuery("SELECT c.firstName, c.lastName FROM Customer c");
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
+
+    query = em.createQuery("SELECT c.address FROM Customer c");
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
+
+    query = em.createQuery("SELECT c.address.country.code FROM Customer c");
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
+
+    query = em.createQuery("SELECT NEW org.agoncal.fascicle.jpa.querying.CustomerDTO(c.firstName, c.lastName, c.address.country.code) FROM Customer c");
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
+
+    query = em.createQuery("SELECT DISTINCT c FROM Customer c");
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
+
+    query = em.createQuery("SELECT DISTINCT c.firstName FROM Customer c");
+    assertEquals(ALL_CUSTOMERS - 1, query.getResultList().size());
+
+    query = em.createQuery("SELECT COUNT(c) FROM Customer c");
+    assertEquals(new Long(ALL_CUSTOMERS), query.getSingleResult());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName = 'Vincent'");
+    assertEquals(2, query.getResultList().size());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName = 'Vincent' AND c.address.country.code = 'AU'");
+    assertEquals(1, query.getResultList().size());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.age > 18");
+    assertEquals(5, query.getResultList().size());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.age NOT BETWEEN 40 AND 50");
+    assertEquals(5, query.getResultList().size());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.address.country.code IN ('UK', 'FR')");
+    assertEquals(2, query.getResultList().size());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.email LIKE '%mail.com'");
+    assertEquals(4, query.getResultList().size());
+
+
+
+
+
+    query = em.createQuery("SELECT NEW org.agoncal.fascicle.jpa.querying.CustomerDTO(c.firstName, c.lastName, c.address.country.code) from Customer c where c.firstName = 'Vincent'");
+    assertEquals(2, query.getResultList().size());
 
     query = em.createQuery("select LOWER(c.firstName) from Customer c");
     assertEquals(ALL_CUSTOMERS, query.getResultList().size());
 
-    query = em.createQuery("select c.firstName, c.lastName  from Customer c");
-    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
-
-    query = em.createQuery("select distinct c.firstName from Customer c");
-    assertEquals(ALL_CUSTOMERS - 1, query.getResultList().size());
-
-    query = em.createQuery("select c from Customer c where c.firstName = 'Vincent'");
-    assertEquals(2, query.getResultList().size());
-
     query = em.createQuery("select c.address from Customer c where c.firstName = 'Vincent'");
     assertEquals(2, query.getResultList().size());
 
-    query = em.createQuery("select c from Customer c where c.address.country = 'AU'");
-    assertEquals(2, query.getResultList().size());
-
-    query = em.createQuery("select new org.agoncal.fascicle.jpa.querying.CustomerDTO(c.firstName, c.lastName, c.address.country) from Customer c where c.firstName = 'Vincent'");
+    query = em.createQuery("select c from Customer c where c.address.country.code = 'AU'");
     assertEquals(2, query.getResultList().size());
 
     query = em.createQuery("select count(c) from Customer c where c.firstName = 'Vincent'");
     assertEquals(2L, query.getSingleResult());
 
-    query = em.createQuery("select c from Customer c where c.age > 40");
-    assertEquals(4, query.getResultList().size());
-
     query = em.createQuery("select c from Customer c where c.age between 40 and 50");
     assertEquals(2, query.getResultList().size());
-
-    query = em.createQuery("select c from Customer c where c.age not between 40 and 50");
-    assertEquals(5, query.getResultList().size());
-
-    query = em.createQuery("select c from Customer c where c.address.country in ('UK', 'FR')");
-    assertEquals(2, query.getResultList().size());
-
-    query = em.createQuery("select c from Customer c where c.email like '%mail.com'");
-    assertEquals(4, query.getResultList().size());
 
     query = em.createQuery("select min(c.age) from Customer c");
     assertEquals(14, query.getSingleResult());
@@ -155,7 +190,7 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     query = em.createQuery("select c.address.country, count(c) from Customer c group by c.address.country");
     assertEquals(6, query.getResultList().size());
 
-    query = em.createQuery("select c.address.country, count(c) from Customer c group by c.address.country having c.address.country <> 'UK'");
+    query = em.createQuery("select c.address.country, count(c) from Customer c group by c.address.country having c.address.country.code <> 'UK'");
     assertEquals(5, query.getResultList().size());
 
     query = em.createQuery("select c from Customer c where c.age = (select min(cust.age) from Customer cust)");
@@ -202,7 +237,7 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     assertEquals(new Float(50F), prices.get(1));
     assertEquals(new Float(10F), prices.get(2));
 
-    query = em.createQuery("SELECT CASE WHEN b.editor ='Apress' THEN b.price * 0.5 ELSE b.price * 0.8 END FROM Book b ORDER BY b.isbn ASC");
+    query = em.createQuery("SELECT CASE b.editor WHEN 'Apress' THEN b.price * 0.5 ELSE b.price * 0.8 END FROM Book b");
     prices = query.getResultList();
     assertEquals(3, prices.size());
     assertEquals(new Double(6), prices.get(0), "12 * 0.5 = 6");
