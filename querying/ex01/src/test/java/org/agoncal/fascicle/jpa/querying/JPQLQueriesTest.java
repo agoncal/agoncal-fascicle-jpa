@@ -18,11 +18,42 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
   // =              Constants             =
   // ======================================
 
-  private static final int ALL = 7;
+  private static final int ALL_CUSTOMERS = 7;
+  private static final int ALL_BOOKS = 3;
 
   // ======================================
   // =              Unit tests            =
   // ======================================
+
+
+  @Test
+  public void shouldQueryBooks() throws Exception {
+
+    Book book01 = new Book("The Hitchhiker's Guide to the Galaxy", 12F, "The Hitchhiker's Guide to the Galaxy is a science fiction comedy series created by Douglas Adams.", "1-84023-742-2", 354, false, "Apress");
+    Book book02 = new Book("Java EE 6", 50F, "Learn about EE 6", "2-84023-742-2", 450, true, "Apress");
+    Book book03 = new Book("Narcisse and Golmund", 10F, "One of the best Herman Hesse book", "3-84023-742-2", 153, false, "Pinguin");
+
+    // Persist the object
+    tx.begin();
+    em.persist(book01);
+    em.persist(book02);
+    em.persist(book03);
+    tx.commit();
+
+    Query query = em.createQuery(
+      // tag::adocSelectFromBook[]
+      "SELECT b FROM Book b"
+      // end::adocSelectFromBook[]
+    );
+    assertEquals(ALL_BOOKS, query.getResultList().size());
+
+    // Remove objects
+    tx.begin();
+    em.remove(book01);
+    em.remove(book02);
+    em.remove(book03);
+    tx.commit();
+  }
 
   @Test
   public void shouldUseJPQLQueries() throws Exception {
@@ -67,19 +98,19 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     tx.commit();
 
     Query query = em.createQuery("select c from Customer c");
-    assertEquals(ALL, query.getResultList().size());
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
 
     query = em.createQuery("select c.firstName from Customer c");
-    assertEquals(ALL, query.getResultList().size());
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
 
     query = em.createQuery("select LOWER(c.firstName) from Customer c");
-    assertEquals(ALL, query.getResultList().size());
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
 
     query = em.createQuery("select c.firstName, c.lastName  from Customer c");
-    assertEquals(ALL, query.getResultList().size());
+    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
 
     query = em.createQuery("select distinct c.firstName from Customer c");
-    assertEquals(ALL - 1, query.getResultList().size());
+    assertEquals(ALL_CUSTOMERS - 1, query.getResultList().size());
 
     query = em.createQuery("select c from Customer c where c.firstName = 'Vincent'");
     assertEquals(2, query.getResultList().size());
