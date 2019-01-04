@@ -17,7 +17,7 @@
     <module>managing</module>
     <module>mapping</module>
     <!--<module>putting-together</module>-->
-    <!--<module>querying</module>-->
+    <module>querying</module>
     <module>understanding</module>
   </modules>
 
