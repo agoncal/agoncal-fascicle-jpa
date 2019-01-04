@@ -29,7 +29,7 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
   @Test
   public void shouldQueryBooks() throws Exception {
 
-    Book book01 = new Book("The Hitchhiker's Guide to the Galaxy", 12F, "The Hitchhiker's Guide to the Galaxy is a science fiction comedy series created by Douglas Adams.", "1-84023-742-2", 354, false, "Apress");
+    Book book01 = new Book("H2G2", 12F, "The Hitchhiker's Guide to the Galaxy is a science fiction comedy series created by Douglas Adams.", "1-84023-742-2", 354, false, "Apress");
     Book book02 = new Book("Java EE 6", 50F, "Learn about EE 6", "2-84023-742-2", 450, true, "Apress");
     Book book03 = new Book("Narcisse and Golmund", 10F, "One of the best Herman Hesse book", "3-84023-742-2", 153, false, "Pinguin");
 
@@ -46,6 +46,13 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
       // end::adocSelectFromBook[]
     );
     assertEquals(ALL_BOOKS, query.getResultList().size());
+
+    query = em.createQuery(
+      // tag::adocSelectFromBookH2G2[]
+      "SELECT b FROM Book b WHERE b.title = 'H2G2'"
+      // end::adocSelectFromBookH2G2[]
+    );
+    assertEquals(1, query.getResultList().size());
 
     // Remove objects
     tx.begin();
