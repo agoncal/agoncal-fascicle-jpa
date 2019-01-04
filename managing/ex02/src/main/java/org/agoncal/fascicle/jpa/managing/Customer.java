@@ -2,6 +2,8 @@ package org.agoncal.fascicle.jpa.managing;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.LAZY;
+
 
 /**
  * @author Antonio Goncalves
@@ -18,7 +20,7 @@ public class Customer {
   private String firstName;
   private String lastName;
   private String email;
-  @OneToOne(fetch = FetchType.LAZY)
+  @OneToOne(fetch = LAZY)
   @JoinColumn(name = "address_fk")
   private Address address;
 

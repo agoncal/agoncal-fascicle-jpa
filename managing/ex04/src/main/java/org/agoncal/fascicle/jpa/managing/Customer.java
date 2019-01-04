@@ -2,6 +2,10 @@ package org.agoncal.fascicle.jpa.managing;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.FetchType.LAZY;
+
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -17,7 +21,7 @@ public class Customer {
   private String firstName;
   private String lastName;
   private String email;
-  @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+  @OneToOne(fetch = LAZY, cascade = {PERSIST, REMOVE})
   @JoinColumn(name = "address_fk")
   private Address address;
 
