@@ -21,11 +21,11 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldPersistACustomerWithOneAddressSet() throws Exception {
 
     // tag::adocPersisting[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     em.persist(address);
@@ -39,11 +39,11 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldFindACustomer() throws Exception {
 
-    Customer createdCustomer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer createdCustomer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address createdAddress = new Address("Ritherdon Rd", "London", "8QE", "UK");
     createdCustomer.setAddress(createdAddress);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(createdCustomer);
     em.persist(createdAddress);
@@ -68,11 +68,11 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldGetAReferenceToCustomer() throws Exception {
 
-    Customer createdCustomer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer createdCustomer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address createdAddress = new Address("Ritherdon Rd", "London", "8QE", "UK");
     createdCustomer.setAddress(createdAddress);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(createdCustomer);
     em.persist(createdAddress);
@@ -101,11 +101,11 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldRemoveACustomer() throws Exception {
 
     // tag::adocRemove[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     em.persist(address);
@@ -121,7 +121,7 @@ public class CustomerTest extends AbstractPersistentTest {
     tx.commit();
 
     // The objects are still available until GC
-    assertEquals(customer.getFirstName(), "Antony");
+    assertEquals(customer.getFirstName(), "Anthony");
     assertEquals(address.getCity(), "London");
 
     // The entities are not in the database
@@ -136,11 +136,11 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldRemoveACustomerAndLeaveAddressOrphan() throws Exception {
 
     // tag::adocOrphan[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     em.persist(address);
@@ -155,7 +155,7 @@ public class CustomerTest extends AbstractPersistentTest {
     tx.commit();
 
     // The objects are still available until GC
-    assertEquals(customer.getFirstName(), "Antony");
+    assertEquals(customer.getFirstName(), "Anthony");
     assertEquals(address.getCity(), "London");
 
     // Customer is not in the database but address is
@@ -169,7 +169,7 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldPersistWithNoFlush() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
@@ -187,7 +187,7 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldPersistWithFlush() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
@@ -205,11 +205,11 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldPersistACustomerAndThenRefreshIt() throws Exception {
 
-    Customer createdCustomer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer createdCustomer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address createdAddress = new Address("Ritherdon Rd", "London", "8QE", "UK");
     createdCustomer.setAddress(createdAddress);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(createdCustomer);
     em.persist(createdAddress);
@@ -221,14 +221,14 @@ public class CustomerTest extends AbstractPersistentTest {
 
     // tag::adocRefresh[]
     Customer customer = em.find(Customer.class, id);
-    assertEquals("Antony", customer.getFirstName());
+    assertEquals("Anthony", customer.getFirstName());
 
     customer.setFirstName("William");
     assertEquals("William", customer.getFirstName());
 
     // Refreshes the customer entity
     em.refresh(customer);
-    assertEquals("Antony", customer.getFirstName());
+    assertEquals("Anthony", customer.getFirstName());
     // end::adocRefresh[]
   }
 
@@ -236,11 +236,11 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldCheckIfItContainsACustomer() throws Exception {
 
     // tag::adocContains[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
 
     assertFalse(em.contains(customer));
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     tx.commit();
@@ -260,9 +260,9 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldDetachACustomer() throws Exception {
 
     // tag::adocDetach[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     tx.commit();
@@ -280,25 +280,29 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldClearAndThenMergeACustomer() throws Exception {
 
     // tag::adocClearMerge[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     tx.commit();
     assertTrue(em.contains(customer));
 
+    // Clears the Persistence Context
     em.clear();
     assertFalse(em.contains(customer));
 
+    // Re-attaches the entity and updates name
     customer.setFirstName("William");
     tx.begin();
     em.merge(customer);
     tx.commit();
 
+    // Clears the Persistence Context
     em.clear();
     assertFalse(em.contains(customer));
 
+    // Checks the name has been updated
     customer = em.find(Customer.class, customer.getId());
     assertEquals(customer.getFirstName(), "William");
     assertTrue(em.contains(customer));
@@ -309,17 +313,17 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldUpdateACustomer() throws Exception {
 
     // tag::adocMerge[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
 
-    assertNotNull(customer.getId());
-    assertEquals(customer.getFirstName(), "Antony");
+    assertEquals(customer.getFirstName(), "Anthony");
 
-    customer.setFirstName("Williman");
-    assertEquals(customer.getFirstName(), "Williman");
+    // Updates name while managed
+    customer.setFirstName("William");
+    assertEquals(customer.getFirstName(), "William");
 
     tx.commit();
     // end::adocMerge[]
@@ -328,12 +332,12 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldPersistACustomerAndAnAddress() throws Exception {
 
-    // tag::adocCascade[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    // tag::adocNoCascade[]
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     em.persist(address);
@@ -341,33 +345,15 @@ public class CustomerTest extends AbstractPersistentTest {
 
     assertNotNull(customer.getId());
     assertNotNull(address.getId());
-    // end::adocCascade[]
-  }
-
-  @Test
-  public void shouldPersistACustomerAndCascadeToTheAddress() throws Exception {
-
-    // tag::adocCascadePersist[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
-    Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
-    customer.setAddress(address);
-
-    // Persist the object
-    tx.begin();
-    em.persist(customer);
-    tx.commit();
-
-    assertNotNull(customer.getId());
-    assertNotNull(address.getId());
-    // end::adocCascadePersist[]
+    // end::adocNoCascade[]
   }
 
   @Test
   public void shouldUpdateACustomerAndThenClearIt() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     tx.commit();
@@ -377,7 +363,7 @@ public class CustomerTest extends AbstractPersistentTest {
     assertFalse(em.contains(customer));
 
     customer = em.find(Customer.class, customer.getId());
-    assertEquals(customer.getFirstName(), "Antony");
+    assertEquals(customer.getFirstName(), "Anthony");
     assertTrue(em.contains(customer));
 
   }
@@ -385,9 +371,9 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldClearSetAndThenMergeACustomer() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     tx.commit();
@@ -413,9 +399,9 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldPersistACustomer() throws Exception {
 
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     tx.commit();
@@ -428,7 +414,7 @@ public class CustomerTest extends AbstractPersistentTest {
 
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(address);
     tx.commit();
