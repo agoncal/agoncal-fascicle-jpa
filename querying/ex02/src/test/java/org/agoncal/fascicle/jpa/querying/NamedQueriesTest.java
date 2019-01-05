@@ -2,6 +2,7 @@ package org.agoncal.fascicle.jpa.querying;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -102,7 +103,16 @@ public class NamedQueriesTest extends AbstractPersistentTest {
   // =              Unit tests            =
   // ======================================
 
-  public void other() {
+  @Test
+  public void adocQuery() throws Exception {
+    // tag::adocQuery[]
+    TypedQuery<Customer> typedQuery = em.createNamedQuery("findAll", Customer.class);
+    List<Customer> customers = typedQuery.getResultList();
+    // end::adocQuery[]
+    assertEquals(ALL_CUSTOMERS, customers.size());
+  }
+
+    public void other() {
     // Query
     // tag::adocQuery[]
     Query query = em.createNamedQuery("findAll");
