@@ -1,5 +1,3 @@
-package org.agoncal.fascicle.jpa.managing;
-
 import javax.persistence.FlushModeType;
 import javax.persistence.LockModeType;
 import javax.persistence.Parameter;
@@ -8,18 +6,20 @@ import java.util.*;
 import java.util.stream.Stream;
 
 // @formatter:off
-// tag::adocSnippet[]
+// tag::adocResult[]
 public interface Query {
 
   // Executes a query and returns a result
-  List getResultList();
   default Stream getResultStream() {
     return getResultList().stream();
   }
+  List getResultList();
   Object getSingleResult();
   int executeUpdate();
+  // end::adocResult[]
 
 
+  // tag::adocParameter[]
   // Sets parameters to the query
   <T> Query setParameter(Parameter<T> param, T value);
   Query setParameter(Parameter<Calendar> param, Calendar value,
@@ -48,15 +48,19 @@ public interface Query {
   <T> T getParameterValue(Parameter<T> param);
   Object getParameterValue(String name);
   Object getParameterValue(int position);
+  // end::adocParameter[]
 
 
+  // tag::adocMax[]
   // Constrains the number of results returned by a query
   Query setMaxResults(int maxResult);
   int getMaxResults();
   Query setFirstResult(int startPosition);
   int getFirstResult();
+  // end::adocMax[]
 
 
+  // tag::adocFlush[]
   // Sets and gets query hints
   Query setHint(String hintName, Object value);
   Map<String, Object> getHints();
@@ -75,4 +79,4 @@ public interface Query {
   // Allows access to the provider-specific API
   <T> T unwrap(Class<T> cls);
 }
-// end::adocSnippet[]
+// end::adocFlush[]
