@@ -171,7 +171,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
   public void adocQueryParamNum() throws Exception {
     // tag::adocQueryParamNum[]
     TypedQuery<Customer> typedQuery = em.createQuery(
-      "SELECT c FROM Customer c where c.firstName = ?1", Customer.class);
+      "SELECT c FROM Customer c WHERE c.firstName = ?1", Customer.class);
     typedQuery.setParameter(1, "Mike");
     List<Customer> customers = typedQuery.getResultList();
     // end::adocQueryParamNum[]
@@ -187,88 +187,6 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     List<Customer> customers = typedQuery.getResultList();
     // end::adocQueryMax[]
     assertEquals(5, customers.size());
-  }
-
-  public void other() throws Exception {
-
-    List<Customer> customers;
-
-    Query query = em.createQuery("select c from Customer c");
-    query.setMaxResults(3);
-    assertEquals(3, query.getResultList().size());
-
-    boolean someCriteria = true;
-    String jpqlQuery = "select c from Customer c";
-    if (someCriteria)
-      jpqlQuery += " where c.firstName = :fname";
-    query = em.createQuery(jpqlQuery);
-    query.setParameter("fname", "Vincent");
-    assertEquals(2, query.getResultList().size());
-
-    jpqlQuery = "select c from Customer c";
-    if (someCriteria)
-      jpqlQuery += " where c.firstName = ?1";
-    query = em.createQuery(jpqlQuery);
-    query.setParameter(1, "Vincent");
-    assertEquals(2, query.getResultList().size());
-
-    query = em.createQuery("select c from Customer c  where c.firstName = :fname");
-    query.setParameter("fname", "Vincent");
-    query.setMaxResults(1);
-    assertEquals(1, query.getResultList().size());
-
-    query = em.createQuery("select c from Customer c  where c.firstName = :fname").setParameter("fname", "Vincent").setMaxResults(1);
-    assertEquals(1, query.getResultList().size());
-
-    query = em.createQuery("SELECT c FROM Customer c", Customer.class);
-    customers = query.getResultList();
-    assertEquals(ALL_CUSTOMERS, customers.size());
-
-    // tag::adocQueryMax[]
-    query = em.createQuery("SELECT c FROM Customer c", Customer.class);
-    query.setMaxResults(5);
-    customers = query.getResultList();
-    // end::adocQueryMax[]
-    assertEquals(5, customers.size());
-
-
-    // TypedQuery
-    TypedQuery<Customer> typedQuery = em.createQuery("SELECT c FROM Customer c", Customer.class);
-    customers = typedQuery.getResultList();
-    assertEquals(ALL_CUSTOMERS, customers.size());
-
-    typedQuery = em.createQuery("select c from Customer c", Customer.class);
-    typedQuery.setMaxResults(3);
-    assertEquals(3, typedQuery.getResultList().size());
-
-    jpqlQuery = "select c from Customer c";
-    if (someCriteria)
-      jpqlQuery += " where c.firstName = 'Vincent'";
-    typedQuery = em.createQuery(jpqlQuery, Customer.class);
-    assertEquals(2, typedQuery.getResultList().size());
-
-    jpqlQuery = "select c from Customer c";
-    if (someCriteria)
-      jpqlQuery += " where c.firstName = :fname";
-    typedQuery = em.createQuery(jpqlQuery, Customer.class);
-    typedQuery.setParameter("fname", "Vincent");
-    assertEquals(2, typedQuery.getResultList().size());
-
-    jpqlQuery = "select c from Customer c";
-    if (someCriteria)
-      jpqlQuery += " where c.firstName = ?1";
-    typedQuery = em.createQuery(jpqlQuery, Customer.class);
-    typedQuery.setParameter(1, "Vincent");
-    assertEquals(2, typedQuery.getResultList().size());
-
-    typedQuery = em.createQuery("select c from Customer c  where c.firstName = :fname", Customer.class);
-    typedQuery.setParameter("fname", "Vincent");
-    typedQuery.setMaxResults(1);
-    assertEquals(1, typedQuery.getResultList().size());
-
-    typedQuery = em.createQuery("select c from Customer c  where c.firstName = :fname", Customer.class).setParameter("fname", "Vincent").setMaxResults(1);
-    assertEquals(1, typedQuery.getResultList().size());
-
   }
 }
 
