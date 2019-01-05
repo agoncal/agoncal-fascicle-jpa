@@ -178,7 +178,16 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     assertEquals(1, customers.size());
   }
 
-
+  @Test
+  public void adocQueryMax() throws Exception {
+    // tag::adocQueryMax[]
+    TypedQuery<Customer> typedQuery = em.createQuery(
+      "SELECT c FROM Customer c", Customer.class);
+    typedQuery.setMaxResults(5);
+    List<Customer> customers = typedQuery.getResultList();
+    // end::adocQueryMax[]
+    assertEquals(5, customers.size());
+  }
 
   public void other() throws Exception {
 
