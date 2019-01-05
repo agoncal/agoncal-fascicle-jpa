@@ -108,7 +108,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
   public void adocQuery() throws Exception {
     // tag::adocQuery[]
     Query query = em.createQuery("SELECT c FROM Customer c");
-    List<Customer> customers = query.getResultList();
+    List customers = query.getResultList();
     // end::adocQuery[]
     assertEquals(ALL_CUSTOMERS, customers.size());
   }
