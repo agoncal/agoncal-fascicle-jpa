@@ -125,7 +125,8 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
   @Test
   public void adocTypedQuery() throws Exception {
     // tag::adocTypedQuery[]
-    TypedQuery<Customer> typedQuery = em.createQuery("SELECT c FROM Customer c", Customer.class);
+    TypedQuery<Customer> typedQuery = em.createQuery(
+      "SELECT c FROM Customer c", Customer.class);
     List<Customer> customers = typedQuery.getResultList();
     // end::adocTypedQuery[]
     assertEquals(ALL_CUSTOMERS, customers.size());
@@ -134,11 +135,38 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
   @Test
   public void adocTypedOneQuery() throws Exception {
     // tag::adocTypedOneQuery[]
-    TypedQuery<Customer> typedQuery = em.createQuery("SELECT c FROM Customer c WHERE c.firstName = 'Mike'", Customer.class);
+    TypedQuery<Customer> typedQuery = em.createQuery(
+      "SELECT c FROM Customer c WHERE c.firstName = 'Mike'", Customer.class);
     Customer customer = typedQuery.getSingleResult();
     // end::adocTypedOneQuery[]
     assertEquals("Mike", customer.getFirstName());
   }
+
+  @Test
+  public void adocQueryLine() throws Exception {
+    boolean someCriteria = true;
+    // tag::adocQueryLine[]
+    String jpqlQuery = "SELECT c FROM Customer c";
+    if (someCriteria)
+      jpqlQuery += " WHERE c.firstName = 'Mike'";
+
+    TypedQuery<Customer> typedQuery = em.createQuery(jpqlQuery, Customer.class);
+    List<Customer> customers = typedQuery.getResultList();
+    // end::adocQueryLine[]
+    assertEquals(1, customers.size());
+  }
+
+  @Test
+  public void adocQueryParam() throws Exception {
+    // tag::adocQueryParam[]
+    TypedQuery<Customer> typedQuery = em.createQuery(
+      "SELECT c FROM Customer c WHERE c.firstName = :fname", Customer.class);
+    typedQuery.setParameter("fname", "Mike");
+    List<Customer> customers = typedQuery.getResultList();
+    // end::adocQueryParam[]
+    assertEquals(1, customers.size());
+  }
+
 
   public void other() throws Exception {
 
@@ -149,28 +177,12 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     assertEquals(3, query.getResultList().size());
 
     boolean someCriteria = true;
-    // tag::adocQueryLine[]
     String jpqlQuery = "select c from Customer c";
-    if (someCriteria)
-      jpqlQuery += " where c.firstName = 'Mike'";
-    query = em.createQuery(jpqlQuery);
-    customers = query.getResultList();
-    // end::adocQueryLine[]
-    assertEquals(2, customers.size());
-
-    jpqlQuery = "select c from Customer c";
     if (someCriteria)
       jpqlQuery += " where c.firstName = :fname";
     query = em.createQuery(jpqlQuery);
     query.setParameter("fname", "Vincent");
     assertEquals(2, query.getResultList().size());
-
-    // tag::adocQueryParam[]
-    query = em.createQuery("SELECT c FROM Customer c where c.firstName = :fname");
-    query.setParameter("fname", "Mike");
-    customers = query.getResultList();
-    // end::adocQueryParam[]
-    assertEquals(1, customers.size());
 
     // tag::adocQueryParamNum[]
     query = em.createQuery("SELECT c FROM Customer c where c.firstName = ?1");
@@ -207,10 +219,8 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
 
 
     // TypedQuery
-    // tag::adocTypedQuery[]
     TypedQuery<Customer> typedQuery = em.createQuery("SELECT c FROM Customer c", Customer.class);
     customers = typedQuery.getResultList();
-    // end::adocTypedQuery[]
     assertEquals(ALL_CUSTOMERS, customers.size());
 
     typedQuery = em.createQuery("select c from Customer c", Customer.class);
