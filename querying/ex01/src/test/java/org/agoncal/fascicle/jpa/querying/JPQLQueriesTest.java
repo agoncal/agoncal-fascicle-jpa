@@ -117,6 +117,8 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     em.persist(customer07);
     tx.commit();
 
+    // Select
+
     Query query = em.createQuery("SELECT c FROM Customer c");
     assertEquals(ALL_CUSTOMERS, query.getResultList().size());
 
@@ -144,6 +146,8 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     query = em.createQuery("SELECT COUNT(c) FROM Customer c");
     assertEquals(new Long(ALL_CUSTOMERS), query.getSingleResult());
 
+    // Where
+
     query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName = 'Vincent'");
     assertEquals(2, query.getResultList().size());
 
@@ -162,6 +166,38 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     query = em.createQuery("SELECT c FROM Customer c WHERE c.email LIKE '%mail.com'");
     assertEquals(4, query.getResultList().size());
 
+    // Binding
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName = ?1 AND c.address.country.code = ?2");
+    query.setParameter(1, "Vincent");
+    query.setParameter(2, "AU");
+    assertEquals(1, query.getResultList().size());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.firstName = :fname AND c.address.country.code = :country");
+    query.setParameter("fname", "Vincent");
+    query.setParameter("country", "AU");
+    assertEquals(1, query.getResultList().size());
+
+    // Subqueries
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.age = (SELECT MIN(cust.age) FROM Customer cust)");
+    assertEquals(2, query.getResultList().size());
+
+    // Order By
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.age > 18 ORDER BY c.age DESC");
+    assertEquals(5, query.getResultList().size());
+
+    query = em.createQuery("SELECT c FROM Customer c WHERE c.age > 18 ORDER BY c.age DESC, c.address.country.code ASC");
+    assertEquals(5, query.getResultList().size());
+
+    // Group By and Having
+
+    query = em.createQuery("SELECT c.address.country.code, COUNT(c) FROM Customer c GROUP BY c.address.country.code");
+    assertEquals(6, query.getResultList().size());
+
+    query = em.createQuery("SELECT c.address.country.code, COUNT(c) FROM Customer c GROUP BY c.address.country.code HAVING c.address.country.code <> 'UK'");
+    assertEquals(5, query.getResultList().size());
 
 
 
@@ -186,15 +222,6 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
 
     query = em.createQuery("select min(c.age) from Customer c");
     assertEquals(14, query.getSingleResult());
-
-    query = em.createQuery("select c.address.country, count(c) from Customer c group by c.address.country");
-    assertEquals(6, query.getResultList().size());
-
-    query = em.createQuery("select c.address.country, count(c) from Customer c group by c.address.country having c.address.country.code <> 'UK'");
-    assertEquals(5, query.getResultList().size());
-
-    query = em.createQuery("select c from Customer c where c.age = (select min(cust.age) from Customer cust)");
-    assertEquals(2, query.getResultList().size());
 
     tx.begin();
     query = em.createQuery("update Customer c set c.firstName = 'TOO YOUNG' where c.age < 18");
