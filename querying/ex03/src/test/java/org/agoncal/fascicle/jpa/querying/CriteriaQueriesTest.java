@@ -4,8 +4,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * http://www.antoniogoncalves.org
  * --
  */
-public class NamedQueriesTest extends AbstractPersistentTest {
+public class CriteriaQueriesTest extends AbstractPersistentTest {
 
   // ======================================
   // =              Constants             =
@@ -103,89 +105,33 @@ public class NamedQueriesTest extends AbstractPersistentTest {
   // =              Unit tests            =
   // ======================================
 
-  @Test
-  public void adocQuery() throws Exception {
-    // tag::adocQuery[]
-    Query query = em.createNamedQuery("findAll");
-    List customers = query.getResultList();
-    // end::adocQuery[]
-    assertEquals(ALL_CUSTOMERS, customers.size());
-  }
 
   @Test
-  public void adocTypedQuery() throws Exception {
-    // tag::adocTypedQuery[]
-    TypedQuery<Customer> typedQuery = em.createNamedQuery("findAll", Customer.class);
-    List<Customer> customers = typedQuery.getResultList();
-    // end::adocTypedQuery[]
-    assertEquals(ALL_CUSTOMERS, customers.size());
-  }
+  public void adocNoWhere() throws Exception {
+    // tag::adocNoWhere[]
+    CriteriaBuilder builder = em.getCriteriaBuilder();
+    CriteriaQuery<Customer> criteriaQuery = builder.createQuery(Customer.class);
+    Root<Customer> customer = criteriaQuery.from(Customer.class);
+    criteriaQuery.select(customer);
 
-  @Test
-  public void adocParam() throws Exception {
-    // tag::adocParam[]
-    TypedQuery<Customer> typedQuery = em.createNamedQuery("findWithParam", Customer.class);
-    typedQuery.setParameter("fname", "Vincent");
-    typedQuery.setMaxResults(2);
-    // end::adocParam[]
-    List<Customer> customers = typedQuery.getResultList();
-    assertEquals(2, customers.size());
-  }
-
-  @Test
-  public void adocParamLine() throws Exception {
-    // tag::adocParamLine[]
-    TypedQuery<Customer> typedQuery = em
-      .createNamedQuery("findWithParam", Customer.class)
-      .setParameter("fname", "Vincent")
-      .setMaxResults(2);
-    // end::adocParamLine[]
-    List<Customer> customers = typedQuery.getResultList();
-    assertEquals(2, customers.size());
-  }
-
-  public void other() {
-    // Query
-    Query query = em.createNamedQuery("findAll");
+    TypedQuery<Customer> query = em.createQuery(criteriaQuery);
     List<Customer> customers = query.getResultList();
+    // end::adocNoWhere[]
     assertEquals(ALL_CUSTOMERS, customers.size());
+  }
 
-    query = em.createNamedQuery(Customer.FIND_ALL);
-    assertEquals(ALL_CUSTOMERS, query.getResultList().size());
+  @Test
+  public void adocWhere() throws Exception {
+    // tag::adocWhere[]
+    CriteriaBuilder builder = em.getCriteriaBuilder();
+    CriteriaQuery<Customer> criteriaQuery = builder.createQuery(Customer.class);
+    Root<Customer> c = criteriaQuery.from(Customer.class);
+    criteriaQuery.select(c).where(builder.equal(c.get("firstName"), "Vincent"));
 
-    query = em.createNamedQuery("findAll");
-    query.setMaxResults(3);
-    assertEquals(3, query.getResultList().size());
-
-    query = em.createNamedQuery("findVincent");
-    assertEquals(2, query.getResultList().size());
-
-    query = em.createNamedQuery("findWithParam");
-    query.setParameter("fname", "Vincent");
-    assertEquals(2, query.getResultList().size());
-
-    // TypedQuery
-    TypedQuery<Customer> typedQuery = em.createNamedQuery("findAll", Customer.class);
-    customers = typedQuery.getResultList();
-    assertEquals(ALL_CUSTOMERS, customers.size());
-
-    typedQuery = em.createNamedQuery(Customer.FIND_ALL, Customer.class);
-    assertEquals(ALL_CUSTOMERS, typedQuery.getResultList().size());
-
-    typedQuery = em.createNamedQuery("findAll", Customer.class);
-    typedQuery.setMaxResults(3);
-    assertEquals(3, typedQuery.getResultList().size());
-
-    typedQuery = em.createNamedQuery("findVincent", Customer.class);
-    assertEquals(2, typedQuery.getResultList().size());
-
-    typedQuery = em.createNamedQuery("findWithParam", Customer.class);
-    typedQuery.setParameter("fname", "Vincent");
-    typedQuery.setMaxResults(2);
-    assertEquals(2, typedQuery.getResultList().size());
-
-    typedQuery = em.createNamedQuery("findWithParam", Customer.class).setParameter("fname", "Vincent").setMaxResults(2);
-    assertEquals(2, typedQuery.getResultList().size());
+    TypedQuery<Customer> query = em.createQuery(criteriaQuery);
+    List<Customer> customers = query.getResultList();
+    // end::adocWhere[]
+    assertEquals(2, customers.size());
   }
 }
 
