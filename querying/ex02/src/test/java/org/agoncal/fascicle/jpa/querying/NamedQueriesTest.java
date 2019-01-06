@@ -104,7 +104,7 @@ public class NamedQueriesTest extends AbstractPersistentTest {
   // ======================================
 
   @Test
-  public void Query() throws Exception {
+  public void adocQuery() throws Exception {
     // tag::adocQuery[]
     Query query = em.createNamedQuery("findAll");
     List customers = query.getResultList();
@@ -113,7 +113,7 @@ public class NamedQueriesTest extends AbstractPersistentTest {
   }
 
   @Test
-  public void TypedQuery() throws Exception {
+  public void adocTypedQuery() throws Exception {
     // tag::adocTypedQuery[]
     TypedQuery<Customer> typedQuery = em.createNamedQuery("findAll", Customer.class);
     List<Customer> customers = typedQuery.getResultList();
@@ -121,11 +121,20 @@ public class NamedQueriesTest extends AbstractPersistentTest {
     assertEquals(ALL_CUSTOMERS, customers.size());
   }
 
-    public void other() {
+  @Test
+  public void adocParam() throws Exception {
+    // tag::adocParam[]
+    TypedQuery<Customer>typedQuery = em.createNamedQuery("findWithParam", Customer.class);
+    typedQuery.setParameter("fname", "Vincent");
+    typedQuery.setMaxResults(2);
+    // end::adocParam[]
+    List<Customer> customers = typedQuery.getResultList();
+    assertEquals(2, customers.size());
+  }
+
+  public void other() {
     // Query
-    // tag::adocQuery[]
     Query query = em.createNamedQuery("findAll");
-    // end::adocQuery[]
     List<Customer> customers = query.getResultList();
     assertEquals(ALL_CUSTOMERS, customers.size());
 
@@ -144,9 +153,7 @@ public class NamedQueriesTest extends AbstractPersistentTest {
     assertEquals(2, query.getResultList().size());
 
     // TypedQuery
-    // tag::adocTypedQuery[]
     TypedQuery<Customer> typedQuery = em.createNamedQuery("findAll", Customer.class);
-    // end::adocTypedQuery[]
     customers = typedQuery.getResultList();
     assertEquals(ALL_CUSTOMERS, customers.size());
 
