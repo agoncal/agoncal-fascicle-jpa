@@ -124,10 +124,22 @@ public class NamedQueriesTest extends AbstractPersistentTest {
   @Test
   public void adocParam() throws Exception {
     // tag::adocParam[]
-    TypedQuery<Customer>typedQuery = em.createNamedQuery("findWithParam", Customer.class);
+    TypedQuery<Customer> typedQuery = em.createNamedQuery("findWithParam", Customer.class);
     typedQuery.setParameter("fname", "Vincent");
     typedQuery.setMaxResults(2);
     // end::adocParam[]
+    List<Customer> customers = typedQuery.getResultList();
+    assertEquals(2, customers.size());
+  }
+
+  @Test
+  public void adocParamLine() throws Exception {
+    // tag::adocParamLine[]
+    TypedQuery<Customer> typedQuery = em
+      .createNamedQuery("findWithParam", Customer.class)
+      .setParameter("fname", "Vincent")
+      .setMaxResults(2);
+    // end::adocParamLine[]
     List<Customer> customers = typedQuery.getResultList();
     assertEquals(2, customers.size());
   }
