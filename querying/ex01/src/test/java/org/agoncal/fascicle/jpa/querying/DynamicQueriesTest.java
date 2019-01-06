@@ -110,6 +110,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     // tag::adocQuery[]
     Query query = em.createQuery("SELECT c FROM Customer c");
     List customers = query.getResultList();
+
     for (Object customer : customers) {
       System.out.println(((Customer)customer).getFirstName());
     }
@@ -132,6 +133,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     TypedQuery<Customer> typedQuery = em.createQuery(
       "SELECT c FROM Customer c", Customer.class);
     List<Customer> customers = typedQuery.getResultList();
+
     for (Customer customer : customers) {
       System.out.println(customer.getFirstName());
     }
@@ -155,7 +157,8 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     TypedQuery<Customer> typedQuery = em.createQuery(
       "SELECT c FROM Customer c", Customer.class);
     Stream<Customer> customers = typedQuery.getResultStream();
-    customers.forEach(System.out::println);
+
+    customers.forEach(c -> System.out.println(c.getFirstName()));
     // end::adocTypedQueryStream[]
   }
 
