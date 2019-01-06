@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -109,6 +110,9 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     // tag::adocQuery[]
     Query query = em.createQuery("SELECT c FROM Customer c");
     List customers = query.getResultList();
+    for (Object customer : customers) {
+      System.out.println(((Customer)customer).getFirstName());
+    }
     // end::adocQuery[]
     assertEquals(ALL_CUSTOMERS, customers.size());
   }
@@ -128,6 +132,9 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     TypedQuery<Customer> typedQuery = em.createQuery(
       "SELECT c FROM Customer c", Customer.class);
     List<Customer> customers = typedQuery.getResultList();
+    for (Customer customer : customers) {
+      System.out.println(customer.getFirstName());
+    }
     // end::adocTypedQuery[]
     assertEquals(ALL_CUSTOMERS, customers.size());
   }
@@ -140,6 +147,16 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     Customer customer = typedQuery.getSingleResult();
     // end::adocTypedOneQuery[]
     assertEquals("Mike", customer.getFirstName());
+  }
+
+  @Test
+  public void adocTypedQueryStream() throws Exception {
+    // tag::adocTypedQueryStream[]
+    TypedQuery<Customer> typedQuery = em.createQuery(
+      "SELECT c FROM Customer c", Customer.class);
+    Stream<Customer> customers = typedQuery.getResultStream();
+    customers.forEach(System.out::println);
+    // end::adocTypedQueryStream[]
   }
 
   @Test
