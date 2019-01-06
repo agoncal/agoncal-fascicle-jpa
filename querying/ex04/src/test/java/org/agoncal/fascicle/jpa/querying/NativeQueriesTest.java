@@ -1,13 +1,11 @@
 package org.agoncal.fascicle.jpa.querying;
 
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.Query;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * http://www.antoniogoncalves.org
  * --
  */
-public class CriteriaQueriesTest extends AbstractPersistentTest {
+public class NativeQueriesTest extends AbstractPersistentTest {
 
   // ======================================
   // =              Constants             =
@@ -109,57 +107,20 @@ public class CriteriaQueriesTest extends AbstractPersistentTest {
   @Test
   public void adocNoWhere() throws Exception {
     // tag::adocNoWhere[]
-    CriteriaBuilder builder = em.getCriteriaBuilder();
-    CriteriaQuery<Customer> criteriaQuery = builder.createQuery(Customer.class);
-    Root<Customer> customer = criteriaQuery.from(Customer.class);
-    criteriaQuery.select(customer);
-
-    TypedQuery<Customer> query = em.createQuery(criteriaQuery);
+    // Query
+    Query query = em.createNativeQuery("select * from t_customer", Customer.class);
     List<Customer> customers = query.getResultList();
+    assertEquals(ALL_CUSTOMERS, customers.size());
+
+//        query = em.createNativeQuery("findAllNative");
+//        customers = query.getResultList();
+//        assertEquals(ALL, customers.size());
+//
+//        query = em.createNativeQuery("select lastname from JPQL_EX01_CUSTOMER", String.class);
+//        List<String> customersNames = query.getResultList();
+//        assertEquals(ALL, customersNames.size());
     // end::adocNoWhere[]
     assertEquals(ALL_CUSTOMERS, customers.size());
   }
 
-  @Test
-  public void adocWhere() throws Exception {
-    // tag::adocWhere[]
-    CriteriaBuilder builder = em.getCriteriaBuilder();
-    CriteriaQuery<Customer> criteriaQuery = builder.createQuery(Customer.class);
-    Root<Customer> c = criteriaQuery.from(Customer.class);
-    criteriaQuery.select(c).where(builder.equal(c.get("firstName"), "Vincent"));
-
-    TypedQuery<Customer> query = em.createQuery(criteriaQuery);
-    List<Customer> customers = query.getResultList();
-    // end::adocWhere[]
-    assertEquals(2, customers.size());
-  }
-
-  @Test
-  public void adocAge() throws Exception {
-    // tag::adocAge[]
-    CriteriaBuilder builder = em.getCriteriaBuilder();
-    CriteriaQuery<Customer> criteriaQuery = builder.createQuery(Customer.class);
-    Root<Customer> c = criteriaQuery.from(Customer.class);
-    criteriaQuery.select(c).where(builder.greaterThan(c.get("age").as(Integer.class), 40));
-
-    TypedQuery<Customer> query = em.createQuery(criteriaQuery);
-    List<Customer> customers = query.getResultList();
-    // end::adocAge[]
-    assertEquals(4, customers.size());
-  }
-
-  @Test
-  public void adocAgeTypeSafe() throws Exception {
-    // tag::adocAgeTypeSafe[]
-    CriteriaBuilder builder = em.getCriteriaBuilder();
-    CriteriaQuery<Customer> criteriaQuery = builder.createQuery(Customer.class);
-    Root<Customer> c = criteriaQuery.from(Customer.class);
-    criteriaQuery.select(c).where(builder.greaterThan(c.get(Customer_.age), 40));
-
-    TypedQuery<Customer> query = em.createQuery(criteriaQuery);
-    List<Customer> customers = query.getResultList();
-    // end::adocAgeTypeSafe[]
-    assertEquals(4, customers.size());
-  }
 }
-
