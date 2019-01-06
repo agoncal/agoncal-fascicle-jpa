@@ -84,7 +84,11 @@
         <artifactId>org.eclipse.persistence.jpa</artifactId>
         <version>${version.eclipselink}</version>
       </dependency>
-
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+        <version>${version.eclipselink}</version>
+      </dependency>
       <!-- Other -->
       <dependency>
         <groupId>javax.transaction</groupId>
