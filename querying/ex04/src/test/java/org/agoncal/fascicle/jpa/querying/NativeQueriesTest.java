@@ -103,24 +103,33 @@ public class NativeQueriesTest extends AbstractPersistentTest {
   // =              Unit tests            =
   // ======================================
 
-
   @Test
   public void adocNoWhere() throws Exception {
     // tag::adocNoWhere[]
     // Query
-    Query query = em.createNativeQuery("select * from t_customer", Customer.class);
+    Query query = em.createNativeQuery("SELECT * FROM t_customer", Customer.class);
     List<Customer> customers = query.getResultList();
-    assertEquals(ALL_CUSTOMERS, customers.size());
-
-//        query = em.createNativeQuery("findAllNative");
-//        customers = query.getResultList();
-//        assertEquals(ALL, customers.size());
-//
-//        query = em.createNativeQuery("select lastname from JPQL_EX01_CUSTOMER", String.class);
-//        List<String> customersNames = query.getResultList();
-//        assertEquals(ALL, customersNames.size());
     // end::adocNoWhere[]
     assertEquals(ALL_CUSTOMERS, customers.size());
   }
 
+  @Test
+  public void adocString() throws Exception {
+    // tag::adocString[]
+    // Query
+    Query query = em.createNativeQuery("SELECT firstName FROM t_customer");
+    List<String> firstNames = query.getResultList();
+    // end::adocString[]
+    assertEquals(ALL_CUSTOMERS, firstNames.size());
+  }
+
+  @Test
+  public void adocNamedNativeQuery() throws Exception {
+    // tag::adocNamedNativeQuery[]
+    // Query
+    Query query = em.createNamedQuery("findAll", Customer.class);
+    List<Customer> customers = query.getResultList();
+    // end::adocNamedNativeQuery[]
+    assertEquals(ALL_CUSTOMERS, customers.size());
+  }
 }

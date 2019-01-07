@@ -10,10 +10,14 @@ import static javax.persistence.CascadeType.PERSIST;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocSnippet[]
+// tag::adocBegin[]
 @Entity
 @Table(name = "t_customer")
+@NamedNativeQuery(name = "findAll", query = "SELECT * FROM t_customer", resultClass = Customer.class)
 public class Customer {
+
+  // ...
+  // end::adocBegin[]
 
   @Id
   @GeneratedValue
@@ -87,6 +91,6 @@ public class Customer {
   public void setAddress(Address address) {
     this.address = address;
   }
-  // end::adocSkip[]
+  // end::adocEnd[]
 }
-// end::adocSnippet[]
+// end::adocEnd[]
