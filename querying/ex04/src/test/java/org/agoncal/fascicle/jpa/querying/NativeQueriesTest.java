@@ -106,7 +106,6 @@ public class NativeQueriesTest extends AbstractPersistentTest {
   @Test
   public void adocNoWhere() throws Exception {
     // tag::adocNoWhere[]
-    // Query
     Query query = em.createNativeQuery("SELECT * FROM t_customer", Customer.class);
     List<Customer> customers = query.getResultList();
     // end::adocNoWhere[]
@@ -116,7 +115,6 @@ public class NativeQueriesTest extends AbstractPersistentTest {
   @Test
   public void adocString() throws Exception {
     // tag::adocString[]
-    // Query
     Query query = em.createNativeQuery("SELECT firstName FROM t_customer");
     List<String> firstNames = query.getResultList();
     // end::adocString[]
@@ -126,7 +124,6 @@ public class NativeQueriesTest extends AbstractPersistentTest {
   @Test
   public void adocNamedNativeQuery() throws Exception {
     // tag::adocNamedNativeQuery[]
-    // Query
     Query query = em.createNamedQuery("findAll", Customer.class);
     List<Customer> customers = query.getResultList();
     // end::adocNamedNativeQuery[]
