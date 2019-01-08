@@ -10,7 +10,7 @@
 
   <modules>
     <!--<module>advanced</module>-->
-    <!--<module>callbacks-listeners</module>-->
+    <module>callbacks-listeners</module>
     <module>first-step</module>
     <module>getting-started</module>
     <!--<module>integrating</module>-->
