@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 @Transactional
 public class BookService {
 
-  // Obtains an entity manager and a transaction
+  // Obtains an entity manager
   @PersistenceContext(unitName = "cdbookstorePU")
   private EntityManager em;
 
