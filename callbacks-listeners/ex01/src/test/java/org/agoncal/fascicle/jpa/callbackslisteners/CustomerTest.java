@@ -1,12 +1,10 @@
 package org.agoncal.fascicle.jpa.callbackslisteners;
 
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,9 +20,9 @@ public class CustomerTest extends AbstractPersistentTest {
   // ======================================
 
   @Test
-  public void ageShouldBeGretaterThanZero() {
+  public void ageShouldBeGreaterThanZero() {
     Customer customer = new Customer("Rita", "Navalhas", "rnavalhas@gmail.com", "+351 123 4565");
-    customer.setDateOfBirth(new GregorianCalendar(1975, 5, 27).getTime());
+    customer.setDateOfBirth(LocalDate.of(1975, 5, 27));
 
     customer.calculateAge();
 
@@ -34,39 +32,17 @@ public class CustomerTest extends AbstractPersistentTest {
   }
 
   @Test
-  public void ageShouldBe33() {
-    int expectedAge = 33;
-
-    Calendar birth = new GregorianCalendar();
-    birth.roll(Calendar.YEAR, expectedAge * (-1));
-    birth.roll(Calendar.DAY_OF_YEAR, -1);
-
-    Customer customer = new Customer("Rita", "Navalhas", "rnavalhas@gmail.com", "+351 123 4565");
-    customer.setDateOfBirth(birth.getTime());
-
-    customer.calculateAge();
-
-    assertEquals(new Long(expectedAge), new Long(customer.getAge()));
-  }
-
-  @Test
   public void shouldCheckAgeIsNullCauseDateOfBirtheIsNull() {
     Customer customer = new Customer();
     customer.calculateAge();
     assertNull(customer.getAge());
   }
 
-  @Disabled("Test is not ready yet")
-  @Test
-  public void shouldCalculateOldAge() {
-    // some work to do
-  }
-
   @Test
   public void shouldCheckTheAgeOfTheCustomer() throws Exception {
 
     // Instanciates an object
-    Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
+    Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1234565", LocalDate.now(), LocalDateTime.now());
     assertFalse(em.contains(customer));
 
     // Persists the object
@@ -88,27 +64,29 @@ public class CustomerTest extends AbstractPersistentTest {
     assertFalse(em.contains(customer), "should not be in the persistence context after removing");
   }
 
-  @Test //(expected = IllegalArgumentException.class)
+  @Test
   public void shouldThrowAnExceptionBecauseFirstNameIsNull() throws Exception {
 
     // Instanciates an object
-    Customer customer = new Customer(null, "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
+    Customer customer = new Customer(null, "Smith", "jsmith@gmail.com", "1234565", LocalDate.now(), LocalDateTime.now());
 
-    // Persist the object
-    tx.begin();
-    em.persist(customer);
-    tx.commit();
+    assertThrows(IllegalArgumentException.class,
+      () -> {
+        // Persist the object
+        em.persist(customer);
+      });
   }
 
-  @Test //(expected = IllegalArgumentException.class)
+  @Test
   public void shouldThrowAnExceptionBecauseLastNameIsNull() throws Exception {
 
     // Instanciates an object
-    Customer customer = new Customer("John", null, "jsmith@gmail.com", "1234565", new Date(), new Date());
+    Customer customer = new Customer("John", null, "jsmith@gmail.com", "1234565", LocalDate.now(), LocalDateTime.now());
 
-    // Persist the object
-    tx.begin();
-    em.persist(customer);
-    tx.commit();
+    assertThrows(IllegalArgumentException.class,
+      () -> {
+        // Persist the object
+        em.persist(customer);
+      });
   }
 }

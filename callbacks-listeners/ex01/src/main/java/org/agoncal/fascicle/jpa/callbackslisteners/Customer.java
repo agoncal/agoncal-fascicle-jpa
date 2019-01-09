@@ -1,9 +1,9 @@
 package org.agoncal.fascicle.jpa.callbackslisteners;
 
 import javax.persistence.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
 
 /**
  * @author Antonio Goncalves
@@ -21,19 +21,17 @@ public class Customer {
   private String lastName;
   private String email;
   private String phoneNumber;
-  @Temporal(TemporalType.DATE)
-  private Date dateOfBirth;
+  private LocalDate dateOfBirth;
   @Transient
   private Integer age;
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date creationDate;
+  private LocalDateTime creationDate;
 
   @PrePersist
   @PreUpdate
   private void validate() {
-    if (firstName == null || "".equals(firstName))
+    if (firstName == null || firstName.isEmpty())
       throw new IllegalArgumentException("Invalid first name");
-    if (lastName == null || "".equals(lastName))
+    if (lastName == null || lastName.isEmpty())
       throw new IllegalArgumentException("Invalid last name");
   }
 
@@ -46,15 +44,7 @@ public class Customer {
       return;
     }
 
-    Calendar birth = new GregorianCalendar();
-    birth.setTime(dateOfBirth);
-    Calendar now = new GregorianCalendar();
-    now.setTime(new Date());
-    int adjust = 0;
-    if (now.get(Calendar.DAY_OF_YEAR) - birth.get(Calendar.DAY_OF_YEAR) < 0) {
-      adjust = -1;
-    }
-    age = now.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + adjust;
+    age =  Period.between(dateOfBirth, LocalDate.now()).getYears();
   }
 
   // Constructors, getters, setters
@@ -63,7 +53,7 @@ public class Customer {
   public Customer() {
   }
 
-  public Customer(String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth, Date creationDate) {
+  public Customer(String firstName, String lastName, String email, String phoneNumber, LocalDate dateOfBirth, LocalDateTime creationDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -120,11 +110,11 @@ public class Customer {
     this.phoneNumber = phoneNumber;
   }
 
-  public Date getDateOfBirth() {
+  public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
-  public void setDateOfBirth(Date dateOfBirth) {
+  public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
@@ -136,11 +126,11 @@ public class Customer {
     this.age = age;
   }
 
-  public Date getCreationDate() {
+  public LocalDateTime getCreationDate() {
     return creationDate;
   }
 
-  public void setCreationDate(Date creationDate) {
+  public void setCreationDate(LocalDateTime creationDate) {
     this.creationDate = creationDate;
   }
   // end::adocSkip[]
