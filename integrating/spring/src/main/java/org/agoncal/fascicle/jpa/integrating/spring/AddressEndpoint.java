@@ -10,12 +10,12 @@ public class AddressEndpoint {
 
   private final AddressRepository addressRepository;
 
-  // tag::adocadocSkip[]
+  // tag::adocSkip[]
   public AddressEndpoint(AddressRepository addressRepository) {
     this.addressRepository = addressRepository;
   }
 
-  // and::adocadocSkip[]
+  // end::adocSkip[]
   @PostMapping("/addresses")
   public Address createAddress(@RequestBody Address address) {
     return addressRepository.save(address);
