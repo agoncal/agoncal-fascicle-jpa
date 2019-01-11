@@ -9,7 +9,6 @@ import javax.persistence.*;
  */
 // tag::adocSnippet[]
 @Entity
-@Access(AccessType.PROPERTY)
 public class Customer {
 
   private Long id;

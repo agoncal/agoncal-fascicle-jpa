@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.mapping;
+package org.agoncal.fascicle.jpa.advanced;
 
 import org.junit.jupiter.api.Test;
 
