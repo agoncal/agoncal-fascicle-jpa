@@ -1,8 +1,7 @@
 package org.agoncal.fascicle.jpa.callbackslisteners;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.ExcludeSuperclassListeners;
+import javax.persistence.ExcludeDefaultListeners;
 import javax.persistence.Transient;
 
 /**
@@ -11,8 +10,7 @@ import javax.persistence.Transient;
  * --
  */
 // tag::adocSnippet[]
-@ExcludeSuperclassListeners()
-@EntityListeners(CustomerListener.class)
+@ExcludeDefaultListeners()
 @Entity
 public class Customer extends Person {
 

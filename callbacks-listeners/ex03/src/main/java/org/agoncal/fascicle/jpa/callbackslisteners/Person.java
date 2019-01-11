@@ -7,7 +7,6 @@ import javax.persistence.*;
  * http://www.antoniogoncalves.org
  * --
  */
-@EntityListeners(DebugListener.class)
 @Entity
 public class Person {
 
