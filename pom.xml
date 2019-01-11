@@ -13,7 +13,7 @@
     <module>callbacks-listeners</module>
     <module>first-step</module>
     <module>getting-started</module>
-    <!--<module>integrating</module>-->
+    <module>integrating</module>
     <module>managing</module>
     <module>mapping</module>
     <!--<module>putting-together</module>-->
