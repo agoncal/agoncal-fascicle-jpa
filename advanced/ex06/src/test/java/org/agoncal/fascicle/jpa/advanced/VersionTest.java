@@ -77,7 +77,7 @@ public class VersionTest extends AbstractPersistentTest {
     // Creates a book, version number should be 1
     // tag::adocVersioning[]
     // Creates the book
-    Book book = new Book("H2G2", 12.5F, "The Hitchhiker's Guide to the Galaxy", "1-84023-742-2");
+    Book book = new Book("H2G2", 12.5F, "Scifi book", "1-84023-742-2");
     tx.begin();
     em.persist(book);
     tx.commit();
