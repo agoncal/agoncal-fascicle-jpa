@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.jpa.advanced;
 
 
-
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.LockModeType;
@@ -73,6 +72,26 @@ public class VersionTest extends AbstractPersistentTest {
   }
 
   @Test
+  public void adocVersioning() throws Exception {
+
+    // Creates a book, version number should be 1
+    // tag::adocVersioning[]
+    // Creates the book
+    Book book = new Book("H2G2", 12.5F, "The Hitchhiker's Guide to the Galaxy", "1-84023-742-2");
+    tx.begin();
+    em.persist(book);
+    tx.commit();
+    assertEquals(1, (int) book.getVersion());
+
+    // Updates the book
+    tx.begin();
+    book.raisePriceByTwoDollars();
+    tx.commit();
+    assertEquals(2, (int) book.getVersion());
+    // end::adocVersioning[]
+  }
+
+  @Test
   public void shouldCreateABook() throws Exception {
 
     // Creates a book, version number should be 1
@@ -87,24 +106,6 @@ public class VersionTest extends AbstractPersistentTest {
     tx.begin();
     book = em.find(Book.class, book.getId());
     book.setDescription("new description");
-    tx.commit();
-    assertEquals(new Integer(2), book.getVersion(), "Version number should be 2");
-  }
-
-  @Test
-  public void shouldCreateABookAndRaisePrice() throws Exception {
-
-    // Creates a book, version number should be 1
-    Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "The Hitchhiker's Guide to the Galaxy is a science fiction comedy series created by Douglas Adams.", "1-84023-742-2");
-    tx.begin();
-    em.persist(book);
-    tx.commit();
-    assertNotNull(book.getId(), "ID should not be null");
-    assertEquals(new Integer(1), book.getVersion(), "Version number should be 1");
-
-    // Updates the same book
-    tx.begin();
-    book.raisePriceByTwoDollars();
     tx.commit();
     assertEquals(new Integer(2), book.getVersion(), "Version number should be 2");
   }
