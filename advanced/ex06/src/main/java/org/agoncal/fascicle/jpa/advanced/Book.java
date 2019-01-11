@@ -25,6 +25,14 @@ public class Book {
   private String description;
   private String isbn;
 
+  public void raisePriceByTwoDollars() {
+    price = price + 2;
+  }
+
+  public void raisePriceByFiveDollars() {
+    price = price + 5;
+  }
+
   // Constructors, getters, setters
   // tag::adocSkip[]
 
@@ -41,14 +49,6 @@ public class Book {
   // ======================================
   // =           Public Methods           =
   // ======================================
-
-  public void raisePriceByTwoDollars() {
-    price = price + 2;
-  }
-
-  public void raisePriceByFiveDollars() {
-    price = price + 5;
-  }
 
   // ======================================
   // =          Getters & Setters         =
