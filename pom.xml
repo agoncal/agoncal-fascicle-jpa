@@ -9,7 +9,7 @@
   <name>JPA</name>
 
   <modules>
-    <!--<module>advanced</module>-->
+    <module>advanced</module>
     <module>callbacks-listeners</module>
     <module>first-step</module>
     <module>getting-started</module>
