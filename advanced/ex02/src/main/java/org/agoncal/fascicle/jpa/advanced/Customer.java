@@ -1,9 +1,6 @@
-package org.agoncal.fascicle.jpa.mapping;
+package org.agoncal.fascicle.jpa.advanced;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author Antonio Goncalves
@@ -12,20 +9,16 @@ import javax.persistence.Id;
  */
 // tag::adocSnippet[]
 @Entity
+@Access(AccessType.PROPERTY)
 public class Customer {
 
-  @Id
-  @GeneratedValue
   private Long id;
-  @Column(name = "first_name", nullable = false, length = 50)
   private String firstName;
-  @Column(name = "last_name", nullable = false, length = 50)
   private String lastName;
   private String email;
-  @Column(name = "phone_number", length = 15)
   private String phoneNumber;
 
-  // Constructors, getters, setters
+  // Constructors
   // tag::adocSkip[]
 
   public Customer() {
@@ -42,6 +35,9 @@ public class Customer {
   // =          Getters & Setters         =
   // ======================================
 
+  // end::adocSkip[]
+  @Id
+  @GeneratedValue
   public Long getId() {
     return id;
   }
@@ -50,6 +46,7 @@ public class Customer {
     this.id = id;
   }
 
+  @Column(name = "first_name", nullable = false, length = 50)
   public String getFirstName() {
     return firstName;
   }
@@ -58,6 +55,7 @@ public class Customer {
     this.firstName = firstName;
   }
 
+  @Column(name = "last_name", nullable = false, length = 50)
   public String getLastName() {
     return lastName;
   }
@@ -74,6 +72,7 @@ public class Customer {
     this.email = email;
   }
 
+  @Column(name = "phone_number", length = 15)
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -81,6 +80,5 @@ public class Customer {
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
-  // end::adocSkip[]
 }
 // end::adocSnippet[]

@@ -1,28 +1,47 @@
-package org.agoncal.fascicle.jpa.firststep;
+package org.agoncal.fascicle.jpa.advanced;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-// @formatter:off
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
 // tag::adocSnippet[]
 @Entity
-public class Author {
+public class Customer {
 
   @Id
   @GeneratedValue
   private Long id;
-  @Column(nullable = false, length = 50)
+  @Column(name = "first_name", nullable = false, length = 50)
   private String firstName;
+  @Column(name = "last_name", nullable = false, length = 50)
   private String lastName;
-  @Column(length = 2000)
-  private String bio;
   private String email;
+  @Column(name = "phone_number", length = 15)
+  private String phoneNumber;
 
   // Constructors, getters, setters
   // tag::adocSkip[]
-  // @formatter:on
+
+  public Customer() {
+  }
+
+  public Customer(String firstName, String lastName, String email, String phoneNumber) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+  }
+
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
+
   public Long getId() {
     return id;
   }
@@ -39,35 +58,12 @@ public class Author {
     this.firstName = firstName;
   }
 
-  public Author firstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-
   public String getLastName() {
     return lastName;
   }
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
-  }
-
-  public Author lastName(String lastName) {
-    this.lastName = lastName;
-    return this;
-  }
-
-  public String getBio() {
-    return bio;
-  }
-
-  public void setBio(String bio) {
-    this.bio = bio;
-  }
-
-  public Author surnbioame(String bio) {
-    this.bio = bio;
-    return this;
   }
 
   public String getEmail() {
@@ -78,9 +74,12 @@ public class Author {
     this.email = email;
   }
 
-  public Author email(String email) {
-    this.email = email;
-    return this;
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
   }
   // end::adocSkip[]
 }
