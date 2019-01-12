@@ -4,9 +4,7 @@ import org.jboss.weld.junit5.EnableWeld;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import javax.inject.Inject;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author Antonio Goncalves
@@ -15,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @Disabled
 @EnableWeld
-public class AddressTest {
+public class AddressTest extends AbstractPersistentTest {
 
   // ======================================
   // =             Attributes             =
@@ -26,20 +24,12 @@ public class AddressTest {
   // ======================================
 
   @Test
-  public void shouldRaiseNoConstraintViolation() {
+  public void shouldCreateAnAddress() throws Exception {
 
-    // tag::shouldRaiseNoConstraintViolation[]
     Address address = new Address().street1("233 Spring Street").city("New York").state("NY").zipcode("12345").country("USA");
-
-    // end::shouldRaiseNoConstraintViolation[]
-  }
-
-  @Test
-  public void shouldRaiseConstraintViolationCauseInvalidZipCode() {
-
-    // tag::shouldRaiseConstraintViolationCauseInvalidZipCode[]
-    Address address = new Address().street1("233 Spring Street").city("New York").state("NY").zipcode("DummyZip").country("USA");
-
-    // end::shouldRaiseConstraintViolationCauseInvalidZipCode[]
+    tx.begin();
+    em.persist(address);
+    tx.commit();
+    assertNotNull(address.getId(), "ID should not be null");
   }
 }

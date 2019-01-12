@@ -2,6 +2,7 @@ package org.agoncal.fascicle.jpa.integrating.cdi;
 
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  */
 // @formatter:off
 // tag::adocSnippet[]
+@EntityListeners({ZipCodeListener.class})
 @Entity
 public class Address {
 
