@@ -16,7 +16,7 @@
   </parent>
 
   <modules>
-    <!--<module>beanvalidation</module>-->
+    <module>bean-validation</module>
     <module>cdi</module>
     <!--<module>jta</module>-->
     <module>spring</module>
