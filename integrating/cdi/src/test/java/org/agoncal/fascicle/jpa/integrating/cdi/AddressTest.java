@@ -1,8 +1,9 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import org.jboss.weld.junit5.EnableWeld;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import javax.inject.Inject;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -12,12 +13,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * --
  */
 @Disabled
-@EnableWeld
+//@EnableWeld
 public class AddressTest extends AbstractPersistentTest {
 
   // ======================================
   // =             Attributes             =
   // ======================================
+
+  @Inject
+  private AddressService addressService;
 
   // ======================================
   // =              Methods               =
@@ -27,9 +31,9 @@ public class AddressTest extends AbstractPersistentTest {
   public void shouldCreateAnAddress() throws Exception {
 
     Address address = new Address().street1("233 Spring Street").city("New York").state("NY").zipcode("12345").country("USA");
-    tx.begin();
-    em.persist(address);
-    tx.commit();
+//    tx.begin();
+    addressService.save(address);
+//    tx.commit();
     assertNotNull(address.getId(), "ID should not be null");
   }
 }
