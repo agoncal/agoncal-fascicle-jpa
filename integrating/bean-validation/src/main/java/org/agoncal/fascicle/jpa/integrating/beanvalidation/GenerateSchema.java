@@ -11,7 +11,7 @@ public class GenerateSchema {
 
   public static void main(String[] args) {
 
-    Persistence.generateSchema("beanvalidationPU", null);
+    Persistence.generateSchema("cdbookstorePU", null);
     System.exit(0);
   }
 }

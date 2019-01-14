@@ -2,7 +2,7 @@ package org.agoncal.fascicle.jpa.integrating.beanvalidation;
 
 import org.junit.jupiter.api.Test;
 
-import javax.validation.ConstraintViolationException;
+import javax.persistence.RollbackException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -35,7 +35,7 @@ public class BookTest extends AbstractPersistentTest {
 
     // tag::shouldRaiseConstraintViolationCauseNullTitle[]
     Book book = new Book().title(null).price(12.5F).isbn("1-84023-742-2").nbOfPages(354);
-    assertThrows(ConstraintViolationException.class, () -> {
+    assertThrows(RollbackException.class, () -> {
       tx.begin();
       em.persist(book);
       tx.commit();
