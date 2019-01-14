@@ -1,8 +1,10 @@
 package org.agoncal.fascicle.jpa.puttingtogether;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Antonio Goncalves
@@ -11,23 +13,25 @@ import javax.validation.constraints.Size;
  */
 // tag::adocSnippet[]
 @Entity
-@NamedQueries({
-  @NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b"),
-  @NamedQuery(name = "findBookH2G2", query = "SELECT b FROM Book b WHERE b.title ='H2G2'")
-})
-public class Book {
+@NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b")
+@NamedQuery(name = "findBookH2G2", query = "SELECT b FROM Book b WHERE b.title ='H2G2'")
+public class Book extends Item {
 
-  @Id
-  @GeneratedValue
-  private Long id;
-  @NotNull
-  private String title;
-  private Float price;
-  @Size(min = 10, max = 2000)
-  private String description;
   private String isbn;
   private Integer nbOfPages;
   private Boolean illustrations;
+  @ElementCollection(fetch = FetchType.LAZY)
+  @CollectionTable(name = "tag")
+  @Column(name = "value")
+  private List<String> tags = new ArrayList<>();
+
+  @OneToMany
+  @MapKey(name = "position")
+  @MapKeyColumn(name = "chapter")
+  private Map<Integer, Chapter> chapters = new HashMap<>();
+
+  @ManyToMany
+  private List<Author> authors = new ArrayList<>();
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -98,6 +102,22 @@ public class Book {
 
   public void setIllustrations(Boolean illustrations) {
     this.illustrations = illustrations;
+  }
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  public Map<Integer, Chapter> getChapters() {
+    return chapters;
+  }
+
+  public void setChapters(Map<Integer, Chapter> chapters) {
+    this.chapters = chapters;
   }
 
   // ======================================
