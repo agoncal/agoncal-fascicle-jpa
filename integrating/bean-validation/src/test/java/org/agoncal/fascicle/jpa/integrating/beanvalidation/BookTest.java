@@ -20,13 +20,14 @@ public class BookTest extends AbstractPersistentTest {
 
   @Test
   public void shouldCreateAValidBook() throws Exception {
-    // Creates an instance of book
-    Book book = new Book().title("H2G2").description("The Hitchhiker's Guide to the Galaxy").price(12.5F).isbn("1-84023-742-2").nbOfPages(354);
 
-    // Persists the book to the database
+    // tag::shouldCreateAValidBook[]
+    Book book = new Book().title("H2G2").price(12.5F).isbn("1-84023-742-2").nbOfPages(354);
+
     tx.begin();
     em.persist(book);
     tx.commit();
+    // end::shouldCreateAValidBook[]
     assertNotNull(book.getId(), "ID should not be null");
   }
 
