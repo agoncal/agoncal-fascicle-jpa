@@ -1,9 +1,11 @@
 package org.agoncal.fascicle.jpa.puttingtogether;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.RollbackException;
+import javax.persistence.*;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +16,29 @@ import static org.junit.jupiter.api.Assertions.*;
  * http://www.antoniogoncalves.org
  * --
  */
-public class BookTest extends AbstractPersistentTest {
+// tag::adocSnippet[]
+public class BookTest {
+
+  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+  private static EntityManager em;
+  private static EntityTransaction tx;
+
+  @BeforeAll
+  static void initEntityManager() {
+    em = emf.createEntityManager();
+    tx = em.getTransaction();
+  }
+
+  @AfterAll
+  static void closeEntityManager() {
+    if (em != null) em.close();
+  }
+
+  // ...
+  // end::adocSnippet[]
+  // ======================================
+  // =              Methods               =
+  // ======================================
 
   @Test
   public void shouldCreateABook() throws Exception {
