@@ -24,19 +24,24 @@ public class Book extends Item {
   private Boolean illustrations;
 
   @ElementCollection
-  @CollectionTable(name = "tag")
+  @CollectionTable(name = "tag",
+    joinColumns = {@JoinColumn(name = "book_fk")}
+  )
   @Column(name = "value")
   private List<String> tags = new ArrayList<>();
 
   @ElementCollection
+  @CollectionTable(name = "chapter",
+    joinColumns = {@JoinColumn(name = "book_fk")}
+  )
   @MapKeyColumn(name = "position")
-  @JoinColumn(name = "book_id")
   private Map<Integer, Chapter> chapters = new HashMap<>();
 
-  @ManyToMany(mappedBy = "books")
-  @JoinTable(inverseJoinColumns = {
-    @JoinColumn(name = "author_id")
-  })
+  @ManyToMany
+  @JoinTable(
+    joinColumns = {@JoinColumn(name = "book_fk")},
+    inverseJoinColumns = {@JoinColumn(name = "author_fk")}
+  )
   private List<Author> authors = new ArrayList<>();
 
   // Constructors, getters, setters
