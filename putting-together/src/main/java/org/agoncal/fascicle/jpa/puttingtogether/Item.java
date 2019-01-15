@@ -20,5 +20,6 @@ public class Item {
   protected String description;
   protected Float price;
 
+  // Getters, setters
 }
 // end::adocSnippet[]

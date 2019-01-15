@@ -1,9 +1,8 @@
 package org.agoncal.fascicle.jpa.puttingtogether;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -26,6 +25,9 @@ public class Author {
   @Column(length = 2000)
   private String bio;
   private String email;
+
+  @ManyToMany
+  private List<Book> books = new ArrayList<>();
 
   // Constructors, getters, setters
   // tag::adocSkip[]
@@ -92,6 +94,19 @@ public class Author {
 
   public Author email(String email) {
     this.email = email;
+    return this;
+  }
+
+  public List<Book> getBooks() {
+    return books;
+  }
+
+  public void setBooks(List<Book> books) {
+    this.books = books;
+  }
+
+  public Author book(Book book) {
+    this.books.add(book);
     return this;
   }
 

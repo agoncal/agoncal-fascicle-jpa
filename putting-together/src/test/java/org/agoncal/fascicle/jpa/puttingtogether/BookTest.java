@@ -89,6 +89,7 @@ public class BookTest extends AbstractPersistentTest {
     // Creates an instance of book
     Author author = new Author().firstName("Antonio").lastName("Goncalves");
     Book book = new Book().title("Java EE 7").price(23.5F).isbn("1-84023-742-5").nbOfPages(354).author(author);
+    author.book(book);
 
     // Persists the book to the database
     tx.begin();
@@ -103,11 +104,34 @@ public class BookTest extends AbstractPersistentTest {
   }
 
   @Test
+  public void shouldCreateABookWithTwoAuthors() throws Exception {
+
+    // Creates an instance of book
+    Author deepu = new Author().firstName("Deepu").lastName("Sasidharan");
+    Author sendil = new Author().firstName("Sendil").lastName("Kumar");
+    Book book = new Book().title("Full Stack Development with JHipster").price(23.5F).isbn("5-84023-742-5").nbOfPages(354).author(deepu).author(sendil);
+    deepu.book(book);
+    sendil.book(book);
+
+    // Persists the book to the database
+    tx.begin();
+    em.persist(book);
+    em.persist(deepu);
+    em.persist(sendil);
+    tx.commit();
+    assertNotNull(book.getId(), "ID should not be null");
+
+    // Checks the book
+    Book foundBook = em.find(Book.class, book.getId());
+    assertEquals(2, foundBook.getAuthors().size());
+  }
+
+  @Test
   public void shouldFailCreatingABookButNotAuthor() throws Exception {
 
     // Creates an instance of book
     Author author = new Author().firstName("Antonio").lastName("Goncalves");
-    Book book = new Book().title("Java EE 7").price(23.5F).isbn("1-84023-742-6").nbOfPages(354).author(author);
+    Book book = new Book().title("Java EE 7").price(23.5F).isbn("1-74023-742-6").nbOfPages(354).author(author);
 
     // Persists the book to the database
     assertThrows(RollbackException.class, () -> {

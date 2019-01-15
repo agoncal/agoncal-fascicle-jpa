@@ -12,9 +12,6 @@ import javax.persistence.*;
 @Embeddable
 public class Chapter {
 
-//  @Id
-//  @GeneratedValue
-//  private Long id;
   private String title;
   private String description;
 
@@ -25,10 +22,6 @@ public class Chapter {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
-
-//  public Long getId() {
-//    return id;
-//  }
 
   public String getTitle() {
     return title;
@@ -63,8 +56,7 @@ public class Chapter {
   @Override
   public String toString() {
     return "Chapter{" +
-//      "id=" + id +
-      ", title='" + title + '\'' +
+      "title='" + title + '\'' +
       ", description='" + description + '\'' +
       '}';
   }

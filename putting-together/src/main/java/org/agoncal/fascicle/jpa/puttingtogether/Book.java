@@ -11,7 +11,6 @@ import java.util.Map;
  * http://www.antoniogoncalves.org
  * --
  */
-// @formatter:off
 // tag::adocSnippet[]
 @Entity
 @NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b")
@@ -34,13 +33,14 @@ public class Book extends Item {
   @JoinColumn(name = "book_id")
   private Map<Integer, Chapter> chapters = new HashMap<>();
 
-  @ManyToMany
-  @JoinTable(inverseJoinColumns = {@JoinColumn(name = "author_id")})
+  @ManyToMany(mappedBy = "books")
+  @JoinTable(inverseJoinColumns = {
+    @JoinColumn(name = "author_id")
+  })
   private List<Author> authors = new ArrayList<>();
 
   // Constructors, getters, setters
   // tag::adocSkip[]
-  // @formatter:on
 
   // ======================================
   // =          Getters & Setters         =
