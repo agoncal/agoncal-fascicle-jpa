@@ -52,6 +52,14 @@ public class BookTest extends AbstractPersistentTest {
     assertTrue(allBooks.size() >= h2g2Books.size());
   }
 
+//  @Test
+//  public void shouldCheckDatabase() throws Exception {
+//
+//    // Retrieves all the books from the database
+//    List<Book> allBooks = em.createNamedQuery("findAllBooks", Book.class).getResultList();
+//    assertTrue(allBooks.size() >= 2);
+//  }
+
   @Test
   public void shouldCreateABookWithTagsAndChapters() throws Exception {
 

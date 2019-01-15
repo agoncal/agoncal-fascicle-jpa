@@ -13,8 +13,8 @@
       <property name="javax.persistence.schema-generation.scripts.create-target" value="cdbookstoreCreate.ddl"/>
       <property name="javax.persistence.schema-generation.scripts.drop-target" value="cdbookstoreDrop.ddl"/>
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:cdbookstoreDB"/>
-      <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/cdbookstoreDB"/>
+      <property name="javax.persistence.sql-load-script-source" value="import.sql"/>
     </properties>
   </persistence-unit>
 </persistence>
