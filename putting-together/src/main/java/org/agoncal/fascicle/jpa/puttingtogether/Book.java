@@ -6,47 +6,43 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static javax.persistence.CascadeType.PERSIST;
+
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 // tag::adocSnippet[]
 @Entity
 @NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b")
 @NamedQuery(name = "findBookH2G2", query = "SELECT b FROM Book b WHERE b.title ='H2G2'")
 public class Book extends Item {
 
+  @Column(nullable = false, unique = true)
   private String isbn;
+  @Column(name = "nb_Of_Pages")
   private Integer nbOfPages;
   private Boolean illustrations;
-  @ElementCollection(fetch = FetchType.LAZY)
+
+  @ElementCollection
   @CollectionTable(name = "tag")
   @Column(name = "value")
   private List<String> tags = new ArrayList<>();
 
-  @OneToMany
-  @MapKey(name = "position")
-  @MapKeyColumn(name = "chapter")
+  @OneToMany(cascade = PERSIST)
+  @MapKeyColumn(name = "position")
+  @JoinColumn(name = "book_id")
   private Map<Integer, Chapter> chapters = new HashMap<>();
 
   @ManyToMany
+  @JoinTable(inverseJoinColumns = {@JoinColumn(name = "author_id")})
   private List<Author> authors = new ArrayList<>();
 
   // Constructors, getters, setters
   // tag::adocSkip[]
-
-  public Book() {
-  }
-
-  public Book(String title, String description, Float price, String isbn, Integer nbOfPages, Boolean illustrations) {
-    this.title = title;
-    this.price = price;
-    this.description = description;
-    this.isbn = isbn;
-    this.nbOfPages = nbOfPages;
-    this.illustrations = illustrations;
-  }
+  // @formatter:on
 
   // ======================================
   // =          Getters & Setters         =
@@ -64,12 +60,22 @@ public class Book extends Item {
     this.title = title;
   }
 
+  public Book title(String title) {
+    this.title = title;
+    return this;
+  }
+
   public Float getPrice() {
     return price;
   }
 
   public void setPrice(Float price) {
     this.price = price;
+  }
+
+  public Book price(Float price) {
+    this.price = price;
+    return this;
   }
 
   public String getDescription() {
@@ -80,12 +86,22 @@ public class Book extends Item {
     this.description = description;
   }
 
+  public Book description(String description) {
+    this.description = description;
+    return this;
+  }
+
   public String getIsbn() {
     return isbn;
   }
 
   public void setIsbn(String isbn) {
     this.isbn = isbn;
+  }
+
+  public Book isbn(String isbn) {
+    this.isbn = isbn;
+    return this;
   }
 
   public Integer getNbOfPages() {
@@ -96,12 +112,22 @@ public class Book extends Item {
     this.nbOfPages = nbOfPages;
   }
 
+  public Book nbOfPages(Integer nbOfPages) {
+    this.nbOfPages = nbOfPages;
+    return this;
+  }
+
   public Boolean getIllustrations() {
     return illustrations;
   }
 
   public void setIllustrations(Boolean illustrations) {
     this.illustrations = illustrations;
+  }
+
+  public Book illustrations(Boolean illustrations) {
+    this.illustrations = illustrations;
+    return this;
   }
 
   public List<String> getTags() {
@@ -112,6 +138,11 @@ public class Book extends Item {
     this.tags = tags;
   }
 
+  public Book tag(String tag) {
+    this.tags.add(tag);
+    return this;
+  }
+
   public Map<Integer, Chapter> getChapters() {
     return chapters;
   }
@@ -120,23 +151,42 @@ public class Book extends Item {
     this.chapters = chapters;
   }
 
+  public Book chapter(Integer position, Chapter chapter) {
+    this.chapters.put(position, chapter);
+    return this;
+  }
+
+  public List<Author> getAuthors() {
+    return authors;
+  }
+
+  public void setAuthors(List<Author> authors) {
+    this.authors = authors;
+  }
+
+  public Book author(Author author) {
+    this.authors.add(author);
+    return this;
+  }
+
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
 
   @Override
   public String toString() {
-    final StringBuilder sb = new StringBuilder();
-    sb.append("Book");
-    sb.append("{id=").append(id);
-    sb.append(", title='").append(title).append('\'');
-    sb.append(", price=").append(price);
-    sb.append(", description='").append(description).append('\'');
-    sb.append(", isbn='").append(isbn).append('\'');
-    sb.append(", nbOfPages=").append(nbOfPages);
-    sb.append(", illustrations=").append(illustrations);
-    sb.append('}');
-    return sb.toString();
+    return "Book{" +
+      "id=" + id +
+      ", title='" + title + '\'' +
+      ", description='" + description + '\'' +
+      ", price=" + price +
+      ", isbn='" + isbn + '\'' +
+      ", nbOfPages=" + nbOfPages +
+      ", illustrations=" + illustrations +
+      ", tags=" + tags +
+      ", chapters=" + chapters +
+      ", authors=" + authors +
+      '}';
   }
   // end::adocSkip[]
 }

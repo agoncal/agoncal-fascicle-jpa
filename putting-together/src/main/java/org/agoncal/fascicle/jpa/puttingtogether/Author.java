@@ -5,6 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
 // @formatter:off
 // tag::adocSnippet[]
 @Entity
@@ -13,8 +19,9 @@ public class Author {
   @Id
   @GeneratedValue
   private Long id;
-  @Column(nullable = false, length = 50)
+  @Column(name = "first_name", length = 50)
   private String firstName;
+  @Column(name = "last_name", nullable = false)
   private String lastName;
   @Column(length = 2000)
   private String bio;
@@ -23,6 +30,11 @@ public class Author {
   // Constructors, getters, setters
   // tag::adocSkip[]
   // @formatter:on
+
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
+
   public Long getId() {
     return id;
   }
@@ -81,6 +93,21 @@ public class Author {
   public Author email(String email) {
     this.email = email;
     return this;
+  }
+
+  // ======================================
+  // =         hash, equals, toString     =
+  // ======================================
+
+  @Override
+  public String toString() {
+    return "Author{" +
+      "id=" + id +
+      ", firstName='" + firstName + '\'' +
+      ", lastName='" + lastName + '\'' +
+      ", bio='" + bio + '\'' +
+      ", email='" + email + '\'' +
+      '}';
   }
   // end::adocSkip[]
 }
