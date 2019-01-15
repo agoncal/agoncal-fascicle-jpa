@@ -24,21 +24,21 @@ public class Book extends Item {
   private Boolean illustrations;
 
   @ElementCollection
-  @CollectionTable(name = "tag",
+  @CollectionTable(name = "tags",
     joinColumns = {@JoinColumn(name = "book_fk")}
   )
   @Column(name = "value")
   private List<String> tags = new ArrayList<>();
 
   @ElementCollection
-  @CollectionTable(name = "chapter",
+  @CollectionTable(name = "book_chapters",
     joinColumns = {@JoinColumn(name = "book_fk")}
   )
   @MapKeyColumn(name = "position")
   private Map<Integer, Chapter> chapters = new HashMap<>();
 
   @ManyToMany
-  @JoinTable(
+  @JoinTable(name = "books_authors",
     joinColumns = {@JoinColumn(name = "book_fk")},
     inverseJoinColumns = {@JoinColumn(name = "author_fk")}
   )

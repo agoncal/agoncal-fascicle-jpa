@@ -26,7 +26,7 @@ public class Author {
   private String bio;
   private String email;
 
-  @ManyToMany
+  @ManyToMany(mappedBy = "authors")
   private List<Book> books = new ArrayList<>();
 
   // Constructors, getters, setters
