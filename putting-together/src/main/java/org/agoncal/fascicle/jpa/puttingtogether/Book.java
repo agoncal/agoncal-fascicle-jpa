@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static javax.persistence.CascadeType.PERSIST;
-
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -22,7 +20,7 @@ public class Book extends Item {
 
   @Column(nullable = false, unique = true)
   private String isbn;
-  @Column(name = "nb_Of_Pages")
+  @Column(name = "nb_Of_pages")
   private Integer nbOfPages;
   private Boolean illustrations;
 
@@ -31,7 +29,7 @@ public class Book extends Item {
   @Column(name = "value")
   private List<String> tags = new ArrayList<>();
 
-  @OneToMany(cascade = PERSIST)
+  @ElementCollection
   @MapKeyColumn(name = "position")
   @JoinColumn(name = "book_id")
   private Map<Integer, Chapter> chapters = new HashMap<>();

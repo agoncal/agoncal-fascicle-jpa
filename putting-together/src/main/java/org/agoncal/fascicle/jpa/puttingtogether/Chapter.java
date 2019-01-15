@@ -9,12 +9,12 @@ import javax.persistence.*;
  */
 // @formatter:off
 // tag::adocSnippet[]
-@Entity
+@Embeddable
 public class Chapter {
 
-  @Id
-  @GeneratedValue
-  private Long id;
+//  @Id
+//  @GeneratedValue
+//  private Long id;
   private String title;
   private String description;
 
@@ -26,9 +26,9 @@ public class Chapter {
   // =          Getters & Setters         =
   // ======================================
 
-  public Long getId() {
-    return id;
-  }
+//  public Long getId() {
+//    return id;
+//  }
 
   public String getTitle() {
     return title;
@@ -63,7 +63,7 @@ public class Chapter {
   @Override
   public String toString() {
     return "Chapter{" +
-      "id=" + id +
+//      "id=" + id +
       ", title='" + title + '\'' +
       ", description='" + description + '\'' +
       '}';
