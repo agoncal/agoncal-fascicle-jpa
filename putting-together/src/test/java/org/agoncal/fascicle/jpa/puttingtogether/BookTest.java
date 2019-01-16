@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // tag::adocSnippet[]
 public class BookTest {
 
-  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstoreTestPU");
   private static EntityManager em;
   private static EntityTransaction tx;
 
@@ -122,14 +122,6 @@ public class BookTest {
     assertEquals(1, h2g2Books.size());
 
     assertTrue(allBooks.size() >= h2g2Books.size());
-  }
-
-  @Test
-  public void shouldCheckDatabase() throws Exception {
-
-    // Retrieves all the books from the database
-    List<Book> allBooks = em.createNamedQuery("findAllBooks", Book.class).getResultList();
-    assertTrue(allBooks.size() >= 2);
   }
 
   @Test
