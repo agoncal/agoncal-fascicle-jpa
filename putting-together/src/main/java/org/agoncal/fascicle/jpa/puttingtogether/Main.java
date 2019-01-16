@@ -29,9 +29,13 @@ public class Main {
     em.persist(book);
     tx.commit();
 
-    // 4 - Executes the named query
+    // 4 - Queries H2G2 books
     book = em.createNamedQuery("findBookH2G2", Book.class).getSingleResult();
     System.out.println(book);
+
+    // 4 - Queries all the books
+    int books = em.createNamedQuery("findAllBooks", Book.class).getResultList().size();
+    System.out.println("Number of books "+ books);
 
     // 5 - Closes the entity manager and the factory
     em.close();
