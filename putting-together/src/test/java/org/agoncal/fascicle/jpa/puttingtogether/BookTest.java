@@ -24,13 +24,13 @@ public class BookTest {
   private static EntityTransaction tx;
 
   @BeforeAll
-  static void initEntityManager() {
+  static void init() {
     em = emf.createEntityManager();
     tx = em.getTransaction();
   }
 
   @AfterAll
-  static void closeEntityManager() {
+  static void close() {
     if (em != null) em.close();
   }
 
