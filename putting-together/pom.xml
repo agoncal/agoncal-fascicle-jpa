@@ -58,6 +58,21 @@
           <argLine>-Duser.language=en -Duser.country=EN</argLine>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>org.agoncal.fascicle.jpa.puttingtogether.Main</mainClass>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
