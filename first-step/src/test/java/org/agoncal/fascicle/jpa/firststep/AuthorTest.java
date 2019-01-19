@@ -56,6 +56,7 @@ public class AuthorTest {
 
     // tag::adocShouldNotCreateAnAuthorWithNullFirstname[]
     Author author = new Author().firstName(null);
+
     tx.begin();
     em.persist(author);
     assertThrows(RollbackException.class, () -> {
