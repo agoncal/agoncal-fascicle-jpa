@@ -82,9 +82,7 @@ public class ArtistTest {
     Artist artist = new Artist().firstName(null);
     tx.begin();
     em.persist(artist);
-    assertThrows(RollbackException.class, () -> {
-      tx.commit();
-    });
+    assertThrows(RollbackException.class, () -> tx.commit());
     // end::shouldNotCreateAnArtistWithNullFirstname[]
   }
 }

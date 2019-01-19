@@ -10,7 +10,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -32,6 +31,7 @@ public class BookTest {
   @AfterAll
   static void close() {
     if (em != null) em.close();
+    if (emf != null) emf.close();
   }
 
   // ...

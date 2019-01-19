@@ -4,8 +4,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.*;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -56,9 +54,7 @@ public class AuthorTest {
     Author author = new Author().firstName(null);
     tx.begin();
     em.persist(author);
-    assertThrows(RollbackException.class, () -> {
-      tx.commit();
-    });
+    assertThrows(RollbackException.class, () -> tx.commit());
     // end::adocShouldNotCreateAnAuthorWithNullFirstname[]
   }
 }

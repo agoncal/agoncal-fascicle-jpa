@@ -59,9 +59,7 @@ public class AuthorTest {
 
     tx.begin();
     em.persist(author);
-    assertThrows(RollbackException.class, () -> {
-      tx.commit();
-    });
+    assertThrows(RollbackException.class, () -> tx.commit());
     // end::adocShouldNotCreateAnAuthorWithNullFirstname[]
   }
 }

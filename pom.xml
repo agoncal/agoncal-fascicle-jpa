@@ -113,9 +113,6 @@
 
 
   <build>
-    <plugins>
-    </plugins>
-
     <pluginManagement>
       <plugins>
         <!-- All core Maven plugins ordered by shortname (antrun, assembly ...) -->
