@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
@@ -14,7 +13,6 @@ import javax.persistence.Table;
  */
 // tag::adocSnippet[]
 @Entity
-@Table(name = "gets_overridden_by_xml_mapping")
 public class Book {
 
   @Id
