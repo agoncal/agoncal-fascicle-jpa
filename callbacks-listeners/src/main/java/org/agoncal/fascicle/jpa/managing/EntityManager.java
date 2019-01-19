@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.jpa.managing;
 
-import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;

@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.jpa.managing.ex12;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**

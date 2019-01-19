@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import javax.persistence.Cache;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Antonio Goncalves

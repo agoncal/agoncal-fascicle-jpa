@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.jpa.managing.ex11;
 
-import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;

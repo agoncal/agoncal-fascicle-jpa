@@ -1,6 +1,11 @@
 package org.agoncal.fascicle.jpa.querying;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import static javax.persistence.CascadeType.PERSIST;
 

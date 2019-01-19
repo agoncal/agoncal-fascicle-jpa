@@ -1,6 +1,13 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.MapKeyColumn;
 import java.util.HashMap;
 import java.util.Map;
 

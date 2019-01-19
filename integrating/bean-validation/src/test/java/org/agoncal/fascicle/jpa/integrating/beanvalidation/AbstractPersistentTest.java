@@ -8,7 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.sql.SQLException;
-import java.util.Random;
 
 /**
  * @author Antonio Goncalves

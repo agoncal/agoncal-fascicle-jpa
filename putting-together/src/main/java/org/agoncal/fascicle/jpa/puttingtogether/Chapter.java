@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.jpa.puttingtogether;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
 
 /**
  * @author Antonio Goncalves

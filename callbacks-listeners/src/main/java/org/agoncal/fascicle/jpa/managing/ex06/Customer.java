@@ -3,7 +3,6 @@ package org.agoncal.fascicle.jpa.managing.ex06;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves

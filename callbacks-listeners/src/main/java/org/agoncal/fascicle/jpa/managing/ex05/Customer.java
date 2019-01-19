@@ -1,7 +1,5 @@
 package org.agoncal.fascicle.jpa.managing.ex05;
 
-import javax.persistence.*;
-
 import static javax.persistence.CascadeType.PERSIST;
 
 

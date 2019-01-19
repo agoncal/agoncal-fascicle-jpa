@@ -1,8 +1,12 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.MappedSuperclass;
 
-import static javax.persistence.InheritanceType.*;
+import static javax.persistence.InheritanceType.JOINED;
 
 /**
  * @author Antonio Goncalves

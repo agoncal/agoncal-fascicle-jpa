@@ -1,12 +1,12 @@
 package javax.persistence;
 
-import java.util.Map;
-import java.util.List;
-import javax.persistence.metamodel.Metamodel;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
-import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.metamodel.Metamodel;
+import java.util.List;
+import java.util.Map;
 
 // @formatter:off
 // tag::adocEntityManager[]

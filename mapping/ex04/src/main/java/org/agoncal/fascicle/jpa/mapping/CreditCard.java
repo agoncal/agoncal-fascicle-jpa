@@ -1,6 +1,10 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves

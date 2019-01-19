@@ -1,7 +1,5 @@
 package org.agoncal.fascicle.jpa.managing.ex07;
 
-import javax.persistence.*;
-
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
