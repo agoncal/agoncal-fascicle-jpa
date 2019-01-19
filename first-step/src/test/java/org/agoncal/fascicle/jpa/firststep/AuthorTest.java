@@ -42,9 +42,11 @@ public class AuthorTest {
     // tag::adocShouldCreateAnAuthor[]
     Author author = new Author().firstName("Adams").lastName("Douglas");
     assertNull(author.getId(), "ID should be null");
+
     tx.begin();
     em.persist(author);
     tx.commit();
+
     assertNotNull(author.getId(), "ID should not be null");
     // end::adocShouldCreateAnAuthor[]
   }
