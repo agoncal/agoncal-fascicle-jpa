@@ -1,13 +1,17 @@
+/*
+ * License: Apache License, Version 2.0
+ * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
+ */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import org.jboss.weld.junit4.WeldInitiator;
-import org.junit.Rule;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.jboss.weld.junit4.WeldInitiator;
+import org.junit.Rule;
+import org.junit.Test;
 
 public class SimpleCdiTest {
 

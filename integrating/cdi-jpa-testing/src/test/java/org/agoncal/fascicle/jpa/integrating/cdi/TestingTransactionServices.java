@@ -1,12 +1,17 @@
-package org.agoncal.fascicle.jpa.integrating.cdi.support;
-
-import com.arjuna.ats.jta.common.jtaPropertyManager;
-import org.jboss.weld.transaction.spi.TransactionServices;
+/*
+ * License: Apache License, Version 2.0
+ * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
+ */
+package org.agoncal.fascicle.jpa.integrating.cdi;
 
 import javax.transaction.Status;
 import javax.transaction.Synchronization;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
+
+import org.jboss.weld.transaction.spi.TransactionServices;
+
+import com.arjuna.ats.jta.common.jtaPropertyManager;
 
 public class TestingTransactionServices implements TransactionServices {
 

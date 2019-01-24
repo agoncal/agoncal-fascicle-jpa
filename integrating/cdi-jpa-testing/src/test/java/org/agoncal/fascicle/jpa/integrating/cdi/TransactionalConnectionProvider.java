@@ -1,15 +1,21 @@
-package org.agoncal.fascicle.jpa.integrating.cdi.support;
+/*
+ * License: Apache License, Version 2.0
+ * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
+ */
+package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import com.arjuna.ats.jdbc.TransactionalDriver;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 import org.h2.jdbcx.JdbcDataSource;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.service.UnknownUnwrapTypeException;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Properties;
+import com.arjuna.ats.jdbc.TransactionalDriver;
 
 /**
  * @author <a href="mailto:gytis@redhat.com">Gytis Trikleris</a>

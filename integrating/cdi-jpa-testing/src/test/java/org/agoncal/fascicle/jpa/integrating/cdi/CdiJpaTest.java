@@ -1,50 +1,53 @@
+/*
+ * License: Apache License, Version 2.0
+ * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
+ */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import com.arjuna.ats.jta.cdi.TransactionExtension;
-import org.agoncal.fascicle.jpa.integrating.cdi.support.EntityManagerFactoryProducer;
-import org.agoncal.fascicle.jpa.integrating.cdi.support.EntityManagerProducer;
-import org.agoncal.fascicle.jpa.integrating.cdi.support.JtaEnvironment;
-import org.jboss.weld.junit4.WeldInitiator;
-import org.junit.ClassRule;
-import org.junit.Rule;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
+
+import java.util.List;
+import java.util.UUID;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.TransactionalException;
 import javax.transaction.UserTransaction;
-import java.util.List;
-import java.util.UUID;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.fail;
+import org.assertj.core.api.Assertions;
+import org.jboss.weld.environment.se.Weld;
+import org.jboss.weld.junit4.WeldInitiator;
+import org.junit.ClassRule;
+import org.junit.Rule;
+import org.junit.Test;
 
 public class CdiJpaTest {
 
     @ClassRule
     public static JtaEnvironment jtaEnvironment = new JtaEnvironment();
 
-//    @Rule
-//    public WeldInitiator weld = WeldInitiator.from(new Weld())
-//            .activate(RequestScoped.class)
-//            .inject(this)
-//            .build();
+    @Rule
+    public WeldInitiator weld = WeldInitiator.from(new Weld())
+            .activate(RequestScoped.class)
+            .inject(this)
+            .build();
 
     // new Weld() above enables scanning of the classpath; alternatively, only the required beans can be listed explicitly:
 
-    @Rule
-    public WeldInitiator weld = WeldInitiator.from(
-            ObserverTestBean.class,
-            TransactionalTestService.class,
-            TestService.class,
-            EntityManagerProducer.class,
-            EntityManagerFactoryProducer.class,
-            TransactionExtension.class
-        )
-        .activate(RequestScoped.class)
-        .inject(this)
-        .build();
+//    @Rule
+//    public WeldInitiator weld = WeldInitiator.from(
+//            ObserverTestBean.class,
+//            TransactionalTestService.class,
+//            TestService.class,
+//            EntityManagerProducer.class,
+//            EntityManagerFactoryProducer.class,
+//            TransactionExtension.class
+//        )
+//        .activate(RequestScoped.class)
+//        .inject(this)
+//        .build();
 
     @Inject
     private EntityManager entityManager;
@@ -82,7 +85,7 @@ public class CdiJpaTest {
 
         entityManager.getTransaction().begin();
         List<TestEntity> loaded = entityManager.createQuery("FROM TestEntity te", TestEntity.class).getResultList();
-        assertThat(loaded).hasSize(2);
+        Assertions.assertThat(loaded).hasSize(2);
         entityManager.getTransaction().commit();
     }
 
@@ -107,7 +110,7 @@ public class CdiJpaTest {
 
         ut.begin();
         List<TestEntity> loaded = entityManager.createQuery("FROM TestEntity te", TestEntity.class).getResultList();
-        assertThat(loaded).hasSize(2);
+        Assertions.assertThat(loaded).hasSize(2);
         ut.commit();
     }
 
