@@ -18,7 +18,7 @@
   <modules>
     <module>bean-validation</module>
     <module>cdi</module>
-    <!--<module>jta</module>-->
+    <module>jta</module>
     <module>spring</module>
   </modules>
 
