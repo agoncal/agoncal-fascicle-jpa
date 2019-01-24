@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.integrating.cdi;
+package org.agoncal.fascicle.jpa.integrating.cdi.support;
 
 import com.arjuna.ats.jdbc.TransactionalDriver;
 import org.h2.jdbcx.JdbcDataSource;

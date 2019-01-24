@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.integrating.cdi;
+package org.agoncal.fascicle.jpa.integrating.cdi.support;
 
 import com.arjuna.ats.jta.common.jtaPropertyManager;
 import org.jboss.weld.transaction.spi.TransactionServices;

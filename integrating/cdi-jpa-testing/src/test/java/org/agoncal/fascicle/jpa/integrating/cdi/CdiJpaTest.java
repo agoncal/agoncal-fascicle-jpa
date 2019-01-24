@@ -1,6 +1,9 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import org.jboss.weld.environment.se.Weld;
+import com.arjuna.ats.jta.cdi.TransactionExtension;
+import org.agoncal.fascicle.jpa.integrating.cdi.support.EntityManagerFactoryProducer;
+import org.agoncal.fascicle.jpa.integrating.cdi.support.EntityManagerProducer;
+import org.agoncal.fascicle.jpa.integrating.cdi.support.JtaEnvironment;
 import org.jboss.weld.junit4.WeldInitiator;
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -22,26 +25,26 @@ public class CdiJpaTest {
     @ClassRule
     public static JtaEnvironment jtaEnvironment = new JtaEnvironment();
 
-    @Rule
-    public WeldInitiator weld = WeldInitiator.from(new Weld())
-            .activate(RequestScoped.class)
-            .inject(this)
-            .build();
+//    @Rule
+//    public WeldInitiator weld = WeldInitiator.from(new Weld())
+//            .activate(RequestScoped.class)
+//            .inject(this)
+//            .build();
 
     // new Weld() above enables scanning of the classpath; alternatively, only the required beans can be listed explicitly:
 
-//    @Rule
-//    public WeldInitiator weld = WeldInitiator.from(
-//            ObserverTestBean.class,
-//            TransactionalTestService.class,
-//            TestService.class,
-//            EntityManagerProducer.class,
-//            EntityManagerFactoryProducer.class,
-//            TransactionExtension.class
-//        )
-//        .activate(RequestScoped.class)
-//        .inject(this)
-//        .build();
+    @Rule
+    public WeldInitiator weld = WeldInitiator.from(
+            ObserverTestBean.class,
+            TransactionalTestService.class,
+            TestService.class,
+            EntityManagerProducer.class,
+            EntityManagerFactoryProducer.class,
+            TransactionExtension.class
+        )
+        .activate(RequestScoped.class)
+        .inject(this)
+        .build();
 
     @Inject
     private EntityManager entityManager;

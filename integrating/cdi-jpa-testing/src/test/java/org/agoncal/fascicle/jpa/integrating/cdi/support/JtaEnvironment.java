@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.integrating.cdi;
+package org.agoncal.fascicle.jpa.integrating.cdi.support;
 
 import org.jnp.server.NamingBeanImpl;
 import org.junit.rules.ExternalResource;
