@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -8,6 +9,7 @@ import javax.persistence.EntityManager;
  * http://www.antoniogoncalves.org
  * --
  */
+@ApplicationScoped
 public class AddressService {
 
   // ======================================

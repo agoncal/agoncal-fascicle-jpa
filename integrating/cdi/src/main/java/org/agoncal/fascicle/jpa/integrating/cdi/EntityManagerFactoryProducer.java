@@ -7,8 +7,10 @@ import javax.enterprise.inject.spi.BeanManager;
 import javax.inject.Inject;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
+@ApplicationScoped
 public class EntityManagerFactoryProducer {
 
   @Inject
@@ -17,9 +19,9 @@ public class EntityManagerFactoryProducer {
   @Produces
   @ApplicationScoped
   public EntityManagerFactory produceEntityManagerFactory() {
-    return Persistence.createEntityManagerFactory("cdbookstorePU",
-      Collections.singletonMap("javax.persistence.bean.manager", beanManager)
-    );
+    Map<String, Object> props = new HashMap<>();
+    props.put("javax.persistence.bean.manager", beanManager);
+    return Persistence.createEntityManagerFactory("cdbookstorePU", props);
   }
 
   public void close(@Disposes EntityManagerFactory entityManagerFactory) {

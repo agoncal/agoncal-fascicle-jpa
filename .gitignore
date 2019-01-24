@@ -29,3 +29,5 @@ teamworkUser.xml
 projectFilesBackup*
 cdbookstoreCreate.ddl
 cdbookstoreDrop.ddl
+ObjectStore
+PutObjectStoreDirHere

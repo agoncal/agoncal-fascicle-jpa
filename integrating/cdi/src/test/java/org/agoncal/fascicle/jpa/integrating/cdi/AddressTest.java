@@ -1,20 +1,27 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.jboss.weld.junit4.WeldInitiator;
+import org.junit.Assert;
+import org.junit.Rule;
+import org.junit.Test;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@Disabled
+//@Disabled
 //@EnableWeld
-public class AddressTest extends AbstractPersistentTest {
+public class AddressTest {
+
+  @Rule
+  public WeldInitiator weld = WeldInitiator.from(AddressService.class)
+    .activate(RequestScoped.class)
+    .inject(this)
+    .build();
 
   // ======================================
   // =             Attributes             =
@@ -34,6 +41,6 @@ public class AddressTest extends AbstractPersistentTest {
 //    tx.begin();
     addressService.save(address);
 //    tx.commit();
-    assertNotNull(address.getId(), "ID should not be null");
+    Assert.assertNotNull("ID should not be null", address.getId());
   }
 }

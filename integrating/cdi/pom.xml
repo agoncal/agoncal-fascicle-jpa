@@ -15,25 +15,49 @@
     <version>2.2</version>
   </parent>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <version.org.hibernate>5.4.0.Final</version.org.hibernate>
+    <version.weld>3.0.5.Final</version.weld>
+  </properties>
+
+
   <dependencies>
     <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>org.eclipse.persistence.jpa</artifactId>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <version>2.0.SP1</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>javax.el</artifactId>
-      <version>3.0.1-b08</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${version.org.hibernate}</version>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>javax.enterprise</groupId>-->
-      <!--<artifactId>cdi-api</artifactId>-->
-      <!--<version>2.0</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>org.jboss.weld.se</groupId>
+      <artifactId>weld-se-core</artifactId>
+      <version>${version.weld}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.weld.module</groupId>
+      <artifactId>weld-jta</artifactId>
+      <version>${version.weld}</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.jboss.weld.se</groupId>
       <artifactId>weld-se-core</artifactId>
@@ -42,8 +66,16 @@
 
     <!-- Test -->
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.weld</groupId>
+      <artifactId>weld-junit4</artifactId>
+      <version>1.3.1.Final</version>
+      <scope>test</scope>
     </dependency>
     <!--<dependency>-->
       <!--<groupId>org.jboss.weld</groupId>-->
