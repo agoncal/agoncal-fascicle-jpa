@@ -1,0 +1,1 @@
+CREATE TABLE purchase_order (ID BIGINT NOT NULL, CREATIONDATE TIMESTAMP, delivery_city VARCHAR, delivery_country VARCHAR, delivery_street1 VARCHAR, delivery_zipcode VARCHAR, invoice_city VARCHAR, invoice_country VARCHAR, invoice_street1 VARCHAR, invoice_zipcode VARCHAR, PRIMARY KEY (ID))
