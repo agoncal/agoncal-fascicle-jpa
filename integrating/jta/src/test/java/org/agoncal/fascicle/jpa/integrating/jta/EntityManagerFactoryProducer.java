@@ -15,22 +15,22 @@ import java.util.Map;
 @ApplicationScoped
 public class EntityManagerFactoryProducer {
 
-    @Inject
-    private BeanManager beanManager;
+  @Inject
+  private BeanManager beanManager;
 
-    @Produces
-    @ApplicationScoped
-    public EntityManagerFactory produceEntityManagerFactory() {
-        Map<String, Object> props = new HashMap<>();
-        props.put("javax.persistence.bean.manager", beanManager);
-        props.put(Environment.CONNECTION_PROVIDER, TransactionalConnectionProvider.class);
-        return Persistence.createEntityManagerFactory(
-                "cdbookstorePU",
-                props
-        );
-    }
+  @Produces
+  @ApplicationScoped
+  public EntityManagerFactory produceEntityManagerFactory() {
+    Map<String, Object> props = new HashMap<>();
+    props.put("javax.persistence.bean.manager", beanManager);
+    props.put(Environment.CONNECTION_PROVIDER, TransactionalConnectionProvider.class);
+    return Persistence.createEntityManagerFactory(
+      "cdbookstorePU",
+      props
+    );
+  }
 
-    public void close(@Disposes EntityManagerFactory entityManagerFactory) {
-        entityManagerFactory.close();
-    }
+  public void close(@Disposes EntityManagerFactory entityManagerFactory) {
+    entityManagerFactory.close();
+  }
 }

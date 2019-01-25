@@ -1,7 +1,3 @@
-/*
- * License: Apache License, Version 2.0
- * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
- */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
 import org.jboss.weld.environment.se.Weld;
@@ -12,6 +8,9 @@ import org.junit.Test;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AddressTest {
 
@@ -22,10 +21,13 @@ public class AddressTest {
     .build();
 
   @Inject
+  private EntityManager entityManager;
+
+  @Inject
   private AddressService addressService;
 
   @Test
-  public void shouldCreateAnAddress() throws Exception {
+  public void shouldCreateAnAddress() {
 
     Address address = new Address().street1("233 Spring Street").city("New York").zipcode("12345");
     addressService.save(address);
@@ -33,9 +35,13 @@ public class AddressTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void shouldCreateAnInvalidAddress() throws Exception {
-
+  public void shouldCreateAnInvalidAddress() {
     Address address = new Address().street1("233 Spring Street").city("New York").zipcode("Invalid");
     addressService.save(address);
+  }
+
+  @Test
+  public void shoudInjectEntityManager() {
+    assertThat(entityManager).isNotNull();
   }
 }

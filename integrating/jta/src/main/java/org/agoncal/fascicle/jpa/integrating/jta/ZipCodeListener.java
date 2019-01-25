@@ -5,6 +5,12 @@ import javax.inject.Inject;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
+
 // tag::adocSnippet[]
 @ApplicationScoped
 public class ZipCodeListener {

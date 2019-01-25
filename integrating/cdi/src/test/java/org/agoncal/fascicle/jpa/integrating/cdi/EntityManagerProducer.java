@@ -1,7 +1,3 @@
-/*
- * License: Apache License, Version 2.0
- * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
- */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -15,16 +11,16 @@ import javax.persistence.EntityManagerFactory;
 @ApplicationScoped
 public class EntityManagerProducer {
 
-    @Inject
-    private EntityManagerFactory entityManagerFactory;
+  @Inject
+  private EntityManagerFactory entityManagerFactory;
 
-    @Produces
-    @RequestScoped
-    public EntityManager produceEntityManager() {
-        return entityManagerFactory.createEntityManager();
-    }
+  @Produces
+  @RequestScoped
+  public EntityManager produceEntityManager() {
+    return entityManagerFactory.createEntityManager();
+  }
 
-    public void close(@Disposes EntityManager entityManager) {
-        entityManager.close();
-    }
+  public void close(@Disposes EntityManager entityManager) {
+    entityManager.close();
+  }
 }

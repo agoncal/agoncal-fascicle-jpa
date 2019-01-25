@@ -7,19 +7,19 @@ import com.arjuna.ats.jta.utils.JNDIManager;
 
 public class JtaEnvironment extends ExternalResource {
 
-    private NamingBeanImpl NAMING_BEAN;
+  private NamingBeanImpl NAMING_BEAN;
 
-    @Override
-    protected void before() throws Throwable {
-        NAMING_BEAN = new NamingBeanImpl();
-        NAMING_BEAN.start();
+  @Override
+  protected void before() throws Throwable {
+    NAMING_BEAN = new NamingBeanImpl();
+    NAMING_BEAN.start();
 
-        JNDIManager.bindJTAImplementation();
-        TransactionalConnectionProvider.bindDataSource();
-    }
+    JNDIManager.bindJTAImplementation();
+    TransactionalConnectionProvider.bindDataSource();
+  }
 
-    @Override
-    protected void after() {
-        NAMING_BEAN.stop();
-    }
+  @Override
+  protected void after() {
+    NAMING_BEAN.stop();
+  }
 }

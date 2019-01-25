@@ -5,6 +5,12 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
+
 // tag::adocSnippet[]
 @Entity
 @EntityListeners(ZipCodeListener.class)
