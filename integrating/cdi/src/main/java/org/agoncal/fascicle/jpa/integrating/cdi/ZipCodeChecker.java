@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @ApplicationScoped
 public class ZipCodeChecker {
 
@@ -23,3 +24,4 @@ public class ZipCodeChecker {
   }
 
 }
+// end::adocSnippet[]

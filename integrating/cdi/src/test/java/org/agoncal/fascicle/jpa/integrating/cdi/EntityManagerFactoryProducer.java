@@ -4,8 +4,6 @@
  */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import org.hibernate.cfg.Environment;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
@@ -27,11 +25,7 @@ public class EntityManagerFactoryProducer {
     public EntityManagerFactory produceEntityManagerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put("javax.persistence.bean.manager", beanManager);
-        props.put(Environment.CONNECTION_PROVIDER, TransactionalConnectionProvider.class);
-        return Persistence.createEntityManagerFactory(
-                "cdbookstorePU",
-                props
-        );
+        return Persistence.createEntityManagerFactory("cdbookstorePU", props);
     }
 
     public void close(@Disposes EntityManagerFactory entityManagerFactory) {

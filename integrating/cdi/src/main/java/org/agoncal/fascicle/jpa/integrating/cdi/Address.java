@@ -1,13 +1,15 @@
-/*
- * License: Apache License, Version 2.0
- * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
- */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
 
 // tag::adocSnippet[]
 @Entity
