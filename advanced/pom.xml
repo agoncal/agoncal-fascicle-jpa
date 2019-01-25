@@ -22,6 +22,7 @@
     <module>ex04</module>
     <module>ex05</module>
     <module>ex06</module>
+    <module>ex07</module>
   </modules>
 
   <build>
