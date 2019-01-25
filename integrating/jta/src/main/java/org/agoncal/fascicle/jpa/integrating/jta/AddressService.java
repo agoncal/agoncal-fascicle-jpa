@@ -1,14 +1,15 @@
 package org.agoncal.fascicle.jpa.integrating.jta;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * @author Antonio Goncalves
- * http://www.antoniogoncalves.org
- * --
- */
+@ApplicationScoped
 public class AddressService {
+
+  private final List<String> names = new ArrayList<>();
 
   // ======================================
   // =             Attributes             =
@@ -17,9 +18,13 @@ public class AddressService {
   @Inject
   private EntityManager em;
 
-  // ======================================
-  // =              Methods               =
-  // ======================================
+  public List<String> getTestEntityNames() {
+    return names;
+  }
+
+  public void addTestEntityName(String name) {
+    names.add(name);
+  }
 
   public Address save(Address address) throws Exception {
 
