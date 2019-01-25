@@ -4,26 +4,25 @@
  */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.fail;
-
-import java.util.List;
-import java.util.UUID;
+import org.assertj.core.api.Assertions;
+import org.jboss.weld.environment.se.Weld;
+import org.jboss.weld.junit4.WeldInitiator;
+import org.junit.Assert;
+import org.junit.ClassRule;
+import org.junit.Rule;
+import org.junit.Test;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.TransactionalException;
 import javax.transaction.UserTransaction;
+import java.util.List;
 
-import org.assertj.core.api.Assertions;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.junit4.WeldInitiator;
-import org.junit.ClassRule;
-import org.junit.Rule;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
 
-public class CdiJpaTest {
+public class AddressTest {
 
     @ClassRule
     public static JtaEnvironment jtaEnvironment = new JtaEnvironment();
@@ -40,7 +39,7 @@ public class CdiJpaTest {
 //    public WeldInitiator weld = WeldInitiator.from(
 //            ObserverTestBean.class,
 //            TransactionalTestService.class,
-//            TestService.class,
+//            AddressService.class,
 //            EntityManagerProducer.class,
 //            EntityManagerFactoryProducer.class,
 //            TransactionExtension.class
@@ -56,35 +55,50 @@ public class CdiJpaTest {
     private UserTransaction ut;
 
     @Inject
-    private ObserverTestBean observerTestBean;
-
-    @Inject
-    private TestService testService;
+    private AddressService addressService;
 
     @Inject
     private TransactionalTestService transactionalTestService;
 
-    @Test
+  @Test
+  public void shouldCreateAnAddress() throws Exception {
+
+    Address address = new Address().street1("233 Spring Street").city("New York").zipcode("12345");
+    addressService.save(address);
+    Assert.assertNotNull("ID should not be null", address.getId());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldCreateAnInvalidAddress() throws Exception {
+
+    Address address = new Address().street1("233 Spring Street").city("New York").zipcode("Invalid");
+//    assertThrows(IllegalArgumentException.class, () -> {
+      addressService.save(address);
+//    });
+
+  }
+
+  @Test
     public void canInjectEntityManager() {
         assertThat(entityManager).isNotNull();
 
         entityManager.getTransaction().begin();
 
-        TestEntity te = new TestEntity();
-        te.id = UUID.randomUUID();
-        te.name = "Test 1";
+        Address te = new Address();
+        //te.setId(UUID.randomUUID());
+        te.setStreet1("Test 1");
         entityManager.persist(te);
 
-        te = new TestEntity();
-        te.id = UUID.randomUUID();
-        te.name = "Test 2";
+        te = new Address();
+        //te.setId(UUID.randomUUID());
+        te.setStreet1("Test 2");
         entityManager.persist(te);
 
         entityManager.getTransaction().commit();
         entityManager.clear();
 
         entityManager.getTransaction().begin();
-        List<TestEntity> loaded = entityManager.createQuery("FROM TestEntity te", TestEntity.class).getResultList();
+        List<Address> loaded = entityManager.createQuery("FROM Address te", Address.class).getResultList();
         Assertions.assertThat(loaded).hasSize(2);
         entityManager.getTransaction().commit();
     }
@@ -95,48 +109,42 @@ public class CdiJpaTest {
 
         ut.begin();
 
-        TestEntity te = new TestEntity();
-        te.id = UUID.randomUUID();
-        te.name = "Test 1";
+        Address te = new Address();
+        //te.setId(UUID.randomUUID());
+        te.setStreet1("Test 1");
         entityManager.persist(te);
 
-        te = new TestEntity();
-        te.id = UUID.randomUUID();
-        te.name = "Test 2";
+        te = new Address();
+        //te.setId(UUID.randomUUID());
+        te.setStreet1("Test 2");
         entityManager.persist(te);
 
         ut.commit();
         entityManager.clear();
 
         ut.begin();
-        List<TestEntity> loaded = entityManager.createQuery("FROM TestEntity te", TestEntity.class).getResultList();
+        List<Address> loaded = entityManager.createQuery("FROM Address te", Address.class).getResultList();
         Assertions.assertThat(loaded).hasSize(2);
         ut.commit();
     }
 
-    @Test
-    public void shouldProcessTransactionalObservers() {
-        observerTestBean.work();
-        assertThat(observerTestBean.getResult()).isEqualTo("321");
-    }
-
-    @Test
+    //@Test
     public void canUseDiInEntityListener() {
         entityManager.getTransaction().begin();
 
-        TestEntity te = new TestEntity();
-        te.id = UUID.randomUUID();
-        te.name = "Test 1";
+        Address te = new Address();
+        //te.setId(UUID.randomUUID());
+        te.setStreet1("Test 1");
         entityManager.persist(te);
 
-        te = new TestEntity();
-        te.id = UUID.randomUUID();
-        te.name = "Test 2";
+        te = new Address();
+        //te.setId(UUID.randomUUID());
+        te.setStreet1("Test 2");
         entityManager.persist(te);
 
         entityManager.getTransaction().commit();
 
-        assertThat(testService.getTestEntityNames()).contains("Test 1", "Test 2");
+        assertThat(addressService.getTestEntityNames()).contains("Test 1", "Test 2");
     }
 
     @Test
