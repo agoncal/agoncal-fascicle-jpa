@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import static javax.transaction.Transactional.TxType.MANDATORY;
+import static javax.transaction.Transactional.TxType.REQUIRED;
 
 /**
  * @author Antonio Goncalves
@@ -20,13 +21,13 @@ public class AddressService {
   @Inject
   private EntityManager em;
 
-  @Transactional
+  @Transactional(REQUIRED)
   public Address save(Address address) {
     em.persist(address);
     return address;
   }
 
-  @Transactional(value = MANDATORY)
+  @Transactional(MANDATORY)
   public String needsTransaction() {
     return "Success";
   }
