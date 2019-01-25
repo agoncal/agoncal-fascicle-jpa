@@ -8,19 +8,21 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
+// tag::adocSnippet[]
 @ApplicationScoped
 public class EntityManagerProducer {
 
   @Inject
-  private EntityManagerFactory entityManagerFactory;
+  private EntityManagerFactory emf;
 
   @Produces
   @RequestScoped
   public EntityManager produceEntityManager() {
-    return entityManagerFactory.createEntityManager();
+    return emf.createEntityManager();
   }
 
-  public void close(@Disposes EntityManager entityManager) {
-    entityManager.close();
+  public void close(@Disposes EntityManager em) {
+    em.close();
   }
 }
+// end::adocSnippet[]

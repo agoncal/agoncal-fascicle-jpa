@@ -14,6 +14,7 @@ import javax.persistence.Persistence;
 import java.util.HashMap;
 import java.util.Map;
 
+// tag::adocSnippet[]
 @ApplicationScoped
 public class EntityManagerFactoryProducer {
 
@@ -28,7 +29,8 @@ public class EntityManagerFactoryProducer {
     return Persistence.createEntityManagerFactory("cdbookstorePU", props);
   }
 
-  public void close(@Disposes EntityManagerFactory entityManagerFactory) {
-    entityManagerFactory.close();
+  public void close(@Disposes EntityManagerFactory emf) {
+    emf.close();
   }
 }
+// end::adocSnippet[]
