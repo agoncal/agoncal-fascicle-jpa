@@ -1,22 +1,21 @@
+/*
+ * License: Apache License, Version 2.0
+ * See the LICENSE file in the root directory or <http://www.apache.org/licenses/LICENSE-2.0>.
+ */
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * @author Antonio Goncalves
- * http://www.antoniogoncalves.org
- * --
- */
-// @formatter:off
 // tag::adocSnippet[]
-//@EntityListeners({ZipCodeListener.class})
 @Entity
+@EntityListeners(ZipCodeListener.class)
 public class Address {
 
-  @Id @GeneratedValue
+  @Id
+  @GeneratedValue
   private Long id;
   private String street1;
   private String street2;
@@ -27,24 +26,9 @@ public class Address {
 
   // Constructors, getters, setters
   // tag::adocSkip[]
-  // @formatter:on
 
   // ======================================
   // =            Constructors            =
-  // ======================================
-
-  public Address() {
-  }
-
-  public Address(String street1, String city, String zipcode, String country) {
-    this.street1 = street1;
-    this.city = city;
-    this.zipcode = zipcode;
-    this.country = country;
-  }
-
-  // ======================================
-  // =          Getters & Setters         =
   // ======================================
 
   public Long getId() {
@@ -53,6 +37,11 @@ public class Address {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Address uuid(Long id) {
+    this.id = id;
+    return this;
   }
 
   public String getStreet1() {

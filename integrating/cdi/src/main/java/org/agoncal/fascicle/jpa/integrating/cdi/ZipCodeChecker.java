@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,6 +9,7 @@ import java.util.regex.Pattern;
  * http://www.antoniogoncalves.org
  * --
  */
+@ApplicationScoped
 public class ZipCodeChecker {
 
   private Pattern zipPattern = Pattern.compile("\\d{5}(-\\d{5})?");

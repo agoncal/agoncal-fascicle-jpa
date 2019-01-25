@@ -17,7 +17,6 @@
 
   <modules>
     <module>bean-validation</module>
-    <module>cdi-jpa-testing</module>
     <module>cdi</module>
     <module>jta</module>
     <module>spring</module>
