@@ -28,7 +28,7 @@ public class AddressService {
   }
 
   @Transactional(MANDATORY)
-  public String needsTransaction() {
+  public String needsATransaction() {
     return "Success";
   }
 }

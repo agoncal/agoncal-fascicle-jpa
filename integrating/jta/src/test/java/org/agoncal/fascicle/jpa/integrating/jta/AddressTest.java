@@ -37,7 +37,6 @@ public class AddressTest {
 
   @Test
   public void shouldCreateAnAddress() {
-
     Address address = new Address().street1("233 Spring Street").city("New York").zipcode("12345");
     addressService.save(address);
     Assert.assertNotNull("ID should not be null", address.getId());
@@ -51,7 +50,7 @@ public class AddressTest {
 
   @Test(expected = TransactionalException.class)
   public void shouldBeInTransaction() {
-    addressService.needsTransaction();
+    addressService.needsATransaction();
   }
 
   @Test
