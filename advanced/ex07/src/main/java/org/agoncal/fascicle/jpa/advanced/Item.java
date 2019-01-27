@@ -4,7 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+
+import static javax.persistence.InheritanceType.TABLE_PER_CLASS;
 
 /**
  * @author Antonio Goncalves
@@ -13,7 +14,7 @@ import javax.persistence.InheritanceType;
  */
 // tag::adocSnippet[]
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = TABLE_PER_CLASS)
 public class Item {
 
   @Id
