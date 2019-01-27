@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.transaction.Transactional;
 
 /**
  * @author Antonio Goncalves
@@ -12,7 +11,6 @@ import javax.transaction.Transactional;
  * --
  */
 // tag::adocSnippet[]
-@Transactional
 public class BookService {
 
   public void createBook() {
