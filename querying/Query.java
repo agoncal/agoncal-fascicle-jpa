@@ -77,5 +77,5 @@ public interface Query {
 
   // Allows access to the provider-specific API
   <T> T unwrap(Class<T> cls);
+  // end::adocFlush[]
 }
-// end::adocFlush[]
