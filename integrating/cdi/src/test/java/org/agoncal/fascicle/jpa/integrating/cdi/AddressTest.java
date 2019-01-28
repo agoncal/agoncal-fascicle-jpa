@@ -31,7 +31,7 @@ public class AddressTest {
 
     Address address = new Address().street1("233 Spring Street").city("New York").zipcode("12345");
     addressService.save(address);
-    Assert.assertNotNull("ID should not be null", address.getId());
+    Assert.assertNotNull("Id should not be null", address.getId());
   }
 
   @Test(expected = IllegalArgumentException.class)

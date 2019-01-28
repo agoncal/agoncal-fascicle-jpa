@@ -29,7 +29,7 @@ public class CustomerTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(customer);
     tx.commit();
-    assertNotNull(customer.getId(), "ID should not be null");
+    assertNotNull(customer.getId(), "Id should not be null");
     assertEquals(3, customer.getAddresses().size(), "Should have 3 addresses");
   }
 }

@@ -29,7 +29,7 @@ public class BookTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(book);
     tx.commit();
-    assertNotNull(book.getId(), "ID should not be null");
+    assertNotNull(book.getId(), "Id should not be null");
     assertEquals(3, book.getTags().size());
   }
 }

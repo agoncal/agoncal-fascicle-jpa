@@ -28,7 +28,7 @@ public class BookTest extends AbstractPersistentTest {
     em.persist(book);
     tx.commit();
     // end::shouldCreateAValidBook[]
-    assertNotNull(book.getId(), "ID should not be null");
+    assertNotNull(book.getId(), "Id should not be null");
   }
 
   @Test

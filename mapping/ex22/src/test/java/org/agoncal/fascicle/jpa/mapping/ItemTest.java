@@ -30,10 +30,10 @@ public class ItemTest extends AbstractPersistentTest {
     em.persist(book01);
     em.persist(book02);
     tx.commit();
-    assertNotNull(item.getId(), "Item ID should not be null");
-    assertNotNull(cd01.getId(), "CD1 ID should not be null");
-    assertNotNull(cd02.getId(), "CD2 ID should not be null");
-    assertNotNull(book01.getId(), "Book1 ID should not be null");
-    assertNotNull(book02.getId(), "Book2 ID should not be null");
+    assertNotNull(item.getId(), "Item Id should not be null");
+    assertNotNull(cd01.getId(), "CD1 Id should not be null");
+    assertNotNull(cd02.getId(), "CD2 Id should not be null");
+    assertNotNull(book01.getId(), "Book1 Id should not be null");
+    assertNotNull(book02.getId(), "Book2 Id should not be null");
   }
 }

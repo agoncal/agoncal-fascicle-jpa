@@ -29,7 +29,7 @@ public class CDTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(cd);
     tx.commit();
-    assertNotNull(cd.getId(), "ID should not be null");
+    assertNotNull(cd.getId(), "Id should not be null");
     assertEquals(3, cd.getTracks().size());
   }
 }

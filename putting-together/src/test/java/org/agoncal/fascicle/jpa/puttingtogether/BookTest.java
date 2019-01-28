@@ -56,7 +56,7 @@ public class BookTest {
     tx.begin();
     em.persist(book);
     tx.commit();
-    assertNotNull(book.getId(), "ID should not be null");
+    assertNotNull(book.getId(), "Id should not be null");
 
     List<Book> allBooks = em.createNamedQuery("findAllBooks", Book.class).getResultList();
     assertTrue(allBooks.size() >= 1);
@@ -119,7 +119,7 @@ public class BookTest {
     tx.begin();
     em.persist(book);
     tx.commit();
-    Assertions.assertNotNull(book.getId(), "ID should not be null");
+    Assertions.assertNotNull(book.getId(), "Id should not be null");
 
     // Retrieves all the books from the database
     List<Book> allBooks = em.createNamedQuery("findAllBooks", Book.class).getResultList();
@@ -144,7 +144,7 @@ public class BookTest {
     em.persist(book);
     em.persist(author);
     tx.commit();
-    assertNotNull(book.getId(), "ID should not be null");
+    assertNotNull(book.getId(), "Id should not be null");
 
     // Checks the book
     Book foundBook = em.find(Book.class, book.getId());

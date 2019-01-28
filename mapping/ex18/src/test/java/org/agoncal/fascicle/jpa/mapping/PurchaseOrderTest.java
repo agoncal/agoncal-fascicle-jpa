@@ -30,9 +30,9 @@ public class PurchaseOrderTest extends AbstractPersistentTest {
     em.persist(ol1);
     em.persist(ol2);
     tx.commit();
-    assertNotNull(order.getId(), "Order ID should not be null");
-    assertNotNull(ol1.getId(), "OL1 ID should not be null");
-    assertNotNull(ol2.getId(), "OL1 ID should not be null");
+    assertNotNull(order.getId(), "Order Id should not be null");
+    assertNotNull(ol1.getId(), "OL1 Id should not be null");
+    assertNotNull(ol2.getId(), "OL1 Id should not be null");
 
     order = em.find(PurchaseOrder.class, order.getId());
     assertNotNull(order.getOrderLines(), "OrderLines should not be null");

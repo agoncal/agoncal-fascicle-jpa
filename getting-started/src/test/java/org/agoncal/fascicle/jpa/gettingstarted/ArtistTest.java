@@ -52,7 +52,7 @@ public class ArtistTest {
     tx.begin();
     em.persist(artist);
     tx.commit();
-    assertNotNull(artist.getId(), "ID should not be null");
+    assertNotNull(artist.getId(), "Id should not be null");
 
     assertNotNull(em.find(Artist.class, artist.getId()), "Artist should have been persisted in DB");
 

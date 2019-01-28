@@ -22,6 +22,6 @@ public class AddressTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(address);
     tx.commit();
-    assertNotNull(address.getId(), "ID should not be null");
+    assertNotNull(address.getId(), "Id should not be null");
   }
 }

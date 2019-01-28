@@ -27,7 +27,7 @@ public class VersionTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(b);
     tx.commit();
-    assertNotNull(b.getId(), "ID should not be null");
+    assertNotNull(b.getId(), "Id should not be null");
     assertEquals(new Integer(1), b.getVersion(), "Version number should be 1");
     Long id = b.getId();
 
@@ -54,7 +54,7 @@ public class VersionTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(b);
     tx.commit();
-    assertNotNull(b.getId(), "ID should not be null");
+    assertNotNull(b.getId(), "Id should not be null");
     assertEquals(new Integer(1), b.getVersion(), "Version number should be 1");
     Long id = b.getId();
 
@@ -99,7 +99,7 @@ public class VersionTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(book);
     tx.commit();
-    assertNotNull(book.getId(), "ID should not be null");
+    assertNotNull(book.getId(), "Id should not be null");
     assertEquals(new Integer(1), book.getVersion(), "Version number should be 1");
 
     // Updates the same book
