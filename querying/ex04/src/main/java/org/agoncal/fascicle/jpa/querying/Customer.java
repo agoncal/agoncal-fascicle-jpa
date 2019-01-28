@@ -35,7 +35,6 @@ public class Customer {
   private Address address;
 
   // Constructors, getters, setters
-  // tag::adocSkip[]
 
   public static final String FIND_ALL = "Customer.findAll";
 
