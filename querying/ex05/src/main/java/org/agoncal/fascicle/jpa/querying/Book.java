@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureParameter;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * @author Antonio Goncalves
@@ -17,7 +17,7 @@ import java.util.Date;
 @Entity
 @NamedStoredProcedureQuery(name = "archiveOldBooks", procedureName = "sp_archive_books",
   parameters = {
-    @StoredProcedureParameter(name = "archiveDate", mode = ParameterMode.IN, type = Date.class),
+    @StoredProcedureParameter(name = "archiveDate", mode = ParameterMode.IN, type = LocalDate.class),
     @StoredProcedureParameter(name = "warehouse", mode = ParameterMode.IN, type = String.class)
   })
 public class Book {
