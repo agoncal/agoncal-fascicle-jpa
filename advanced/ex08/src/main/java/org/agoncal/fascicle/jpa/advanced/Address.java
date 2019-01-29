@@ -7,17 +7,17 @@ import javax.persistence.Embeddable;
  * http://www.antoniogoncalves.org
  * --
  */
+// tag::adocSnippet[]
 @Embeddable
 public class Address {
-
-  // ======================================
-  // =             Attributes             =
-  // ======================================
 
   private String street1;
   private String city;
   private String zipcode;
   private String country;
+
+  // Constructors, getters, setters
+  // tag::adocSkip[]
 
   // ======================================
   // =            Constructors            =
@@ -68,4 +68,7 @@ public class Address {
   public void setCountry(String country) {
     this.country = country;
   }
+
+  // end::adocSkip[]
 }
+// end::adocSnippet[]
