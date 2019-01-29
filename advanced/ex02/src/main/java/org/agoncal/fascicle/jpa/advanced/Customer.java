@@ -20,7 +20,8 @@ public class Customer {
   private String email;
   private String phoneNumber;
 
-  // Constructors
+  // Constructors and setters
+
   // tag::adocSkip[]
 
   public Customer() {
