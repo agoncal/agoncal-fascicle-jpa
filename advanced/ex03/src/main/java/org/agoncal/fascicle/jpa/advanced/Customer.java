@@ -29,6 +29,7 @@ public class Customer {
   private String phoneNumber;
 
   // Constructors, getters, setters
+
   // tag::adocSkip[]
 
   public Customer() {
@@ -77,15 +78,15 @@ public class Customer {
     this.email = email;
   }
 
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
   // end::adocSkip[]
   @Access(AccessType.PROPERTY)
   @Column(name = "phone_number", length = 555)
   public String getPhoneNumber() {
     return phoneNumber;
-  }
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
   }
 }
 // end::adocSnippet[]
