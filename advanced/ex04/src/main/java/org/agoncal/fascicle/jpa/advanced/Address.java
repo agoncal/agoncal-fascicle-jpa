@@ -22,7 +22,7 @@ public class Address {
   private String zipcode;
   private String country;
 
-  // Constructors
+  // Constructors and setters
   // tag::adocSkip[]
 
   public Address() {
@@ -40,6 +40,31 @@ public class Address {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
+
+  public void setStreet1(String street1) {
+    this.street1 = street1;
+  }
+
+  public void setStreet2(String street2) {
+    this.street2 = street2;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public void setZipcode(String zipcode) {
+    this.zipcode = zipcode;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
   // end::adocSkip[]
 
   @Column(nullable = false)
@@ -47,16 +72,8 @@ public class Address {
     return street1;
   }
 
-  public void setStreet1(String street1) {
-    this.street1 = street1;
-  }
-
   public String getStreet2() {
     return street2;
-  }
-
-  public void setStreet2(String street2) {
-    this.street2 = street2;
   }
 
   @Column(nullable = false, length = 50)
@@ -64,17 +81,9 @@ public class Address {
     return city;
   }
 
-  public void setCity(String city) {
-    this.city = city;
-  }
-
   @Column(length = 3)
   public String getState() {
     return state;
-  }
-
-  public void setState(String state) {
-    this.state = state;
   }
 
   @Column(name = "zip_code", length = 10)
@@ -82,16 +91,8 @@ public class Address {
     return zipcode;
   }
 
-  public void setZipcode(String zipcode) {
-    this.zipcode = zipcode;
-  }
-
   public String getCountry() {
     return country;
-  }
-
-  public void setCountry(String country) {
-    this.country = country;
   }
 }
 // end::adocSnippet[]
