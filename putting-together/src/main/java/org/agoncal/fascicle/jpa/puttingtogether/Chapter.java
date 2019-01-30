@@ -20,6 +20,17 @@ public class Chapter {
   // @formatter:on
 
   // ======================================
+  // =            Constructors            =
+  // ======================================
+
+  public Chapter(String title) {
+    this.title = title;
+  }
+
+  public Chapter() {
+  }
+
+  // ======================================
   // =          Getters & Setters         =
   // ======================================
 

@@ -69,10 +69,10 @@ public class BookTest {
     // tag::shouldCreateABookWithTagsAndChapters[]
     Book book = new Book().title("Java EE 7").price(23.5F).isbn("1-84023-742-4").nbOfPages(354);
     book.tag("java ee").tag("java").tag("enterprise");
-    book.chapter(1, new Chapter().title("Bean Validation"));
-    book.chapter(2, new Chapter().title("CDI"));
-    book.chapter(3, new Chapter().title("JPA"));
-    book.chapter(4, new Chapter().title("EJB"));
+    book.chapter(1, new Chapter("Bean Validation"));
+    book.chapter(2, new Chapter("CDI"));
+    book.chapter(3, new Chapter("JPA"));
+    book.chapter(4, new Chapter("EJB"));
 
     // Persists the book to the database
     tx.begin();
