@@ -23,12 +23,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 // tag::adocBegin[]
 public class ArtistTest {
 
-  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+  private static EntityManagerFactory emf;
   private static EntityManager em;
   private static EntityTransaction tx;
 
   @BeforeAll
   static void init() {
+    emf = Persistence.createEntityManagerFactory("cdbookstorePU");
     em = emf.createEntityManager();
     tx = em.getTransaction();
   }
