@@ -50,6 +50,8 @@ public class ArtistTest {
 
     // tag::shouldManageAnArtist[]
     Artist artist = new Artist().firstName("Adams").lastName("Douglas");
+    assertNull(artist.getId(), "Id should be null");
+
     tx.begin();
     em.persist(artist);
     tx.commit();
