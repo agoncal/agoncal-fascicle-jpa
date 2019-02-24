@@ -2,16 +2,16 @@
 <!-- tag::adocSnippet[] -->
 <persistence>
   <persistence-unit name="" transaction-type="">
-    <description></description>
-    <provider></provider>
-    <jta-data-source></jta-data-source>
-    <non-jta-data-source></non-jta-data-source>
-    <mapping-file></mapping-file>
-    <jar-file></jar-file>
-    <class></class>
-    <exclude-unlisted-classes></exclude-unlisted-classes>
-    <shared-cache-mode></shared-cache-mode>
-    <validation-mode></validation-mode>
+    <description/>
+    <provider/>
+    <jta-data-source/>
+    <non-jta-data-source/>
+    <mapping-file/>
+    <jar-file/>
+    <class/>
+    <exclude-unlisted-classes/>
+    <shared-cache-mode/>
+    <validation-mode/>
 
     <properties>
       <property name="javax.persistence.lock.timeout" value=""/>
