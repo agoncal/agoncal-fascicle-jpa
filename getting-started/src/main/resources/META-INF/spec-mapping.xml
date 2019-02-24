@@ -4,9 +4,15 @@
   <description/>
   <access/>
   <catalog/>
-  <converter class=""/>
+  <package/>
+  <persistence-unit-metadata/>
+  <sequence-generator name=""/>
+  <table-generator name=""/>
+  <sql-result-set-mapping name=""/>
+  <entity class=""/>
   <embeddable class=""/>
   <mapped-superclass class=""/>
+  <converter class=""/>
   <named-native-query name="">
     <query/>
   </named-native-query>
@@ -14,11 +20,5 @@
     <query/>
   </named-query>
   <named-stored-procedure-query name="" procedure-name=""/>
-  <package/>
-  <persistence-unit-metadata/>
-  <sequence-generator name=""/>
-  <sql-result-set-mapping name=""/>
-  <table-generator name=""/>
-  <entity class=""/>
 </entity-mappings>
 <!-- end::adocSnippet[] -->
