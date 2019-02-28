@@ -112,7 +112,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     List customers = query.getResultList();
 
     for (Object customer : customers) {
-      System.out.println(((Customer)customer).getFirstName());
+      System.out.println(((Customer) customer).getFirstName());
     }
     // end::adocQuery[]
     assertEquals(ALL_CUSTOMERS, customers.size());

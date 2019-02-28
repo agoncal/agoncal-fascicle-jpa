@@ -1,9 +1,8 @@
 package org.agoncal.fascicle.jpa.integrating.jta;
 
+import com.arjuna.ats.jta.utils.JNDIManager;
 import org.jnp.server.NamingBeanImpl;
 import org.junit.rules.ExternalResource;
-
-import com.arjuna.ats.jta.utils.JNDIManager;
 
 public class JtaEnvironment extends ExternalResource {
 

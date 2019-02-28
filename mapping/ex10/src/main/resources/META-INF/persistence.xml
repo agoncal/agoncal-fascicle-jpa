@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- tag::adocSnippet[] -->
-<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
 
   <persistence-unit name="cdbookstorePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <mapping-file>META-INF/book_mapping.xml</mapping-file>
-<!-- tag::adocSkip[] -->
+    <!-- tag::adocSkip[] -->
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
@@ -17,7 +17,7 @@
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:cdbookstoreDB"/>
     </properties>
-<!-- end::adocSkip[] -->
+    <!-- end::adocSkip[] -->
   </persistence-unit>
 </persistence>
 <!-- end::adocSnippet[] -->

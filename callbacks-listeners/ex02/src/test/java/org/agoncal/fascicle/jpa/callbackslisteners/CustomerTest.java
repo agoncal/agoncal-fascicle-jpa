@@ -55,9 +55,9 @@ public class CustomerTest extends AbstractPersistentTest {
     Customer customer = new Customer(null, "Smith", "jsmith@gmail.com", "1234565", LocalDate.now(), LocalDateTime.now());
 
     assertThrows(IllegalArgumentException.class, () -> {
-        // Persist the object
-        em.persist(customer);
-      });
+      // Persist the object
+      em.persist(customer);
+    });
   }
 
   @Test
@@ -67,8 +67,8 @@ public class CustomerTest extends AbstractPersistentTest {
     Customer customer = new Customer("John", null, "jsmith@gmail.com", "1234565", LocalDate.now(), LocalDateTime.now());
 
     assertThrows(IllegalArgumentException.class, () -> {
-        // Persist the object
-        em.persist(customer);
-      });
+      // Persist the object
+      em.persist(customer);
+    });
   }
 }

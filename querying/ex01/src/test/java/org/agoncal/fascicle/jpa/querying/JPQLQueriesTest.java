@@ -200,8 +200,6 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
     assertEquals(5, query.getResultList().size());
 
 
-
-
     query = em.createQuery("SELECT NEW org.agoncal.fascicle.jpa.querying.CustomerDTO(c.firstName, c.lastName, c.address.country.code) from Customer c where c.firstName = 'Vincent'");
     assertEquals(2, query.getResultList().size());
 

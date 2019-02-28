@@ -198,12 +198,12 @@ public class CustomerTest extends AbstractPersistentTest {
 
     // tag::adocFlush[]
     assertThrows(IllegalStateException.class, () -> {
-        tx.begin();
-        em.persist(customer);
-        em.flush();
-        em.persist(address);
-        tx.commit();
-      });
+      tx.begin();
+      em.persist(customer);
+      em.flush();
+      em.persist(address);
+      tx.commit();
+    });
     // end::adocFlush[]
   }
 

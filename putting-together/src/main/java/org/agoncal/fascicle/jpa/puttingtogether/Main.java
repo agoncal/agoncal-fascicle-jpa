@@ -35,7 +35,7 @@ public class Main {
 
     // 4 - Queries all the books
     int books = em.createNamedQuery("findAllBooks", Book.class).getResultList().size();
-    System.out.println("Number of books "+ books);
+    System.out.println("Number of books " + books);
 
     // 5 - Closes the entity manager and the factory
     em.close();
