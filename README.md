@@ -11,7 +11,7 @@ In this fascicle will you will learn Java Persistence API, its annotations for m
 
 Foreword by [Thorben Janssen](https://twitter.com/thjanssen123)
 
-![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-bean-validation/master/cover.jpg)
+![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-jpa/master/cover.jpg)
 
 ## References
 
