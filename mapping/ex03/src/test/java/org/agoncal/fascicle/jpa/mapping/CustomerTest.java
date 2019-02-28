@@ -4,7 +4,8 @@ package org.agoncal.fascicle.jpa.mapping;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author Antonio Goncalves
@@ -19,10 +20,10 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shoulCreateACustomer() throws Exception {
 
-    Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
+    Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1234565", LocalDate.now(), LocalDateTime.now());
     tx.begin();
     em.persist(customer);
     tx.commit();
-    Assertions.assertNotNull(customer.getId(), "ID should not be null");
+    Assertions.assertNotNull(customer.getId(), "Id should not be null");
   }
 }

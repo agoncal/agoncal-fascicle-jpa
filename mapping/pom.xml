@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>org.agoncal.fascicle.jpa</groupId>
   <artifactId>mapping</artifactId>
   <version>2.2</version>
@@ -19,16 +20,13 @@
     <module>ex01</module>
     <module>ex02</module>
     <module>ex03</module>
+    <module>ex03b</module>
     <module>ex04</module>
-    <module>ex05</module>
-    <module>ex06</module>
-    <module>ex07</module>
     <module>ex08</module>
-    <!--<module>ex09</module> data conversion-->
+    <module>ex09</module>
     <module>ex10</module>
     <module>ex11</module>
-    <!--<module>ex12</module> list of embeddables -->
-    <module>ex13</module>
+    <module>ex12</module>
     <module>ex14</module>
     <module>ex15</module>
     <module>ex16</module>
@@ -38,7 +36,6 @@
     <module>ex20</module>
     <module>ex21</module>
     <module>ex22</module>
-    <module>ex23</module>
     <module>ex24</module>
     <module>ex25</module>
   </modules>

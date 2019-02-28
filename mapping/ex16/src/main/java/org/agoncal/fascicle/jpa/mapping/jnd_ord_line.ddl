@@ -1,7 +1,12 @@
-create table jnd_ord_line (
-  order_fk bigint not null,
-  order_line_fk bigint not null,
-  primary key (order_fk, order_line_fk),
-  foreign key (order_line_fk) references OrderLine(id),
-  foreign key (order_fk) references Order(id)
-)
+CREATE TABLE JND_ORD_LINE
+(
+  ORDER_FK      BIGINT NOT NULL,
+  ORDER_LINE_FK BIGINT NOT NULL,
+  PRIMARY KEY (ORDER_FK, ORDER_LINE_FK)
+);
+ALTER TABLE JND_ORD_LINE
+  ADD CONSTRAINT FK_JND_ORD_LINE_ORDER_LINE_FK
+    FOREIGN KEY (ORDER_LINE_FK) REFERENCES ORDERLINE (ID);
+ALTER TABLE JND_ORD_LINE
+  ADD CONSTRAINT FK_JND_ORD_LINE_ORDER_FK
+    FOREIGN KEY (ORDER_FK) REFERENCES PURCHASE_ORDER (ID);

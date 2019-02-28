@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import org.agoncal.fascicle.jpa.mapping.AbstractPersistentTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -23,6 +22,6 @@ public class ItemTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(book);
     tx.commit();
-    assertNotNull(book.getId(), "Book ID should not be null");
+    assertNotNull(book.getId(), "Book Id should not be null");
   }
 }

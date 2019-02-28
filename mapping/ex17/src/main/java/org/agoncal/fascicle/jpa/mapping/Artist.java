@@ -1,6 +1,11 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +24,10 @@ public class Artist {
   private String firstName;
   private String lastName;
   @ManyToMany
-  @JoinTable(name = "jnd_art_cd", joinColumns = @JoinColumn(name = "artist_fk"), inverseJoinColumns = @JoinColumn(name = "cd_fk"))
+  @JoinTable(name = "jnd_art_cd",
+    joinColumns = @JoinColumn(name = "artist_fk"),
+    inverseJoinColumns = @JoinColumn(name = "cd_fk")
+  )
   private List<CD> appearsOnCDs;
 
   // Constructors, getters, setters

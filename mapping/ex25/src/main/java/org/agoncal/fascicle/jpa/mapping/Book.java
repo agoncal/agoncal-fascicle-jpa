@@ -1,14 +1,12 @@
 package org.agoncal.fascicle.jpa.mapping;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex34_book")
 // tag::adocSnippet[]
 @Entity
 public class Book extends Item {

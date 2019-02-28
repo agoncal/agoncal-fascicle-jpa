@@ -4,9 +4,15 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Antonio Goncalves
@@ -41,11 +47,13 @@ public class AuthorTest {
 
     // tag::adocShouldCreateAnAuthor[]
     Author author = new Author().firstName("Adams").lastName("Douglas");
-    assertNull(author.getId(), "ID should be null");
+    assertNull(author.getId(), "Id should be null");
+
     tx.begin();
     em.persist(author);
     tx.commit();
-    assertNotNull(author.getId(), "ID should not be null");
+
+    assertNotNull(author.getId(), "Id should not be null");
     // end::adocShouldCreateAnAuthor[]
   }
 
@@ -54,11 +62,10 @@ public class AuthorTest {
 
     // tag::adocShouldNotCreateAnAuthorWithNullFirstname[]
     Author author = new Author().firstName(null);
+
     tx.begin();
     em.persist(author);
-    assertThrows(RollbackException.class, () -> {
-      tx.commit();
-    });
+    assertThrows(RollbackException.class, () -> tx.commit());
     // end::adocShouldNotCreateAnAuthorWithNullFirstname[]
   }
 }

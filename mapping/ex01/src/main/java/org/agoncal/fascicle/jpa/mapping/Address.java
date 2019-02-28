@@ -1,6 +1,9 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.SecondaryTable;
 
 /**
  * @author Antonio Goncalves
@@ -9,22 +12,21 @@ import javax.persistence.*;
  */
 // tag::adocSnippet[]
 @Entity
-@Table(name = "address")
-@SecondaryTable(name = "city")
-@SecondaryTable(name = "country")
+@SecondaryTable(name = "t_city")
+@SecondaryTable(name = "t_country")
 public class Address {
 
   @Id
   private Long id;
   private String street1;
   private String street2;
-  @Column(table = "city")
+  @Column(table = "t_city")
   private String city;
-  @Column(table = "city")
+  @Column(table = "t_city")
   private String state;
-  @Column(table = "city")
+  @Column(table = "t_city")
   private String zipcode;
-  @Column(table = "country")
+  @Column(table = "t_country")
   private String country;
 
   // Constructors, getters, setters

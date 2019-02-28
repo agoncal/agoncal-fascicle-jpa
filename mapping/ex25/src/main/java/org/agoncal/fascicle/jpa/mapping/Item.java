@@ -1,16 +1,21 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.MappedSuperclass;
+
+import static javax.persistence.InheritanceType.JOINED;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex34_item")
 // tag::adocSnippet[]
 @MappedSuperclass
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = JOINED)
 public abstract class Item {
 
   @Id
@@ -18,9 +23,9 @@ public abstract class Item {
   protected Long id;
   @Column(length = 50, nullable = false)
   protected String title;
-  protected Float price;
   @Column(length = 2000)
   protected String description;
+  protected Float price;
 
   // Constructors, getters, setters
   // tag::adocSkip[]

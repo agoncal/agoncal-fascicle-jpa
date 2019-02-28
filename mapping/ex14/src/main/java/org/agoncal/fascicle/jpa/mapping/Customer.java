@@ -1,13 +1,14 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex19_Customer")
 // tag::adocSnippet[]
 @Entity
 public class Customer {
@@ -19,7 +20,6 @@ public class Customer {
   private String lastName;
   private String email;
   private String phoneNumber;
-  @OneToOne
   private Address address;
 
   // Constructors, getters, setters

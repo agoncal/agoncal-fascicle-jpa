@@ -26,7 +26,7 @@ public class CustomerTest extends AbstractPersistentTest {
     em.persist(customer);
     em.persist(address);
     tx.commit();
-    assertNotNull(customer.getId(), "ID should not be null");
+    assertNotNull(customer.getId(), "Id should not be null");
 
     customer = em.find(Customer.class, customer.getId());
     assertNotNull(customer.getAddress(), "Address should not be null");

@@ -22,6 +22,6 @@ public class TrackTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(track);
     tx.commit();
-    assertNotNull(track.getId(), "ID should not be null");
+    assertNotNull(track.getId(), "Id should not be null");
   }
 }

@@ -3,14 +3,12 @@ package org.agoncal.fascicle.jpa.mapping;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-@Table(name = "ex19_Address")
 // tag::adocSnippet[]
 @Entity
 public class Address {

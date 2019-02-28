@@ -1,6 +1,10 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 /**
  * @author Antonio Goncalves
@@ -16,8 +20,8 @@ public class Item {
   @GeneratedValue
   protected Long id;
   protected String title;
-  protected Float price;
   protected String description;
+  protected Float price;
 
   // Constructors, getters, setters
   // tag::adocSkip[]

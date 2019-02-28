@@ -22,6 +22,6 @@ public class NewsTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(news);
     tx.commit();
-    assertNotNull(news.getTitle(), "ID should not be null");
+    assertNotNull(news.getTitle(), "Id should not be null");
   }
 }

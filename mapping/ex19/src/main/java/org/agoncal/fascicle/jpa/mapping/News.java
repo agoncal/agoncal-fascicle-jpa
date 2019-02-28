@@ -1,6 +1,11 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OrderColumn;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +23,7 @@ public class News {
   private Long id;
   @Column(nullable = false)
   private String content;
-  @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+  @JoinColumn
   @OrderColumn(name = "publication_index")
   private List<Comment> comments;
 

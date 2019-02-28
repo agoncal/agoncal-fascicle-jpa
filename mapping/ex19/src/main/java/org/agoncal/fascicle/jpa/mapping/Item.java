@@ -17,8 +17,8 @@ public class Item {
   @GeneratedValue
   protected Long id;
   protected String title;
-  protected Float price;
   protected String description;
+  protected Float price;
 
   // Constructors, getters, setters
   // tag::adocSkip[]

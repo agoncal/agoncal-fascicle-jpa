@@ -50,11 +50,11 @@ public class ArtistTest extends AbstractPersistentTest {
     em.persist(sgtpepper);
     em.persist(heyjoe);
     tx.commit();
-    assertNotNull(ringo.getId(), "Ringo ID should not be null");
-    assertNotNull(john.getId(), "John ID should not be null");
-    assertNotNull(franck.getId(), "Franck ID should not be null");
-    assertNotNull(zoot.getId(), "Zoot ID should not be null");
-    assertNotNull(sgtpepper.getId(), "Sgt Pepper ID should not be null");
-    assertNotNull(heyjoe.getId(), "Hey Joe ID should not be null");
+    assertNotNull(ringo.getId(), "Ringo Id should not be null");
+    assertNotNull(john.getId(), "John Id should not be null");
+    assertNotNull(franck.getId(), "Franck Id should not be null");
+    assertNotNull(zoot.getId(), "Zoot Id should not be null");
+    assertNotNull(sgtpepper.getId(), "Sgt Pepper Id should not be null");
+    assertNotNull(heyjoe.getId(), "Hey Joe Id should not be null");
   }
 }

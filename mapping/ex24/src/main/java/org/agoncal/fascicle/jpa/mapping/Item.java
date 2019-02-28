@@ -9,8 +9,8 @@ package org.agoncal.fascicle.jpa.mapping;
 public class Item {
 
   protected String title;
-  protected Float price;
   protected String description;
+  protected Float price;
 
   // Constructors, getters, setters
   // tag::adocSkip[]

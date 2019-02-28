@@ -1,13 +1,15 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OrderBy;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Antonio Goncalves
- * APress Book - Beginning Java EE 7 with Glassfish 4
- * http://www.apress.com/
  * http://www.antoniogoncalves.org
  * --
  */
@@ -20,7 +22,6 @@ public class News {
   private Long id;
   @Column(nullable = false)
   private String content;
-  @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
   @OrderBy("postedDate DESC")
   private List<Comment> comments;
 

@@ -4,9 +4,16 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Antonio Goncalves
@@ -16,12 +23,13 @@ import static org.junit.jupiter.api.Assertions.*;
 // tag::adocBegin[]
 public class ArtistTest {
 
-  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+  private static EntityManagerFactory emf;
   private static EntityManager em;
   private static EntityTransaction tx;
 
   @BeforeAll
   static void init() {
+    emf = Persistence.createEntityManagerFactory("cdbookstorePU");
     em = emf.createEntityManager();
     tx = em.getTransaction();
   }
@@ -42,10 +50,12 @@ public class ArtistTest {
 
     // tag::shouldManageAnArtist[]
     Artist artist = new Artist().firstName("Adams").lastName("Douglas");
+    assertNull(artist.getId(), "Id should be null");
+
     tx.begin();
     em.persist(artist);
     tx.commit();
-    assertNotNull(artist.getId(), "ID should not be null");
+    assertNotNull(artist.getId(), "Id should not be null");
 
     assertNotNull(em.find(Artist.class, artist.getId()), "Artist should have been persisted in DB");
 
@@ -82,9 +92,7 @@ public class ArtistTest {
     Artist artist = new Artist().firstName(null);
     tx.begin();
     em.persist(artist);
-    assertThrows(RollbackException.class, () -> {
-      tx.commit();
-    });
+    assertThrows(RollbackException.class, () -> tx.commit());
     // end::shouldNotCreateAnArtistWithNullFirstname[]
   }
 }

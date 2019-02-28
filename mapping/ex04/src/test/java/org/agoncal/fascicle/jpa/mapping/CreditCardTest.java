@@ -21,6 +21,6 @@ public class CreditCardTest extends AbstractPersistentTest {
     tx.begin();
     em.persist(creditCard);
     tx.commit();
-    assertNotNull(creditCard.getNumber(), "ID should not be null");
+    assertNotNull(creditCard.getNumber(), "Id should not be null");
   }
 }

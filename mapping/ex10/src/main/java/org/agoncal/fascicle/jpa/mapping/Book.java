@@ -1,6 +1,10 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * @author Antonio Goncalves
@@ -9,7 +13,6 @@ import javax.persistence.*;
  */
 // tag::adocSnippet[]
 @Entity
-@Table(name = "gets_overridden_by_xml_mapping")
 public class Book {
 
   @Id

@@ -38,12 +38,26 @@ public class Book {
     this.illustrations = illustrations;
   }
 
+  public Book(Long id, String title, String description, Float price, String isbn, Integer nbOfPages, Boolean illustrations) {
+    this.id = id;
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.isbn = isbn;
+    this.nbOfPages = nbOfPages;
+    this.illustrations = illustrations;
+  }
+
   // ======================================
   // =          Getters & Setters         =
   // ======================================
 
   public Long getId() {
     return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getTitle() {
