@@ -1,6 +1,6 @@
 # AGoncal Fascicle: Java Persistence API
 
-Code of my Java Persistence API Fascicle.
+Code of my [Java Persistence API Fascicle]().
 
 Applications are made up of business logic, interaction with other systems, user interfaces etc. and data.
 Most of the data that our applications manipulate have to be stored in datastores, retrieved, processed and analysed.
@@ -11,7 +11,7 @@ In this fascicle will you will learn Java Persistence API, its annotations for m
 
 Foreword by [Thorben Janssen](https://twitter.com/thjanssen123)
 
-![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-bean-validation/master/cover.jpg)
+![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-jpa/master/cover.jpg)
 
 ## References
 
