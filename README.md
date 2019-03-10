@@ -13,6 +13,13 @@ Foreword by [Thorben Janssen](https://twitter.com/thjanssen123)
 
 ![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-jpa/master/cover.jpg)
 
+And thanks to my proof-reader team:
+
+* [Thorben Janssen](https://twitter.com/thjanssen123)
+* [Youness Teimouri](http://www.youness-teimouri.com)
+* [Aurélie Vache](https://twitter.com/aurelievache)
+* [Aymeric Beaumet](https://twitter.com/aymericbeaumet)
+
 ## References
 
 * [Testing CDI Beans and the Persistence Layer Under Java SE](http://in.relation.to/2019/01/23/testing-cdi-beans-and-persistence-layer-under-java-se) by [Gunnar Morling](https://twitter.com/gunnarmorling)
