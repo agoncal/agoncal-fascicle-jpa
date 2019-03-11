@@ -3,6 +3,7 @@ package org.agoncal.fascicle.jpa.managing;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.RollbackException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -425,5 +426,25 @@ public class CustomerTest extends AbstractPersistentTest {
     tx.commit();
 
     assertNotNull(address.getId());
+  }
+
+  @Test
+  public void shouldPersistACustomerTwice() throws Exception {
+
+    Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
+
+    // Persists the object
+    tx.begin();
+    em.persist(customer);
+    tx.commit();
+    assertNotNull(customer.getId());
+
+    em.clear();
+
+    assertThrows(RollbackException.class, () -> {
+      tx.begin();
+      em.persist(customer);
+      tx.commit();
+    });
   }
 }
