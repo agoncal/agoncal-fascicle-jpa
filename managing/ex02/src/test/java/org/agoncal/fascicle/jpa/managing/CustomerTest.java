@@ -123,7 +123,6 @@ public class CustomerTest extends AbstractPersistentTest {
     // Removes the object from the database
     tx.begin();
     em.remove(customer);
-    em.remove(address);
     tx.commit();
 
     // The objects are still available until GC
@@ -134,7 +133,7 @@ public class CustomerTest extends AbstractPersistentTest {
     customer = em.find(Customer.class, customer.getId());
     assertNull(customer);
     address = em.find(Address.class, address.getId());
-    assertNull(address);
+    assertNotNull(address);
     // end::adocRemove[]
   }
 
