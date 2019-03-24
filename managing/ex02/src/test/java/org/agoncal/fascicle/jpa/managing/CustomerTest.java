@@ -300,8 +300,9 @@ public class CustomerTest extends AbstractPersistentTest {
     // Re-attaches the entity and updates name
     customer.setFirstName("William");
     tx.begin();
-    em.merge(customer);
+    customer = em.merge(customer);
     tx.commit();
+    assertTrue(em.contains(customer));
 
     // Clears the Persistence Context
     em.clear();
