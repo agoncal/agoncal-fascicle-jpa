@@ -332,6 +332,9 @@ public class CustomerTest extends AbstractPersistentTest {
     assertEquals(customer.getFirstName(), "William");
 
     tx.commit();
+
+    customer = em.find(Customer.class, customer.getId());
+    assertEquals(customer.getFirstName(), "William");
     // end::adocMerge[]
   }
 
