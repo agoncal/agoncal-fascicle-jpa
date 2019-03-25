@@ -192,11 +192,11 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldPersistWithFlush() throws Exception {
 
+    // tag::adocFlush[]
     Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
-    // tag::adocFlush[]
     assertThrows(IllegalStateException.class, () -> {
       tx.begin();
       em.persist(customer);
