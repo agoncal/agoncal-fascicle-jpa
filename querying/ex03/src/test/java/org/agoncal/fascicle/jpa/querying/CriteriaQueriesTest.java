@@ -135,6 +135,22 @@ public class CriteriaQueriesTest extends AbstractPersistentTest {
   }
 
   @Test
+  public void adocWhereBindParameter() throws Exception {
+    // tag::adocWhere[]
+    String param = "Vincent";
+
+    CriteriaBuilder builder = em.getCriteriaBuilder();
+    CriteriaQuery<Customer> criteriaQuery = builder.createQuery(Customer.class);
+    Root<Customer> c = criteriaQuery.from(Customer.class);
+    criteriaQuery.select(c).where(builder.equal(c.get("firstName"), param));
+
+    TypedQuery<Customer> query = em.createQuery(criteriaQuery);
+    List<Customer> customers = query.getResultList();
+    // end::adocWhere[]
+    assertEquals(2, customers.size());
+  }
+
+  @Test
   public void adocAge() throws Exception {
     // tag::adocAge[]
     CriteriaBuilder builder = em.getCriteriaBuilder();

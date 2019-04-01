@@ -192,11 +192,11 @@ public class CustomerTest extends AbstractPersistentTest {
   @Test
   public void shouldPersistWithFlush() throws Exception {
 
+    // tag::adocFlush[]
     Customer customer = new Customer("Anthony", "Balla", "aballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
-    // tag::adocFlush[]
     assertThrows(IllegalStateException.class, () -> {
       tx.begin();
       em.persist(customer);
@@ -300,8 +300,9 @@ public class CustomerTest extends AbstractPersistentTest {
     // Re-attaches the entity and updates name
     customer.setFirstName("William");
     tx.begin();
-    em.merge(customer);
+    customer = em.merge(customer);
     tx.commit();
+    assertTrue(em.contains(customer));
 
     // Clears the Persistence Context
     em.clear();
@@ -331,6 +332,9 @@ public class CustomerTest extends AbstractPersistentTest {
     assertEquals(customer.getFirstName(), "William");
 
     tx.commit();
+
+    customer = em.find(Customer.class, customer.getId());
+    assertEquals(customer.getFirstName(), "William");
     // end::adocMerge[]
   }
 
