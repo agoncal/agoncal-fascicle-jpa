@@ -34,7 +34,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
 
   @BeforeAll
   private static void initializeData() {
-    customer01 = new Customer("Antony", "Balla", "tballa@mail.com", 14);
+    customer01 = new Customer("Anthony", "Balla", "tballa@mail.com", 14);
     Address address01 = new Address("Procession St", "Paris", "75015");
     Country country01 = new Country("FR");
     address01.setCountry(country01);
@@ -199,6 +199,14 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
   }
 
   @Test
+  public void adocQueryAll() throws Exception {
+    TypedQuery<Customer> typedQuery = em.createQuery(
+      "SELECT c FROM Customer c", Customer.class);
+    List<Customer> customers = typedQuery.getResultList();
+    assertEquals(7, customers.size());
+  }
+
+  @Test
   public void adocQueryMax() throws Exception {
     // tag::adocQueryMax[]
     TypedQuery<Customer> typedQuery = em.createQuery(
@@ -207,6 +215,18 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
     List<Customer> customers = typedQuery.getResultList();
     // end::adocQueryMax[]
     assertEquals(5, customers.size());
+  }
+
+  @Test
+  public void adocQueryFirstResult() throws Exception {
+    // tag::adocQueryFirstResult[]
+    TypedQuery<Customer> typedQuery = em.createQuery(
+      "SELECT c FROM Customer c", Customer.class);
+    typedQuery.setFirstResult(3);
+    typedQuery.setMaxResults(10);
+    List<Customer> customers = typedQuery.getResultList();
+    // end::adocQueryFirstResult[]
+    assertEquals(4, customers.size());
   }
 }
 

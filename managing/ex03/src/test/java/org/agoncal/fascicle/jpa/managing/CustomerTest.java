@@ -20,11 +20,11 @@ public class CustomerTest extends AbstractPersistentTest {
   public void shouldRemoveACustomerAndRemoveAddressOrphan() throws Exception {
 
     // tag::adocOrphan[]
-    Customer customer = new Customer("Antony", "Balla", "tballa@mail.com");
+    Customer customer = new Customer("Anthony", "Balla", "tballa@mail.com");
     Address address = new Address("Ritherdon Rd", "London", "8QE", "UK");
     customer.setAddress(address);
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     em.persist(address);

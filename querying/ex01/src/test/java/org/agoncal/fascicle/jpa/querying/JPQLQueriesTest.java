@@ -65,7 +65,7 @@ public class JPQLQueriesTest extends AbstractPersistentTest {
   @Test
   public void shouldQueryCustomers() throws Exception {
 
-    Customer customer01 = new Customer("Antony", "Balla", "tballa@mail.com", 14);
+    Customer customer01 = new Customer("Anthony", "Balla", "tballa@mail.com", 14);
     Address address01 = new Address("Procession St", "Paris", "75015");
     Country country01 = new Country("FR");
     address01.setCountry(country01);
