@@ -47,7 +47,7 @@ public interface EntityManager {
   public <T> T getReference(Class<T> entityClass, Object primaryKey);
   // end::adocCRUD[]
   // tag::adocPersistenceContext[]
-  // Synchronizes the persistence context to the underlying database
+  // Synchronises the persistence context to the underlying database
   public void flush();
   public void setFlushMode(FlushModeType flushMode);
   public FlushModeType getFlushMode();
