@@ -19,7 +19,7 @@ public interface Query {
 
 
   // tag::adocParameter[]
-  // Sets parameters to the query
+  // Sets parameters for the query
   <T> Query setParameter(Parameter<T> param, T value);
   Query setParameter(Parameter<Calendar> param, Calendar value,
                      TemporalType temporalType);
