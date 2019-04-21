@@ -15,7 +15,7 @@ public interface Cache {
   // Clear the cache.
   public void evictAll();
 
-  // Returns the provider-specific cache implementation
+  // Return the provider-specific cache implementation
   public <T> T unwrap(Class<T> cls);
 }
 // end::adocSnippet[]
