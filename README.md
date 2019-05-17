@@ -9,7 +9,7 @@ JPA is an Object-Relational Mapping tool that maps Java objects to relational da
 
 In this fascicle will you will learn Java Persistence API, its annotations for mapping entities as well as the Java Persistence Query Language and entity life cycle and a few advanced topics such as integrating JPA with other frameworks (Bean Validation, JTA, CDI, Spring).
 
-Foreword by [Thorben Janssen](https://twitter.com/thjanssen123)
+In this [fascicle](https://www.amazon.com/Understanding-JPA-2-2-Persistence-fascicle-ebook/dp/B07RWPXPS6) will you will learn Java Persistence API and use its different APIs to map objects to relational databases, query these objects, and a few advanced topics such as integrating JPA with other frameworks (Bean Validation, JAX-RS, JTA, CDI, Spring).
 
 ![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-jpa/master/cover.jpg)
 

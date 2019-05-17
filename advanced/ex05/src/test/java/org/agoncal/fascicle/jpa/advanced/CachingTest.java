@@ -45,7 +45,7 @@ public class CachingTest extends AbstractPersistentTest {
     // tag::adocSnippet[]
     Customer customer = new Customer("Patricia", "Jane", " plecomte@mail.com ");
 
-    // Persist the object
+    // Persists the object
     tx.begin();
     em.persist(customer);
     tx.commit();
