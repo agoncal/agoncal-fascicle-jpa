@@ -65,7 +65,7 @@ public class Author {
     this.bio = bio;
   }
 
-  public Author surnbioame(String bio) {
+  public Author bio(String bio) {
     this.bio = bio;
     return this;
   }
