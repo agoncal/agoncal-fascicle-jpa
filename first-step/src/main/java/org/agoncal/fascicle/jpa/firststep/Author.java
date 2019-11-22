@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+// TODO add   private LocalDate dateOfBirth; like JSON
+
 // @formatter:off
 // tag::adocSnippet[]
 @Entity
