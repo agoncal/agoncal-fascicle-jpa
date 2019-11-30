@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-// TODO add   private LocalDate dateOfBirth; like JSON
-
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
 // @formatter:off
 // tag::adocSnippet[]
 @Entity
@@ -25,6 +28,11 @@ public class Author {
   // Constructors, getters, setters
   // tag::adocSkip[]
   // @formatter:on
+
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
+
   public Long getId() {
     return id;
   }
