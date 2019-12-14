@@ -20,7 +20,7 @@ public class ArtistTest extends AbstractPersistentTest {
   public void shouldCreateThreeCDsAndFourArtists() throws Exception {
 
     Artist ringo = new Artist("Ringo", "Starr");
-    Artist john = new Artist("John", "Lenon");
+    Artist john = new Artist("John", "Lennon");
     Artist franck = new Artist("Franck", "Zappa");
     Artist jimi = new Artist("Jimi", "Hendrix");
 
