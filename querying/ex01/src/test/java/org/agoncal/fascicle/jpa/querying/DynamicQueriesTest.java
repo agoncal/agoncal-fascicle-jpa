@@ -210,7 +210,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
   public void adocQueryMax() throws Exception {
     // tag::adocQueryMax[]
     TypedQuery<Customer> typedQuery = em.createQuery(
-      "SELECT c FROM Customer c", Customer.class);
+      "SELECT c FROM Customer c ORDER BY c.age", Customer.class);
     typedQuery.setMaxResults(5);
     List<Customer> customers = typedQuery.getResultList();
     // end::adocQueryMax[]
@@ -221,7 +221,7 @@ public class DynamicQueriesTest extends AbstractPersistentTest {
   public void adocQueryFirstResult() throws Exception {
     // tag::adocQueryFirstResult[]
     TypedQuery<Customer> typedQuery = em.createQuery(
-      "SELECT c FROM Customer c", Customer.class);
+      "SELECT c FROM Customer c ORDER BY c.age", Customer.class);
     typedQuery.setFirstResult(3);
     typedQuery.setMaxResults(10);
     List<Customer> customers = typedQuery.getResultList();
