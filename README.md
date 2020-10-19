@@ -1,4 +1,4 @@
-# AGoncal Fascicle: Java Persistence API
+# AGoncal Fascicle: Understanding Java Persistence API 2.2
 
 Code of my [Java Persistence API Fascicle](https://www.amazon.com/Understanding-JPA-2-2-Persistence-fascicle-ebook/dp/B07RWPXPS6).
 
