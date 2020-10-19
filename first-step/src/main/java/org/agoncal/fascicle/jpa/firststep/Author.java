@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
 // @formatter:off
 // tag::adocSnippet[]
 @Entity
@@ -23,6 +28,11 @@ public class Author {
   // Constructors, getters, setters
   // tag::adocSkip[]
   // @formatter:on
+
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
+
   public Long getId() {
     return id;
   }
@@ -65,7 +75,7 @@ public class Author {
     this.bio = bio;
   }
 
-  public Author surnbioame(String bio) {
+  public Author bio(String bio) {
     this.bio = bio;
     return this;
   }
