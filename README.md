@@ -77,4 +77,6 @@ And thanks to my proof-reader team:
 
 ## References
 
+* [agoncal fascicles e-book format](https://agoncal.teachable.com)
+* [agoncal fascicles paper book format](https://www.amazon.com/author/agoncal)
 * [Testing CDI Beans and the Persistence Layer Under Java SE](http://in.relation.to/2019/01/23/testing-cdi-beans-and-persistence-layer-under-java-se) by [Gunnar Morling](https://twitter.com/gunnarmorling)
