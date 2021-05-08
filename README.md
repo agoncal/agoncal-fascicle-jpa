@@ -15,7 +15,7 @@ You will discover its annotations for mapping entities, as well as the Java Pers
 
 In this [fascicle](https://agoncal.teachable.com) will you will learn Java Persistence API, its annotations for mapping entities as well as the Java Persistence Query Language and entity life cycle and a few advanced topics such as integrating JPA with other frameworks (Bean Validation, JTA, CDI, Spring).
 
-![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-jpa/master/cover.jpg)
+[![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-jpa/master/cover.jpg)](https://agoncal.teachable.com/p/ebook-understanding-jpa)
 
 Foreword by [Thorben Janssen](https://twitter.com/thjanssen123)
 
