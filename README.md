@@ -1,6 +1,6 @@
 # AGoncal Fascicle: Understanding Java Persistence API 2.2
 
-Code of my [Java Persistence API Fascicle](https://www.amazon.com/Understanding-JPA-2-2-Persistence-fascicle-ebook/dp/B07RWPXPS6).
+Code of my [Java Persistence API Fascicle](https://agoncal.teachable.com/p/ebook-understanding-jpa).
 
 ![Travis](https://travis-ci.org/agoncal/agoncal-fascicle-jpa.svg?branch=2.2)
 
@@ -8,12 +8,12 @@ Applications are made up of business logic, interaction with other systems, user
 Most of the data that our applications manipulate have to be stored in datastores, retrieved, processed and analysed.
 If this datastore is a relational database and you use an object-oriented programming language such as Java, then you might want to use an Object-Relational Mapping tool.
 
-That's when [Java Persistence API](https://beanvalidation.org) comes into play.
+That's when [Java Persistence API](https://jakarta.ee/specifications/persistence/2.2/) comes into play.
 
 In this fascicle, you will learn JPA, the standard ORM that maps Java objects to relational databases.
 You will discover its annotations for mapping entities, as well as the Java Persistence Query Language, entity life cycle and a few advanced topics such as integrating JPA with other frameworks (Bean Validation, JTA, CDI, Spring).
 
-In this [fascicle](https://www.amazon.com/author/agoncal) will you will learn Java Persistence API, its annotations for mapping entities as well as the Java Persistence Query Language and entity life cycle and a few advanced topics such as integrating JPA with other frameworks (Bean Validation, JTA, CDI, Spring).
+In this [fascicle](https://agoncal.teachable.com) will you will learn Java Persistence API, its annotations for mapping entities as well as the Java Persistence Query Language and entity life cycle and a few advanced topics such as integrating JPA with other frameworks (Bean Validation, JTA, CDI, Spring).
 
 ![Java Persistence API Fascicle](https://raw.githubusercontent.com/agoncal/agoncal-fascicle-jpa/master/cover.jpg)
 
