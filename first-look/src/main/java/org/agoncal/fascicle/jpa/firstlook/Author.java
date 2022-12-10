@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jpa.firststep;
+package org.agoncal.fascicle.jpa.firstlook;
 
 // tag::adocSnippet[]
 import jakarta.persistence.Column;
