@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.jpa.callbacks-listeners</groupId>
   <artifactId>ex03</artifactId>
-  <version>2.2</version>
+  <version>3.1</version>
   <name>JPA :: Callbacks Listeners :: Ex 03</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.jpa</groupId>
     <artifactId>callbacks-listeners</artifactId>
-    <version>2.2</version>
+    <version>3.1</version>
   </parent>
 
   <dependencies>

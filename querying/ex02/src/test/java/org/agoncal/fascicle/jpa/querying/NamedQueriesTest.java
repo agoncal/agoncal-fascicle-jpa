@@ -4,8 +4,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

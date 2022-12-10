@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.jpa.managing</groupId>
   <artifactId>ex04</artifactId>
-  <version>2.2</version>
+  <version>3.1</version>
   <name>JPA :: Managing :: Ex 04</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.jpa</groupId>
     <artifactId>managing</artifactId>
-    <version>2.2</version>
+    <version>3.1</version>
   </parent>
 
   <dependencies>

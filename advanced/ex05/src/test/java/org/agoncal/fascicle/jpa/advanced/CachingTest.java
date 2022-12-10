@@ -3,7 +3,7 @@ package org.agoncal.fascicle.jpa.advanced;
 
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.Cache;
+import jakarta.persistence.Cache;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

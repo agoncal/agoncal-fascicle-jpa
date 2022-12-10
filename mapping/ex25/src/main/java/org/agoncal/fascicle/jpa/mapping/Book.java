@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 /**
  * @author Antonio Goncalves

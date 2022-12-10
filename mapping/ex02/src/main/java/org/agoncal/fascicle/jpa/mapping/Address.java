@@ -1,10 +1,10 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.SecondaryTable;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.SecondaryTable;
+import jakarta.persistence.Table;
 
 /**
  * @author Antonio Goncalves

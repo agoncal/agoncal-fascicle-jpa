@@ -1,13 +1,13 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.FetchType;
+import jakarta.persistence.FetchType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
-import static javax.persistence.FetchType.EAGER;
+import static jakarta.persistence.FetchType.EAGER;
 
 // @formatter:off
 // tag::adocSnippet[]

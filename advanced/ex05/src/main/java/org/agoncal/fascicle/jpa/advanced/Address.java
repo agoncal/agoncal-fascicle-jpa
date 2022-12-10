@@ -1,9 +1,9 @@
 package org.agoncal.fascicle.jpa.advanced;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 /**
  * @author Antonio Goncalves

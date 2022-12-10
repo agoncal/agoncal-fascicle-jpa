@@ -1,9 +1,10 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 
 /**
  * @author Antonio Goncalves

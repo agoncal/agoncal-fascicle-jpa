@@ -1,8 +1,8 @@
 package org.agoncal.fascicle.jpa.callbackslisteners;
 
-import javax.persistence.Entity;
-import javax.persistence.ExcludeDefaultListeners;
-import javax.persistence.Transient;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ExcludeDefaultListeners;
+import jakarta.persistence.Transient;
 
 /**
  * @author Antonio Goncalves

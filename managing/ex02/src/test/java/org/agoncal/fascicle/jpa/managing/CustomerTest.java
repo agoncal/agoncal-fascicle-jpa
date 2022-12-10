@@ -2,8 +2,8 @@ package org.agoncal.fascicle.jpa.managing;
 
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.RollbackException;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.RollbackException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

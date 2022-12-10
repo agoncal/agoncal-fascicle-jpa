@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
 
 /**
  * @author Antonio Goncalves

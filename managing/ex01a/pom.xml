@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.jpa.managing</groupId>
   <artifactId>ex01a</artifactId>
-  <version>2.2</version>
+  <version>3.1</version>
   <name>JPA :: Managing :: Ex 01a</name>
 
   <parent>
     <groupId>org.agoncal.fascicle.jpa</groupId>
     <artifactId>managing</artifactId>
-    <version>2.2</version>
+    <version>3.1</version>
   </parent>
 
   <dependencies>
@@ -21,8 +21,8 @@
       <artifactId>org.eclipse.persistence.jpa</artifactId>
     </dependency>
     <dependency>
-      <groupId>javax.transaction</groupId>
-      <artifactId>javax.transaction-api</artifactId>
+      <groupId>jakarta.transaction</groupId>
+      <artifactId>jakarta.transaction-api</artifactId>
     </dependency>
     <dependency>
       <groupId>com.h2database</groupId>

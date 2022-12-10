@@ -1,8 +1,8 @@
 package org.agoncal.fascicle.jpa.callbackslisteners;
 
-import javax.persistence.PostLoad;
-import javax.persistence.PostPersist;
-import javax.persistence.PostUpdate;
+import jakarta.persistence.PostLoad;
+import jakarta.persistence.PostPersist;
+import jakarta.persistence.PostUpdate;
 import java.time.LocalDate;
 import java.time.Period;
 

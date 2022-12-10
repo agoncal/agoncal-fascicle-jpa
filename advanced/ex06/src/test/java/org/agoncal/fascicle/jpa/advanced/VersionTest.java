@@ -3,7 +3,7 @@ package org.agoncal.fascicle.jpa.advanced;
 
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.LockModeType;
+import jakarta.persistence.LockModeType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

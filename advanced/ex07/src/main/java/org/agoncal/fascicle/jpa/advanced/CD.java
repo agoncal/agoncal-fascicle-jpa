@@ -1,8 +1,8 @@
 package org.agoncal.fascicle.jpa.advanced;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
 /**
  * @author Antonio Goncalves

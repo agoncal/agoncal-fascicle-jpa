@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jpa.advanced;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /**
  * @author Antonio Goncalves

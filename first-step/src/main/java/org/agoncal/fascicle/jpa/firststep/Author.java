@@ -1,10 +1,12 @@
 package org.agoncal.fascicle.jpa.firststep;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+// tag::adocSnippet[]
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
+// end::adocSnippet[]
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org

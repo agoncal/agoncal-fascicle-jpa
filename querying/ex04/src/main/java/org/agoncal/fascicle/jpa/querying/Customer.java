@@ -1,13 +1,13 @@
 package org.agoncal.fascicle.jpa.querying;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
-import static javax.persistence.CascadeType.PERSIST;
+import static jakarta.persistence.CascadeType.PERSIST;
 
 
 /**

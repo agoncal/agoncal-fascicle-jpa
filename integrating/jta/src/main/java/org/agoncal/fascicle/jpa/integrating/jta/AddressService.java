@@ -2,11 +2,11 @@ package org.agoncal.fascicle.jpa.integrating.jta;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
-import static javax.transaction.Transactional.TxType.MANDATORY;
-import static javax.transaction.Transactional.TxType.REQUIRED;
+import static jakarta.transaction.Transactional.TxType.MANDATORY;
+import static jakarta.transaction.Transactional.TxType.REQUIRED;
 
 /**
  * @author Antonio Goncalves

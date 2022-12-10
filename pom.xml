@@ -5,7 +5,7 @@
 
   <groupId>org.agoncal.fascicle</groupId>
   <artifactId>jpa</artifactId>
-  <version>2.2</version>
+  <version>3.1</version>
   <packaging>pom</packaging>
   <name>JPA</name>
 
@@ -25,14 +25,15 @@
   <properties>
     <version.java>11</version.java>
     <!-- JPA -->
-    <version.jpa-api>2.2</version.jpa-api>
-    <version.jta-api>1.3</version.jta-api>
-    <version.eclipselink>2.7.8</version.eclipselink>
+    <version.jpa-api>3.1.0</version.jpa-api>
+    <version.jta-api>2.0.0</version.jta-api>
+    <version.eclipselink>4.0.0</version.eclipselink>
+    <version.hibernate>6.1.1.Final</version.hibernate>
     <!-- Other -->
-    <version.hibernate.validator>6.0.1.Final</version.hibernate.validator>
-    <version.h2>1.4.200</version.h2>
+    <version.hibernate-validator>7.0.5.Final</version.hibernate-validator>
+    <version.h2>2.1.214</version.h2>
     <!-- Test -->
-    <version.junit>5.7.1</version.junit>
+    <version.junit>5.9.1</version.junit>
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>3.0.0</version.antrun.plugin>
     <version.archetype.plugin>3.2.0</version.archetype.plugin>
@@ -69,15 +70,15 @@
   </properties>
 
   <prerequisites>
-    <maven>3.0.0</maven>
+    <maven>3.8.0</maven>
   </prerequisites>
 
   <dependencyManagement>
     <dependencies>
       <!-- JPA -->
       <dependency>
-        <groupId>javax.persistence</groupId>
-        <artifactId>javax.persistence-api</artifactId>
+        <groupId>jakarta.persistence</groupId>
+        <artifactId>jakarta.persistence-api</artifactId>
         <version>${version.jpa-api}</version>
       </dependency>
       <dependency>
@@ -90,10 +91,20 @@
         <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
         <version>${version.eclipselink}</version>
       </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${version.hibernate}</version>
+      </dependency>
       <!-- Other -->
       <dependency>
-        <groupId>javax.transaction</groupId>
-        <artifactId>javax.transaction-api</artifactId>
+        <groupId>org.hibernate.validator</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${version.hibernate-validator}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.transaction</groupId>
+        <artifactId>jakarta.transaction-api</artifactId>
         <version>${version.jta-api}</version>
       </dependency>
       <dependency>

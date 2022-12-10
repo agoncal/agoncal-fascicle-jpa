@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.jpa.understanding;
 
-import javax.persistence.Persistence;
+import jakarta.persistence.Persistence;
 
 /**
  * @author Antonio Goncalves

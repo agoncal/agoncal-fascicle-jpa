@@ -9,9 +9,9 @@ import org.junit.Test;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.transaction.TransactionalException;
-import javax.transaction.UserTransaction;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.TransactionalException;
+import jakarta.transaction.UserTransaction;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.jpa.advanced;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 /**
  * @author Antonio Goncalves

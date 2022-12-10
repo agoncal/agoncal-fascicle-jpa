@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

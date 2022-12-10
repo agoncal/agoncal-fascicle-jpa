@@ -1,8 +1,8 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 /**
  * @author Antonio Goncalves

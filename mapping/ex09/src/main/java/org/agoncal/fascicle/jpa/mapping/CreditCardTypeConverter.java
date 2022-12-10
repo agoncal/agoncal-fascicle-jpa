@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 import static org.agoncal.fascicle.jpa.mapping.CreditCardType.AMERICAN_EXPRESS;
 import static org.agoncal.fascicle.jpa.mapping.CreditCardType.MASTER_CARD;

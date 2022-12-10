@@ -3,10 +3,10 @@ package org.agoncal.fascicle.jpa.integrating.jta;
 import com.arjuna.ats.jta.common.jtaPropertyManager;
 import org.jboss.weld.transaction.spi.TransactionServices;
 
-import javax.transaction.Status;
-import javax.transaction.Synchronization;
-import javax.transaction.SystemException;
-import javax.transaction.UserTransaction;
+import jakarta.transaction.Status;
+import jakarta.transaction.Synchronization;
+import jakarta.transaction.SystemException;
+import jakarta.transaction.UserTransaction;
 
 public class TestingTransactionServices implements TransactionServices {
 
