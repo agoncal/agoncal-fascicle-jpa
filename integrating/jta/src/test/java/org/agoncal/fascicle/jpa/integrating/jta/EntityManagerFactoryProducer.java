@@ -2,11 +2,11 @@ package org.agoncal.fascicle.jpa.integrating.jta;
 
 import org.hibernate.cfg.Environment;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Disposes;
+import jakarta.enterprise.inject.Produces;
+import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ public class EntityManagerFactoryProducer {
   @ApplicationScoped
   public EntityManagerFactory produceEntityManagerFactory() {
     Map<String, Object> props = new HashMap<>();
-    props.put("javax.persistence.bean.manager", beanManager);
+    props.put("jakarta.persistence.bean.manager", beanManager);
     props.put(Environment.CONNECTION_PROVIDER, TransactionalConnectionProvider.class);
     return Persistence.createEntityManagerFactory(
       "cdbookstorePU",

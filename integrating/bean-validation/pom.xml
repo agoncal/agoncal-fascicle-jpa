@@ -29,9 +29,8 @@
       <artifactId>hibernate-validator</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>javax.el</artifactId>
-      <version>3.0.1-b12</version>
+      <groupId>org.glassfish.expressly</groupId>
+      <artifactId>expressly</artifactId>
     </dependency>
 
     <!-- Test -->

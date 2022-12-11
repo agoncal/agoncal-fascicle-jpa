@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 
 /**

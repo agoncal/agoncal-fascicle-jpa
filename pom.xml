@@ -30,7 +30,10 @@
     <version.eclipselink>4.0.0</version.eclipselink>
     <version.hibernate>6.1.1.Final</version.hibernate>
     <!-- Other -->
+    <version.cdi>4.0.1</version.cdi>
+    <version.inject>2.0.1</version.inject>
     <version.hibernate-validator>7.0.5.Final</version.hibernate-validator>
+    <version.el>5.0.0</version.el>
     <version.h2>2.1.214</version.h2>
     <!-- Test -->
     <version.junit>5.9.1</version.junit>
@@ -98,9 +101,24 @@
       </dependency>
       <!-- Other -->
       <dependency>
+        <groupId>jakarta.enterprise</groupId>
+        <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        <version>${version.cdi}</version>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.inject</groupId>
+        <artifactId>jakarta.inject-api</artifactId>
+        <version>${version.inject}</version>
+      </dependency>
+      <dependency>
         <groupId>org.hibernate.validator</groupId>
         <artifactId>hibernate-validator</artifactId>
         <version>${version.hibernate-validator}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.expressly</groupId>
+        <artifactId>expressly</artifactId>
+        <version>${version.el}</version>
       </dependency>
       <dependency>
         <groupId>jakarta.transaction</groupId>
