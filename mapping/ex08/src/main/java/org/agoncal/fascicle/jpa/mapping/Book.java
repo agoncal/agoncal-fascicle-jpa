@@ -1,13 +1,7 @@
 package org.agoncal.fascicle.jpa.mapping;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,14 +22,21 @@ public class Book {
   private String description;
   private String isbn;
   @ElementCollection(fetch = FetchType.LAZY)
-  @CollectionTable(name = "Tag")
-  @Column(name = "Value")
+  @CollectionTable(name = "Tag", joinColumns = {@JoinColumn(name = "tag_id")})
+  @Column(name = "tag_value")
   private List<String> tags = new ArrayList<>();
 
   // Constructors, getters, setters
   // tag::adocSkip[]
 
   public Book() {
+  }
+
+  public Book(String title, Float price, String description, String isbn) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.isbn = isbn;
   }
 
   public Book(String title, Float price, String description, String isbn, ArrayList<String> tags) {
