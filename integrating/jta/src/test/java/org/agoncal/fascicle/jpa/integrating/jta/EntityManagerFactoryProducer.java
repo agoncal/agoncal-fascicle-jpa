@@ -25,7 +25,7 @@ public class EntityManagerFactoryProducer {
     props.put("jakarta.persistence.bean.manager", beanManager);
     props.put(Environment.CONNECTION_PROVIDER, TransactionalConnectionProvider.class);
     return Persistence.createEntityManagerFactory(
-      "cdbookstorePU",
+      "vintageStorePU",
       props
     );
   }

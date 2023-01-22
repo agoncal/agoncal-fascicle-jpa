@@ -20,7 +20,7 @@ public abstract class AbstractPersistentTest {
   // =             Attributes             =
   // ======================================
 
-  protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+  protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("vintageStorePU");
   protected EntityManager em;
   protected EntityTransaction tx;
 

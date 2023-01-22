@@ -26,7 +26,7 @@ public class EntityManagerFactoryProducer {
   public EntityManagerFactory produceEntityManagerFactory() {
     Map<String, Object> props = new HashMap<>();
     props.put("jakarta.persistence.bean.manager", beanManager);
-    return Persistence.createEntityManagerFactory("cdbookstorePU", props);
+    return Persistence.createEntityManagerFactory("vintageStorePU", props);
   }
 
   public void close(@Disposes EntityManagerFactory emf) {

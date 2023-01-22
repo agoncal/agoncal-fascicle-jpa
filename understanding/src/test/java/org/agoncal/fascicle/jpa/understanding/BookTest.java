@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 public class BookTest {
 
-  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("vintageStorePU");
   private static EntityManager em;
   private static EntityTransaction tx;
 

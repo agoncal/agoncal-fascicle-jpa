@@ -4,7 +4,7 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
              version="3.1">
 
-  <persistence-unit name="cdbookstorePU" transaction-type="JTA">
+  <persistence-unit name="vintageStorePU" transaction-type="JTA">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <jta-data-source>java:jboss/datasources/MyDS</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>

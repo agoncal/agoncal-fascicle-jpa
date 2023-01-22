@@ -12,7 +12,7 @@ public class SchemaGenerator {
   public static void main(String[] args) {
 
     // tag::adocSnippet[]
-    Persistence.generateSchema("cdbookstorePU", null);
+    Persistence.generateSchema("vintageStorePU", null);
     // tag::adocSkip[]
   }
 }

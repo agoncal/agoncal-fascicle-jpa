@@ -11,7 +11,7 @@ public class GenerateSchema {
 
   public static void main(String[] args) {
 
-    Persistence.generateSchema("cdbookstorePU", null);
+    Persistence.generateSchema("vintageStorePU", null);
     System.exit(0);
   }
 }

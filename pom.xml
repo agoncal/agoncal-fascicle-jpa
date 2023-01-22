@@ -23,7 +23,7 @@
   </modules>
 
   <properties>
-    <version.java>11</version.java>
+    <maven.compiler.release>17</maven.compiler.release>
     <!-- JPA -->
     <version.jpa-api>3.1.0</version.jpa-api>
     <version.jta-api>2.0.0</version.jta-api>
@@ -58,7 +58,7 @@
     <version.shade.plugin>3.2.4</version.shade.plugin>
     <version.site.plugin>3.9.1</version.site.plugin>
     <version.source.plugin>3.2.1</version.source.plugin>
-    <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
+    <version.surefire.plugin>3.0.0-M8</version.surefire.plugin>
     <version.version.plugin>2.8.1</version.version.plugin>
     <version.war.plugin>3.3.1</version.war.plugin>
     <!-- Plugins flag -->

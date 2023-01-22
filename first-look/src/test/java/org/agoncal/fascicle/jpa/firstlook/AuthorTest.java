@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 // tag::adocBegin[]
 public class AuthorTest {
 
-  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("vintageStorePU");
   private static EntityManager em;
   private static EntityTransaction tx;
 

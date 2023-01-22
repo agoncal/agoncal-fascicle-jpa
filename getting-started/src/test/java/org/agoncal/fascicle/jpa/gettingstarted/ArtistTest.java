@@ -29,7 +29,7 @@ public class ArtistTest {
 
   @BeforeAll
   static void init() {
-    emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+    emf = Persistence.createEntityManagerFactory("vintageStorePU");
     em = emf.createEntityManager();
     tx = em.getTransaction();
   }

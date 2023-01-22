@@ -20,7 +20,7 @@ public class Main {
     book.tag("sci-fi").tag("fun").tag("geek");
 
     // 2 - Obtains an entity manager and a transaction
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("vintageStorePU");
     EntityManager em = emf.createEntityManager();
 
     // 3 - Persists the book to the database

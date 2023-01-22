@@ -16,7 +16,7 @@ public class BookService {
   public void createBook() {
 
     // Obtains an entity manager
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("vintageStorePU");
     EntityManager em = emf.createEntityManager();
 
     // Obtains a transaction

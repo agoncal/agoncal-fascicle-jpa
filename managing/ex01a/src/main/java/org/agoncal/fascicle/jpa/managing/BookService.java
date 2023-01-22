@@ -14,7 +14,7 @@ import jakarta.transaction.Transactional;
 public class BookService {
 
   // Obtains an entity manager
-  @PersistenceContext(unitName = "cdbookstorePU")
+  @PersistenceContext(unitName = "vintageStorePU")
   private EntityManager em;
 
   public void createBook() {

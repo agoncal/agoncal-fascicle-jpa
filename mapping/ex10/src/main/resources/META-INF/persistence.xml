@@ -5,7 +5,7 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
              version="3.1">
 
-  <persistence-unit name="cdbookstorePU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="vintageStorePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <mapping-file>META-INF/book_mapping.xml</mapping-file>
     <!-- tag::adocSkip[] -->
