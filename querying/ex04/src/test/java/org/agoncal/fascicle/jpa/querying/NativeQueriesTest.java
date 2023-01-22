@@ -31,7 +31,7 @@ public class NativeQueriesTest extends AbstractPersistentTest {
   private static Customer customer07;
 
   @BeforeAll
-  private static void initializeData() {
+  static void initializeData() {
     customer01 = new Customer("Anthony", "Balla", "tballa@mail.com", 14);
     Address address01 = new Address("Procession St", "Paris", "75015");
     Country country01 = new Country("FR");
@@ -86,7 +86,7 @@ public class NativeQueriesTest extends AbstractPersistentTest {
   }
 
   @AfterAll
-  private static void removeData() {
+  static void removeData() {
     // Remove objects
     tx.begin();
     em.remove(customer01);

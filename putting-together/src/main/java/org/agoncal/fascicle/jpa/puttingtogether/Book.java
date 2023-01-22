@@ -32,10 +32,10 @@ public class Book extends Item {
   private Boolean illustrations;
 
   @ElementCollection
-  @CollectionTable(name = "tags",
+  @CollectionTable(name = "tag",
     joinColumns = {@JoinColumn(name = "book_fk")}
   )
-  @Column(name = "value")
+  @Column(name = "tag_value")
   private List<String> tags = new ArrayList<>();
 
   @ElementCollection

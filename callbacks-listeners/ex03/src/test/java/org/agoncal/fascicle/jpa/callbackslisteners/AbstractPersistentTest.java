@@ -30,13 +30,13 @@ public abstract class AbstractPersistentTest {
   // ======================================
 
   @BeforeAll
-  public static void initEntityManager() throws Exception {
+  static void initEntityManager() throws Exception {
     em = emf.createEntityManager();
     tx = em.getTransaction();
   }
 
   @AfterAll
-  public static void closeEntityManager() throws SQLException {
+  static void closeEntityManager() throws SQLException {
     if (em != null) em.close();
   }
 

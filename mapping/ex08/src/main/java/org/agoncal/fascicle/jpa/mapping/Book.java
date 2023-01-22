@@ -22,7 +22,9 @@ public class Book {
   private String description;
   private String isbn;
   @ElementCollection(fetch = FetchType.LAZY)
-  @CollectionTable(name = "Tag", joinColumns = {@JoinColumn(name = "tag_id")})
+  @CollectionTable(name = "tag",
+    joinColumns = {@JoinColumn(name = "book_fk")}
+  )
   @Column(name = "tag_value")
   private List<String> tags = new ArrayList<>();
 
