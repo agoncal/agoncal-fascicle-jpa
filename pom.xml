@@ -35,6 +35,8 @@
     <version.hibernate-validator>7.0.5.Final</version.hibernate-validator>
     <version.el>5.0.0</version.el>
     <version.h2>2.1.214</version.h2>
+    <version.log4j>1.2.17</version.log4j>
+    <version.assertj>3.24.2</version.assertj>
     <!-- Test -->
     <version.junit>5.9.1</version.junit>
     <!-- Core Maven Plugins -->
@@ -66,8 +68,6 @@
     <failOnMissingWebXml>false</failOnMissingWebXml>
 
     <!-- Project -->
-    <maven.compiler.source>${version.java}</maven.compiler.source>
-    <maven.compiler.target>${version.java}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>

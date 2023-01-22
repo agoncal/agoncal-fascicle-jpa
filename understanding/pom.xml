@@ -15,13 +15,6 @@
     <version>3.1</version>
   </parent>
 
-  <properties>
-    <maven.compiler.source>${version.java}</maven.compiler.source>
-    <maven.compiler.target>${version.java}</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.eclipse.persistence</groupId>

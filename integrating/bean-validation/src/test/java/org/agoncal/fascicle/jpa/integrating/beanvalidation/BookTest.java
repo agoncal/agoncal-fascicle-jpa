@@ -22,7 +22,7 @@ public class BookTest extends AbstractPersistentTest {
   public void shouldCreateAValidBook() throws Exception {
 
     // tag::shouldCreateAValidBook[]
-    Book book = new Book().title("H2G2").price(12.5F).isbn("1-84023-2").nbOfPages(354);
+    Book book = new Book().title("H2G2").price(125).isbn("1-84023-2").nbOfPages(354);
 
     tx.begin();
     em.persist(book);
@@ -35,7 +35,7 @@ public class BookTest extends AbstractPersistentTest {
   public void shouldRaiseConstraintViolationCauseNullTitle() {
 
     // tag::shouldRaiseConstraintViolationCauseNullTitle[]
-    Book book = new Book().title(null).price(12.5F).isbn("1-84023-2").nbOfPages(354);
+    Book book = new Book().title(null).price(125).isbn("1-84023-2").nbOfPages(354);
     assertThrows(RollbackException.class, () -> {
       tx.begin();
       em.persist(book);

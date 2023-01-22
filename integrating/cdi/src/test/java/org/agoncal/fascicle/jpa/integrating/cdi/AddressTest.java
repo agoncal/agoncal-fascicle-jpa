@@ -1,20 +1,20 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.junit4.WeldInitiator;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import org.jboss.weld.environment.se.Weld;
+import org.jboss.weld.junit5.WeldInitiator;
+import org.jboss.weld.junit5.WeldJunit5Extension;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AddressTest {
 
-  @Rule
+  @ExtendWith(WeldJunit5Extension.class)
   public WeldInitiator weld = WeldInitiator.from(new Weld())
     .activate(RequestScoped.class)
     .inject(this)
@@ -31,13 +31,15 @@ public class AddressTest {
 
     Address address = new Address().street1("233 Spring Street").city("New York").zipcode("12345");
     addressService.save(address);
-    Assert.assertNotNull("Id should not be null", address.getId());
+    Assertions.assertNotNull(address.getId(), "Id should not be null");
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void shouldCreateAnInvalidAddress() {
-    Address address = new Address().street1("233 Spring Street").city("New York").zipcode("Invalid");
-    addressService.save(address);
+    Assertions.assertThrows(IllegalArgumentException.class, () -> {
+      Address address = new Address().street1("233 Spring Street").city("New York").zipcode("Invalid");
+      addressService.save(address);
+    });
   }
 
   @Test

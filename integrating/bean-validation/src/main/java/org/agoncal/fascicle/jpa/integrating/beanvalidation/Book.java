@@ -23,7 +23,7 @@ public class Book {
   @NotNull
   private String title;
   @Digits(integer = 4, fraction = 2)
-  private Float price;
+  private Integer price;
   @Size(max = 2000)
   private String description;
   @Size(min = 8, max = 13)
@@ -61,15 +61,15 @@ public class Book {
     return this;
   }
 
-  public Float getPrice() {
+  public Integer getPrice() {
     return price;
   }
 
-  public void setPrice(Float price) {
+  public void setPrice(Integer price) {
     this.price = price;
   }
 
-  public Book price(Float price) {
+  public Book price(Integer price) {
     this.price = price;
     return this;
   }

@@ -2,13 +2,13 @@ package org.agoncal.fascicle.jpa.integrating.jta;
 
 import com.arjuna.ats.jta.utils.JNDIManager;
 import org.jnp.server.NamingBeanImpl;
-import org.junit.rules.ExternalResource;
+// TOD import org.junit.rules.ExternalResource;
 
-public class JtaEnvironment extends ExternalResource {
+public class JtaEnvironment /*extends ExternalResource*/ {
 
   private NamingBeanImpl NAMING_BEAN;
 
-  @Override
+//  @Override
   protected void before() throws Throwable {
     NAMING_BEAN = new NamingBeanImpl();
     NAMING_BEAN.start();
@@ -17,7 +17,7 @@ public class JtaEnvironment extends ExternalResource {
     TransactionalConnectionProvider.bindDataSource();
   }
 
-  @Override
+//  @Override
   protected void after() {
     NAMING_BEAN.stop();
   }

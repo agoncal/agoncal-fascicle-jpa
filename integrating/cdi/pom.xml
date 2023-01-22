@@ -16,16 +16,8 @@
   </parent>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>${version.java}</maven.compiler.source>
-    <maven.compiler.target>${version.java}</maven.compiler.target>
-
-    <version.com.h2database>1.4.200</version.com.h2database>
-    <version.org.hibernate>5.4.30.Final</version.org.hibernate>
-    <version.narayana>5.9.2.Final</version.narayana>
-    <version.jnpserver>5.0.3.GA</version.jnpserver>
-    <version.log4j>1.2.17</version.log4j>
-    <version.weld>3.1.7.Final</version.weld>
+    <version.weld>5.1.0.Final</version.weld>
+    <version.weld.unit5>4.0.0.Final</version.weld.unit5>
   </properties>
 
   <dependencies>
@@ -53,20 +45,20 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.jboss.weld</groupId>
+      <artifactId>weld-junit5</artifactId>
+      <version>${version.weld.unit5}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>${version.log4j}</version>
     </dependency>
     <dependency>
-      <groupId>org.jboss.weld</groupId>
-      <artifactId>weld-junit4</artifactId>
-      <version>2.0.2.Final</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>3.19.0</version>
+      <version>${version.assertj}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
