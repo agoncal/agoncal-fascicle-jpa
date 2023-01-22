@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 // tag::adocSnippet[]
 public class BookTest {
 
-  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstoreTestPU");
+  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("vintageStoreTestPU");
   private static EntityManager em;
   private static EntityTransaction tx;
 

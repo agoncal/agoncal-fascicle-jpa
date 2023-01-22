@@ -9,7 +9,7 @@
     <properties>
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:cdbookstoreDB"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:vintageStoreDB"/>
     </properties>
   </persistence-unit>
 </persistence>

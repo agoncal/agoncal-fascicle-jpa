@@ -11,21 +11,21 @@
     <properties>
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="jakarta.persistence.schema-generation.scripts.action" value="drop-and-create"/>
-      <property name="jakarta.persistence.schema-generation.scripts.create-target" value="cdbookstoreCreate.ddl"/>
-      <property name="jakarta.persistence.schema-generation.scripts.drop-target" value="cdbookstoreDrop.ddl"/>
+      <property name="jakarta.persistence.schema-generation.scripts.create-target" value="vintageStoreCreate.ddl"/>
+      <property name="jakarta.persistence.schema-generation.scripts.drop-target" value="vintageStoreDrop.ddl"/>
       <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/cdbookstoreDB"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/vintageStoreDB"/>
       <property name="jakarta.persistence.sql-load-script-source" value="import.sql"/>
     </properties>
   </persistence-unit>
 
-  <persistence-unit name="cdbookstoreTestPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="vintageStoreTestPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:cdbookstoreDB"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:vintageStoreDB"/>
     </properties>
   </persistence-unit>
 

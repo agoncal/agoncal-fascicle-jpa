@@ -34,7 +34,7 @@ public class MainJDBC {
   }
 
   private static Connection getConnection() throws SQLException {
-    return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/cdbookstoreDB");
+    return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/vintageStoreDB");
   }
 
   /**
