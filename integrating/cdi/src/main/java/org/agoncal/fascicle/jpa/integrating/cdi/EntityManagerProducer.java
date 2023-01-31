@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Disposes;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
@@ -16,7 +15,7 @@ public class EntityManagerProducer {
   private EntityManagerFactory emf;
 
   @Produces
-  @RequestScoped
+  @ApplicationScoped
   public EntityManager produceEntityManager() {
     return emf.createEntityManager();
   }

@@ -1,24 +1,23 @@
 package org.agoncal.fascicle.jpa.integrating.cdi;
 
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.junit5.WeldInitiator;
-import org.jboss.weld.junit5.WeldJunit5Extension;
+import org.jboss.weld.junit5.auto.AddPackages;
+import org.jboss.weld.junit5.auto.EnableAutoWeld;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@EnableAutoWeld
+@AddPackages(Address.class)
 public class AddressTest {
 
-  @ExtendWith(WeldJunit5Extension.class)
-  public WeldInitiator weld = WeldInitiator.from(new Weld())
-    .activate(RequestScoped.class)
-    .inject(this)
-    .build();
+//  @ExtendWith(WeldJunit5Extension.class)
+//  public WeldInitiator weld = WeldInitiator.from(new Weld())
+//    .activate(RequestScoped.class)
+//    .inject(this)
+//    .build();
 
   @Inject
   private EntityManager entityManager;
